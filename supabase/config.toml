@@ -333,6 +333,26 @@ skip_nonce_check = false
 # If enabled, it will allow the user to successfully authenticate when the provider does not return an email address.
 email_optional = false
 
+# Google is the primary way into the product. The hosted project is configured
+# in the dashboard; this block is for local development only.
+#
+# Secrets are read from the environment, never committed. Put them in
+# supabase/.env (already gitignored) as:
+#   SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID=...
+#   SUPABASE_AUTH_EXTERNAL_GOOGLE_SECRET=...
+#
+# To use it locally you must also add the LOCAL callback to the same Google
+# OAuth client's authorised redirect URIs:
+#   http://127.0.0.1:54321/auth/v1/callback
+[auth.external.google]
+enabled = true
+client_id = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID)"
+secret = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_SECRET)"
+redirect_uri = ""
+url = ""
+# Required for local sign in with Google auth, per the note on the Apple block.
+skip_nonce_check = true
+
 # Allow Solana wallet holders to sign in to your project via the Sign in with Solana (SIWS, EIP-4361) standard.
 # You can configure "web3" rate limit in the [auth.rate_limit] section and set up [auth.captcha] if self-hosting.
 [auth.web3.solana]
