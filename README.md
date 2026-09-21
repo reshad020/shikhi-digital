@@ -628,13 +628,15 @@ src/stores/progress.ts           stars, streak, completed lessons
   told there is nothing to report. Relaxing that FK is the next step; it was
   left alone here rather than destabilising the report builder in the same
   change that started mailing it to parents.
-- **The new migrations have not been run.** `20260911100000_steelman.sql` and
-  `20260911110000_weekly_email.sql` were written against a database that was not
-  reachable (Docker was down), so they are unverified.
-  `src/lib/supabase/types.ts` carries a hand-written `PendingTables` block
-  covering the new and reshaped tables — **delete it after
-  `npm run db:reset && npm run db:types`**, or it will mask drift between the
-  migrations and the real schema.
+- **`PendingTables` is still in `src/lib/supabase/types.ts`.** All seven
+  migrations now apply cleanly — they were pushed to the hosted project and the
+  columns verified over the REST API, including the two
+  (`20260911100000_steelman.sql`, `20260911110000_weekly_email.sql`) that had
+  never been run. But the generated types have not been regenerated since, so
+  the hand-written `PendingTables` block is still standing in for them.
+  **Delete it after `npm run db:types`**, or it will mask drift between the
+  migrations and the real schema. Type generation needs Docker (it runs
+  `postgres-meta` in a container) or a Supabase access token.
 - **Real illustration.** `imagePrompt` is stored on every scene but unused.
 - **Audio/Lottie assets.** `public/sounds` and `public/lottie` hold placeholders
   and instructions; missing files are a no-op at runtime.
