@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Loader2 } from "lucide-react";
@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
 import { signIn, signUp, type AuthState } from "@/lib/auth/actions";
+import { GoogleButton } from "./google-button";
 
 const initialState: AuthState = {};
 
@@ -23,6 +24,19 @@ export function AuthForm({ mode }: { mode: "signin" | "signup" }) {
   );
   const next = useSearchParams().get("next") ?? "/";
 
+  /**
+   * Consent is lifted out of the form because BOTH ways in have to record it.
+   *
+   * `handle_new_user` stamps `profiles.consented_at` on any auth.users insert,
+   * Google included — so without this gate an OAuth signup would record a
+   * parent's consent that the parent never actually gave. The timestamp is the
+   * consent record for a product used by 8–13 year olds; it has to correspond
+   * to a real affirmative act.
+   */
+  const [consented, setConsented] = useState(false);
+  const [consentError, setConsentError] = useState(false);
+  const blocked = isSignUp && !consented;
+
   return (
     <Card className="w-full max-w-sm rounded-3xl border-2 shadow-pop">
       <CardContent className="p-7">
@@ -33,8 +47,44 @@ export function AuthForm({ mode }: { mode: "signin" | "signup" }) {
           {isSignUp ? t("signUpSubtitle") : t("signInSubtitle")}
         </p>
 
-        <form action={formAction} className="mt-6 flex flex-col gap-3">
+        <div className="mt-6 flex flex-col gap-3">
+          {isSignUp && (
+            <label className="flex items-start gap-2.5 text-sm leading-snug text-muted-foreground">
+              <input
+                type="checkbox"
+                checked={consented}
+                onChange={(e) => {
+                  setConsented(e.target.checked);
+                  if (e.target.checked) setConsentError(false);
+                }}
+                className="mt-0.5 size-5 shrink-0 accent-primary"
+              />
+              <span>{t("consent")}</span>
+            </label>
+          )}
+
+          <GoogleButton blocked={blocked} onBlocked={() => setConsentError(true)} />
+
+          {consentError && (
+            <p role="alert" className="text-sm font-semibold text-destructive">
+              {t("errConsent")}
+            </p>
+          )}
+        </div>
+
+        <div className="my-5 flex items-center gap-3">
+          <span className="h-px flex-1 bg-border" />
+          <span className="text-xs font-bold uppercase text-muted-foreground">{t("or")}</span>
+          <span className="h-px flex-1 bg-border" />
+        </div>
+
+        <form action={formAction} className="flex flex-col gap-3">
           <input type="hidden" name="next" value={next} />
+          {/* The checkbox above lives outside this form, so its value is
+              carried in rather than posted directly. The server re-checks it. */}
+          {isSignUp && (
+            <input type="hidden" name="consent" value={consented ? "on" : ""} />
+          )}
 
           {isSignUp && (
             <label className="flex flex-col gap-1.5">
@@ -65,18 +115,6 @@ export function AuthForm({ mode }: { mode: "signin" | "signup" }) {
               className={FIELD}
             />
           </label>
-
-          {isSignUp && (
-            <label className="mt-1 flex items-start gap-2.5 text-sm leading-snug text-muted-foreground">
-              <input
-                type="checkbox"
-                name="consent"
-                required
-                className="mt-0.5 size-5 shrink-0 accent-primary"
-              />
-              <span>{t("consent")}</span>
-            </label>
-          )}
 
           {state.error && (
             <p role="alert" className="text-sm font-semibold text-destructive">

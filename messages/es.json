@@ -86,7 +86,10 @@
     "errWeak": "Usa al menos 8 caracteres.",
     "errConsent": "Confirma que eres la madre, el padre o el tutor.",
     "errGeneric": "Algo salió mal. Inténtalo de nuevo.",
-    "checkEmail": "Revisa tu correo para confirmar la cuenta."
+    "checkEmail": "Revisa tu correo para confirmar la cuenta.",
+    "google": "Continuar con Google",
+    "or": "o",
+    "errOauth": "No se pudo iniciar sesión con Google. Inténtalo de nuevo."
   },
   "children": {
     "title": "¿Quién aprende hoy?",

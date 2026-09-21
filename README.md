@@ -26,6 +26,36 @@ update public.profiles set role = 'admin' where email = 'you@example.com';
 Landing page: `/` (signed out) · Kid view: `/en/learn` · Admin: `/admin`
 (gated by the `admin` role set above — there is no separate admin password)
 
+## Sign-in
+
+**Google is the primary way in; email and password still work.** Both routes go
+through the same consent gate: `handle_new_user` stamps `profiles.consented_at`
+on *any* `auth.users` insert, OAuth included, so the checkbox is lifted above
+both buttons in `(auth)/auth-form.tsx`. Without that gate a Google signup would
+record a parent's consent that the parent never gave — and for a product used by
+8–13 year olds that timestamp is the consent record.
+
+`(auth)/google-button.tsx` calls `signInWithOAuth` in the **browser**, not a
+server action: the redirect target must be the current origin, and on Vercel
+that is a different host for every preview deployment. It sends no `next`
+parameter, because Supabase matches `redirectTo` against an allow-list and a
+stray query string is exactly the sort of thing that fails silently on launch
+day. Google arrivals land on `/children`, which is where a new parent has to go
+anyway.
+
+To enable it:
+
+1. **Google Cloud Console** → APIs & Services → Credentials → OAuth client ID
+   (type: Web application). Authorised redirect URI:
+   `https://<project-ref>.supabase.co/auth/v1/callback`
+2. **Supabase** → Authentication → Providers → Google: paste the client ID and
+   secret.
+3. **Supabase** → Authentication → URL Configuration: set Site URL, and add
+   `<site>/auth/callback` plus the Vercel preview pattern to Redirect URLs.
+
+Locally, Google needs the same credentials in `supabase/config.toml`; email and
+password work without any of this.
+
 ```bash
 npm run demo:week       # a real graded week, so the report has data
 ```
@@ -608,5 +638,7 @@ src/stores/progress.ts           stars, streak, completed lessons
 - **Real illustration.** `imagePrompt` is stored on every scene but unused.
 - **Audio/Lottie assets.** `public/sounds` and `public/lottie` hold placeholders
   and instructions; missing files are a no-op at runtime.
-- **Admin auth is a single shared password.** Fine for a preview deploy, not for
-  multiple editors.
+- **Admin promotion is a manual SQL statement.** `/admin` is gated on
+  `profiles.role = 'admin'` (see `admin/(dashboard)/layout.tsx`), set by hand in
+  the database. There is no invite flow, so onboarding a second editor means
+  someone opens the SQL editor.

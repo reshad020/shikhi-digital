@@ -86,7 +86,10 @@
     "errWeak": "请至少使用 8 个字符。",
     "errConsent": "请确认您是家长或监护人。",
     "errGeneric": "出了点问题，请重试。",
-    "checkEmail": "请查收邮件以确认账户。"
+    "checkEmail": "请查收邮件以确认账户。",
+    "google": "使用 Google 继续",
+    "or": "或",
+    "errOauth": "无法使用 Google 登录，请重试。"
   },
   "children": {
     "title": "今天谁来学习？",

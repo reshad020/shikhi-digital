@@ -86,7 +86,10 @@
     "errWeak": "Utilisez au moins 8 caractères.",
     "errConsent": "Confirmez que vous êtes le parent ou le tuteur.",
     "errGeneric": "Une erreur est survenue. Réessayez.",
-    "checkEmail": "Vérifiez vos e-mails pour confirmer le compte."
+    "checkEmail": "Vérifiez vos e-mails pour confirmer le compte.",
+    "google": "Continuer avec Google",
+    "or": "ou",
+    "errOauth": "Connexion avec Google impossible. Veuillez réessayer."
   },
   "children": {
     "title": "Qui apprend aujourd'hui ?",
