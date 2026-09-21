@@ -1,0 +1,333 @@
+{
+  "meta": {
+    "title": "Shikhi Digital — calificamos el razonamiento, no la respuesta",
+    "description": "Shikhi Digital es una plataforma de aprendizaje para niños de 8 a 13 años que califica cómo razonan, no solo si su respuesta era correcta."
+  },
+  "nav": {
+    "lessons": "Lecciones",
+    "progress": "Mi progreso"
+  },
+  "defend": {
+    "heading": "¿Por qué elegiste eso?",
+    "placeholder": "Escribe lo que estabas pensando...",
+    "submit": "Enviar mi razonamiento",
+    "skip": "Saltar esta",
+    "grading": "Leyendo tu respuesta...",
+    "yourThinking": "Dijiste",
+    "pushbackLabel": "Una cosa más",
+    "continue": "Seguir",
+    "charsLeft": "Quedan {count} caracteres",
+    "quality": {
+      "developing": "Buen comienzo",
+      "solid": "Bien pensado",
+      "excellent": "¡Muy agudo!"
+    },
+    "errors": {
+      "tooShort": "Cuéntame un poco más: con una frase basta.",
+      "tooLong": "¡Son muchas palabras! Intenta decirlo más sencillo.",
+      "tooMany": "Ya explicaste esta. ¡Buen razonamiento!",
+      "notFound": "No encuentro esa pregunta. Recarga la página.",
+      "noLearner": "Algo falló al guardar tu respuesta. Recarga la página.",
+      "service": "No pude leerlo ahora mismo. Inténtalo en un momento.",
+      "noChild": "Elige primero quién está aprendiendo."
+    }
+  },
+  "report": {
+    "title": "El pensamiento de esta semana",
+    "weekOf": "Semana del {date}",
+    "forGrownUp": "Mostrar a un adulto",
+    "explored": "Ha explorado",
+    "explanations": "{count, plural, one {# explicación escrita} other {# explicaciones escritas}}",
+    "theirWords": "En sus propias palabras",
+    "answering": "Respondiendo a",
+    "leaningOn": "Se apoya en",
+    "lookNext": "Qué buscar después",
+    "dinnerTitle": "Preguntas para la mesa",
+    "dinnerBlurb": "Tres cosas que preguntar esta semana. Sin pantallas.",
+    "tooEarlyTitle": "Todavía no hay suficiente",
+    "tooEarlyBody": "Un informe necesita al menos {need} explicaciones para decir algo honesto. Esta semana van {have}.",
+    "tooEarlyCta": "Ve a pensar en algo",
+    "notFound": "Todavía no hay ningún informe en este enlace.",
+    "footer": "Escrito a partir de lo que tu hijo o hija escribió esta semana.",
+    "emailOnLabel": "Esto te llega por correo cada domingo.",
+    "emailOffLabel": "Los correos semanales están desactivados. Tendrás que volver aquí para verlo.",
+    "emailStart": "Enviármelo cada semana",
+    "emailStop": "Desactivar el correo semanal"
+  },
+  "player": {
+    "back": "Atrás",
+    "next": "Siguiente",
+    "startQuiz": "Empezar el juego",
+    "engageFirst": "Prueba la pregunta de arriba para continuar.",
+    "tapToFindOut": "Toca para descubrirlo",
+    "nextQuestion": "Siguiente pregunta",
+    "finish": "Terminar",
+    "needHint": "¿Necesitas una pista?",
+    "tryMissed": "{count, plural, one {Repite la que fallaste} other {Repite las # que fallaste}}"
+  },
+  "auth": {
+    "signInTitle": "Bienvenido de nuevo",
+    "signInSubtitle": "Entra en la cuenta de tu familia.",
+    "signUpTitle": "Crea la cuenta de tu familia",
+    "signUpSubtitle": "Una cuenta para ti, un perfil para cada hijo.",
+    "name": "Tu nombre",
+    "email": "Correo",
+    "password": "Contraseña",
+    "signIn": "Entrar",
+    "signUp": "Crear cuenta",
+    "signOut": "Salir",
+    "noAccount": "¿Aún no tienes cuenta?",
+    "createOne": "Crea una",
+    "haveAccount": "¿Ya tienes cuenta?",
+    "signInLink": "Entrar",
+    "consent": "Soy madre, padre o tutor y acepto que Shikhi Digital guarde lo que escriben mis hijos para poder mostrármelo.",
+    "errInvalid": "Ese correo y contraseña no coinciden.",
+    "errEmailInUse": "Ya existe una cuenta con ese correo.",
+    "errWeak": "Usa al menos 8 caracteres.",
+    "errConsent": "Confirma que eres la madre, el padre o el tutor.",
+    "errGeneric": "Algo salió mal. Inténtalo de nuevo.",
+    "checkEmail": "Revisa tu correo para confirmar la cuenta."
+  },
+  "children": {
+    "title": "¿Quién aprende hoy?",
+    "subtitle": "Elige un perfil para continuar.",
+    "add": "Añadir un hijo",
+    "name": "Su nombre",
+    "birthYear": "Año de nacimiento",
+    "avatar": "Elige un dibujo",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "remove": "Eliminar",
+    "empty": "Añade a tu primer hijo para empezar.",
+    "switch": "Cambiar de perfil",
+    "manage": "Gestionar perfiles",
+    "errName": "Ponle un nombre.",
+    "errYear": "Escribe el año de nacimiento."
+  },
+  "daily": {
+    "title": "¿Falso o real?",
+    "subtitle": "Una de estas es inventada. ¿Cuál?",
+    "tellPrompt": "¿Qué la delató?",
+    "spotted": "¡La descubriste!",
+    "missed": "Esa era verdad.",
+    "tellRight": "Y dijiste exactamente por qué.",
+    "tellWas": "La pista más clara era",
+    "source": "De dónde viene la verdadera",
+    "streakLabel": "{count, plural, one {# día seguido} other {# días seguidos}}",
+    "comeBack": "Vuelve mañana para una nueva.",
+    "alreadyPlayed": "Ya jugaste hoy.",
+    "none": "Hoy no hay reto. Vuelve pronto.",
+    "cta": "Reto de hoy",
+    "ninetySeconds": "Unos 90 segundos"
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "Pensado para niños de 8 a 13 años",
+      "oldLead": "Las demás apps califican la",
+      "oldKeyword": "respuesta",
+      "oldTail": ".",
+      "payoff": "Calificamos cómo piensan.",
+      "payoffKeyword": "piensan",
+      "sub": "Tu hijo explica por qué eligió lo que eligió. Leemos el razonamiento —ocultando al evaluador cuál era la respuesta correcta— y te enviamos una página honesta cada domingo.",
+      "cta": "Empezar gratis",
+      "secondary": "Ver un informe real",
+      "trust": "Sin cuentas para niños. Sin anuncios. Nada de lo que escriba se indexa jamás."
+    },
+    "proof": {
+      "kicker": "Todo el producto, en una pantalla",
+      "heading": "Uno de ellos se equivocó. <mark>Mira quién sacó mejor nota.</mark>",
+      "lead": "Dos niños, una pregunta de una lección real. Lee las dos respuestas antes de que lleguen las notas.",
+      "questionLabel": "Pregunta",
+      "question": "¿Por qué pidió Nelson Mandela a los sudafricanos que perdonaran?",
+      "chose": "Eligió: {option}",
+      "replay": "Ver otra vez",
+      "footnote": "Al evaluador nunca se le dice cuál era la opción correcta. Tomás eligió la equivocada y razonó mejor que nadie, y eso es lo que leerán sus padres el domingo.",
+      "a": {
+        "name": "Ariana, 9 años",
+        "pick": "Para que el país pudiera sanar",
+        "text": "Porque era buena persona. Simplemente sabía que era esa.",
+        "grade": "En desarrollo",
+        "move1": "Adivinó"
+      },
+      "b": {
+        "name": "Tomás, 10 años",
+        "pick": "Tenía miedo de más peleas",
+        "text": "No creo que tuviera miedo por él mismo: ya había pasado 27 años en prisión, ¿qué le quedaba por temer? Creo que tenía miedo por el país. Si todos se vengaban habría otra guerra, y entonces esos 27 años no habrían servido de nada.",
+        "grade": "Excelente",
+        "move1": "Pensó en otra explicación",
+        "move2": "Razonó con números"
+      }
+    },
+    "rooms": {
+      "kicker": "Lo que hace tu hijo de verdad",
+      "heading": "Tres salas. Las tres preguntan por qué.",
+      "lead": "Lo bastante cortas para una noche de colegio. Ninguna se termina solo tocando la pantalla.",
+      "defend": {
+        "title": "Defiende tu respuesta",
+        "time": "En cada lección",
+        "blurb": "Dos preguntas por lección piden a tu hijo que se explique. Saltarlas siempre está permitido y nunca cuesta nada: un niño obligado a justificarse deja de explicar y empieza a actuar.",
+        "preview": "¿Por qué piensas eso?"
+      },
+      "daily": {
+        "title": "¿Falso o real?",
+        "time": "90 segundos",
+        "blurb": "Dos afirmaciones al día, una inventada. Detectar la falsa es instinto; nombrar qué la delató es la destreza, y solo eso cuenta.",
+        "previewA": "La miel hallada en tumbas antiguas todavía se podía comer.",
+        "previewB": "Un pez de colores solo recuerda las cosas durante tres segundos."
+      },
+      "tricks": {
+        "title": "Encuentra el truco",
+        "time": "2 minutos",
+        "blurb": "Un gráfico, un titular o una encuesta hechos para engañar, y el truco está de verdad en los datos, nunca explicado en el pie. Nombra la técnica.",
+        "preview": "Apoyo al plan, 2021-2024"
+      }
+    },
+    "ladder": {
+      "kicker": "Niveles de pensamiento",
+      "heading": "No se sube de nivel <mark>haciendo más.</mark>",
+      "lead": "Los rangos dependen de la variedad de pensamiento que muestra un niño y de la calidad de lo que escribe, nunca de las horas acumuladas. Lo hemos comprobado.",
+      "ranks": {
+        "noticer": "Observador",
+        "questioner": "Preguntón",
+        "evidenceHunter": "Buscador de pruebas",
+        "connector": "Conector",
+        "challenger": "Retador",
+        "steelmanner": "Defensor del rival"
+      },
+      "proofA": "500 actividades repitiendo un solo tipo de pensamiento",
+      "proofAResult": "Sigue siendo Observador",
+      "proofB": "14 actividades cuidadosas, cinco tipos de pensamiento",
+      "proofBResult": "Conector"
+    },
+    "report": {
+      "kicker": "Cada domingo",
+      "sectionHeading": "La única página que <mark>no es un halago.</mark>",
+      "lead": "Los hallazgos se calculan en código a partir de lo que tu hijo escribió de verdad. Al modelo solo se le permite redactarlos: nunca ve los intentos originales y nunca toca la cita.",
+      "week": "Semana del 8 de septiembre",
+      "headline": "Dejó de fiarse de la primera respuesta.",
+      "summary": "Maya escribió cuatro explicaciones esta semana. Tres cuestionaron algo que la pregunta daba por supuesto, incluida una en la que se convenció a sí misma de cambiar una respuesta que ya había dado.",
+      "theirWords": "Con sus propias palabras",
+      "quoteQuestion": "Sobre: ¿Por qué hizo la gente cola un día entero para votar?",
+      "quote": "Dice que esperaron 12 horas, pero esos son solo los que se quedaron. Nadie contó a los que se rindieron y se fueron a casa, así que en realidad no sabemos cuántos querían votar.",
+      "quoteNote": "Copiado tal cual. Maya falló esta pregunta.",
+      "climbingLabel": "Va en aumento",
+      "climbing": "Cuestionó la fuente",
+      "climbingBody": "Tres veces esta semana, frente a una la semana pasada.",
+      "nextLabel": "Prueba ahora",
+      "next": "Conectó dos ideas",
+      "nextBody": "Pregúntale a qué le recuerda esto. Todavía no ha enlazado dos temas.",
+      "caption": "Con menos de tres explicaciones no mostramos ningún informe. Un informe flojo es peor que ninguno."
+    },
+    "dinner": {
+      "kicker": "Y luego cierra el portátil",
+      "heading": "Tres preguntas. Sin pantalla.",
+      "lead": "Cada informe termina con tres preguntas abiertas ligadas a lo que tu hijo exploró esa semana.",
+      "q1": "Si nadie contó a la gente que dejó la cola, ¿qué más podríamos estar contando mal?",
+      "q2": "¿Recuerdas alguna vez que cambiaste de opinión a mitad de camino?",
+      "q3": "¿Qué es algo que esperaste muchísimo tiempo?",
+      "note": "Ordenadas de la más difícil a la más fácil, para que un niño cansado pueda responder al menos una."
+    },
+    "promise": {
+      "kicker": "Nuestras negativas",
+      "heading": "Lo que no vamos a hacer.",
+      "lead": "Cada punto de esta lista es un sitio donde la versión fácil de este negocio ganaría más dinero.",
+      "logins": {
+        "title": "Sin cuentas para niños",
+        "body": "Los niños no tienen correo ni contraseña. Un menor de 13 años no puede dar un consentimiento real, así que el consentimiento se registra una vez: contigo."
+      },
+      "words": {
+        "title": "Lo que escribe un niño nunca se edita",
+        "body": "La tabla de intentos no tiene ninguna política de actualización. Ni nosotros, ni un administrador, ni por accidente."
+      },
+      "index": {
+        "title": "Nada de lo que escribe tu hijo se indexa",
+        "body": "Todas las páginas con sus palabras están bloqueadas en robots.txt y marcadas como noindex."
+      },
+      "thin": {
+        "title": "Sin informe cuando no hay nada que decir",
+        "body": "Con menos de tres explicaciones en la semana recibes una nota clara diciéndolo, no una página rellena de ánimos."
+      },
+      "sources": {
+        "title": "Cada afirmación dice de dónde salió",
+        "body": "La nota de fuente es obligatoria en la base de datos para cada reto diario. Un juego sobre verificar afirmaciones no puede fallar en citar las suyas."
+      }
+    },
+    "close": {
+      "lead": "Descubre",
+      "keyword": "cómo",
+      "tail": "piensa tu hijo.",
+      "sub": "Crea una cuenta, añade a un niño, jugad una lección y lee lo que llega de vuelta.",
+      "cta": "Crear una cuenta",
+      "note": "Gratis para empezar. Un correo y una contraseña, y ya está."
+    },
+    "footer": {
+      "guide": "Guía Encuentra el truco",
+      "signin": "Iniciar sesión",
+      "signup": "Crear cuenta"
+    }
+  },
+  "library": {
+    "heading": "Lecciones",
+    "subtitle": "Cada una es primero una historia y después preguntas que te piden el porqué.",
+    "greeting": "Hola, {name}",
+    "greetingAnon": "Bienvenido de nuevo",
+    "scenes": "{count, plural, one {# escena} other {# escenas}}",
+    "questions": "{count, plural, one {# pregunta} other {# preguntas}}",
+    "defends": "{count, plural, other {# para defender}}",
+    "emptyTitle": "Todavía no hay lecciones",
+    "emptyBody": "Las lecciones se escriben y publican a mano. Vuelve dentro de poco.",
+    "shortcutDaily": "¿Falso o real?",
+    "shortcutDailyNote": "Las dos afirmaciones de hoy",
+    "shortcutTricks": "Encuentra el truco",
+    "shortcutTricksNote": "Descubre qué engaña",
+    "shortcutProgress": "Mi progreso",
+    "shortcutProgressNote": "Tu nivel de pensamiento",
+    "shortcutSteelman": "Arena del contrario",
+    "shortcutSteelmanNote": "Defiende la otra postura"
+  },
+  "steelman": {
+    "title": "Arena del contrario",
+    "tagline": "Defiende la postura que no compartes. Tan bien como ellos.",
+    "claimLabel": "La afirmación",
+    "pickHeading": "¿Qué piensas tú de verdad?",
+    "pickNote": "Sé sincero. Vas a defender la otra.",
+    "pickPrefix": "Yo creo",
+    "flipLabel": "Ahora cambia de bando",
+    "argueHeading": "Defiende lo mejor posible: {side}",
+    "argueNote": "No lo que tú crees — dijiste {believed}. Escribe lo que diría alguien que piensa esto de verdad, y dilo tan bien como lo diría esa persona.",
+    "placeholder": "Alguien que piensa esto diría...",
+    "counter": "{n} / {max}",
+    "grading": "Leyéndolo...",
+    "submit": "Enviar",
+    "fairnessLabel": "Cómo se lo tomaría la otra parte",
+    "fairness": {
+      "strawman": "No se reconocen",
+      "partial": "Un punto real",
+      "fair": "Bien planteado",
+      "generous": "Mejor de lo que lo dirían ellos"
+    },
+    "fairnessNote": {
+      "strawman": "Quien piensa así no se reconocería aquí. Esa es la parte difícil de este juego: prueba a escribir qué es lo que de verdad les preocupa.",
+      "partial": "Es un argumento que sí usan, pero pequeño. ¿Cuál sería lo más fuerte que dirían?",
+      "fair": "Es un argumento que de verdad usan, planteado como ellos lo aceptarían. Esta es la destreza.",
+      "generous": "Ojalá lo hubieran dicho así ellos mismos. Esto es poco común."
+    },
+    "youArgued": "Defendiste: {side}",
+    "movesLabel": "Mostraste",
+    "revealLabel": "El argumento más fuerte a favor de {side}",
+    "pushbackLabel": "Un paso más",
+    "doneTitle": "Las has defendido todas.",
+    "doneBody": "{count} afirmaciones defendidas desde la postura contraria a la tuya. Llegan nuevas con frecuencia.",
+    "emptyTitle": "Todavía no hay afirmaciones",
+    "emptyBody": "Las afirmaciones se escriben y publican a mano. Vuelve dentro de poco.",
+    "seeProgress": "Ver tu nivel de pensamiento",
+    "errors": {
+      "tooShort": "Unas palabras más: desarrolla el argumento.",
+      "tooLong": "Es más largo de lo que podemos leer. Recórtalo un poco.",
+      "service": "Algo falló al leerlo. Inténtalo otra vez.",
+      "noChild": "Elige primero quién está aprendiendo.",
+      "notFound": "Esa afirmación no está disponible.",
+      "badInput": "Elige un bando primero."
+    }
+  }
+}

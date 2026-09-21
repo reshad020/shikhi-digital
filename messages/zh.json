@@ -1,0 +1,333 @@
+{
+  "meta": {
+    "title": "Shikhi Digital — 我们评判思考，而非答案",
+    "description": "Shikhi Digital 是一个面向 8 至 13 岁儿童的学习平台，评判的是他们如何推理，而不只是答案是否正确。"
+  },
+  "nav": {
+    "lessons": "课程",
+    "progress": "我的进度"
+  },
+  "defend": {
+    "heading": "你为什么选这个？",
+    "placeholder": "写下你当时的想法……",
+    "submit": "提交我的想法",
+    "skip": "跳过这题",
+    "grading": "正在读你的回答……",
+    "yourThinking": "你说",
+    "pushbackLabel": "还有一件事",
+    "continue": "继续",
+    "charsLeft": "还剩 {count} 个字",
+    "quality": {
+      "developing": "开了个好头",
+      "solid": "想得不错",
+      "excellent": "非常敏锐！"
+    },
+    "errors": {
+      "tooShort": "再多说一点吧——一句话就够了。",
+      "tooLong": "字太多啦！试着说得简单一些。",
+      "tooMany": "这题你已经解释过了。想得很好！",
+      "notFound": "找不到这道题，请重新加载页面。",
+      "noLearner": "保存回答时出了问题，请重新加载页面。",
+      "service": "现在读不了，请稍后再试。",
+      "noChild": "请先选择正在学习的人。"
+    }
+  },
+  "report": {
+    "title": "本周的思考",
+    "weekOf": "{date} 当周",
+    "forGrownUp": "给大人看",
+    "explored": "探索了",
+    "explanations": "写了 {count} 段说明",
+    "theirWords": "他们自己的话",
+    "answering": "回答的是",
+    "leaningOn": "最常用的能力",
+    "lookNext": "接下来留意",
+    "dinnerTitle": "餐桌上的问题",
+    "dinnerBlurb": "本周可以聊的三个问题，不需要屏幕。",
+    "tooEarlyTitle": "还不太够",
+    "tooEarlyBody": "一份诚实的报告至少需要 {need} 段说明。本周目前有 {have} 段。",
+    "tooEarlyCta": "去想点什么吧",
+    "notFound": "这个链接还没有报告。",
+    "footer": "内容来自您孩子本周真实写下的文字。",
+    "emailOnLabel": "这份报告每周日会发到你的邮箱。",
+    "emailOffLabel": "每周邮件已关闭。你需要回到这里才能看到。",
+    "emailStart": "每周发到我的邮箱",
+    "emailStop": "停止每周邮件"
+  },
+  "player": {
+    "back": "返回",
+    "next": "下一个",
+    "startQuiz": "开始测验",
+    "engageFirst": "先试试上面的问题就能继续。",
+    "tapToFindOut": "点一下看看",
+    "nextQuestion": "下一题",
+    "finish": "完成",
+    "needHint": "需要提示吗？",
+    "tryMissed": "再做一次答错的 {count} 题"
+  },
+  "auth": {
+    "signInTitle": "欢迎回来",
+    "signInSubtitle": "登录你的家庭账户。",
+    "signUpTitle": "创建家庭账户",
+    "signUpSubtitle": "一个账户属于您，每个孩子一个档案。",
+    "name": "您的姓名",
+    "email": "邮箱",
+    "password": "密码",
+    "signIn": "登录",
+    "signUp": "创建账户",
+    "signOut": "退出登录",
+    "noAccount": "还没有账户？",
+    "createOne": "创建一个",
+    "haveAccount": "已经有账户了？",
+    "signInLink": "登录",
+    "consent": "我是家长或监护人，同意 Shikhi Digital 保存我孩子写下的内容，以便回顾给我看。",
+    "errInvalid": "邮箱和密码不匹配。",
+    "errEmailInUse": "该邮箱已注册。",
+    "errWeak": "请至少使用 8 个字符。",
+    "errConsent": "请确认您是家长或监护人。",
+    "errGeneric": "出了点问题，请重试。",
+    "checkEmail": "请查收邮件以确认账户。"
+  },
+  "children": {
+    "title": "今天谁来学习？",
+    "subtitle": "选择一个档案继续。",
+    "add": "添加孩子",
+    "name": "孩子的名字",
+    "birthYear": "出生年份",
+    "avatar": "选一个图案",
+    "save": "保存",
+    "cancel": "取消",
+    "remove": "删除",
+    "empty": "添加第一个孩子即可开始。",
+    "switch": "切换孩子",
+    "manage": "管理档案",
+    "errName": "请填写名字。",
+    "errYear": "请填写出生年份。"
+  },
+  "daily": {
+    "title": "真的还是假的",
+    "subtitle": "其中一条是编的。是哪一条？",
+    "tellPrompt": "是什么露了馅？",
+    "spotted": "你发现了！",
+    "missed": "那条其实是真的。",
+    "tellRight": "而且你说出了原因。",
+    "tellWas": "最明显的破绽是",
+    "source": "真的那条出自",
+    "streakLabel": "连续 {count} 天",
+    "comeBack": "明天再来一条新的。",
+    "alreadyPlayed": "你今天已经玩过了。",
+    "none": "今天没有挑战，稍后再来。",
+    "cta": "今天的挑战",
+    "ninetySeconds": "大约 90 秒"
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "为 8 至 13 岁的孩子打造",
+      "oldLead": "别的应用只看",
+      "oldKeyword": "答案",
+      "oldTail": "。",
+      "payoff": "我们评判的是思考。",
+      "payoffKeyword": "我们评判的是思考",
+      "sub": "孩子会写下他为什么这样选。我们读的是这段推理——评分时刻意不让模型看到正确答案——每周日给你一页诚实的报告。",
+      "cta": "免费开始",
+      "secondary": "看一份真实报告",
+      "trust": "孩子没有账号。没有广告。孩子写下的内容永远不会被收录。"
+    },
+    "proof": {
+      "kicker": "一屏看完整个产品",
+      "heading": "其中一个答错了。<mark>看看谁分数更高。</mark>",
+      "lead": "两个孩子，一道来自真实课程的题。请在分数落下之前读完两段回答。",
+      "questionLabel": "问题",
+      "question": "曼德拉为什么呼吁南非人选择原谅？",
+      "chose": "选择：{option}",
+      "replay": "再看一次",
+      "footnote": "评分时从不告诉模型哪个选项是对的。托马斯选错了，却想得最透彻——这就是周日他父母会读到的内容。",
+      "a": {
+        "name": "艾丽安娜，9 岁",
+        "pick": "这样国家才能愈合",
+        "text": "因为他是个好人。我就是知道是这个。",
+        "grade": "待发展",
+        "move1": "靠猜"
+      },
+      "b": {
+        "name": "托马斯，10 岁",
+        "pick": "他害怕再打起来",
+        "text": "我不觉得他是为自己害怕——他已经坐了 27 年牢，还有什么好怕的？我觉得他是为国家害怕。如果人人都去报复，就会再打一场仗，那 27 年就白坐了。",
+        "grade": "优秀",
+        "move1": "想到了另一种解释",
+        "move2": "用数字来推理"
+      }
+    },
+    "rooms": {
+      "kicker": "孩子实际会做什么",
+      "heading": "三个房间，都在问为什么。",
+      "lead": "短到能塞进一个上学日的晚上。没有一个能靠乱点通关。",
+      "defend": {
+        "title": "为你的答案辩护",
+        "time": "每节课都有",
+        "blurb": "每节课有两道题会请孩子说明理由。随时可以跳过，且永远不扣分——被逼着自辩的孩子会停止解释，开始表演。",
+        "preview": "你为什么这么想？"
+      },
+      "daily": {
+        "title": "真的还是编的",
+        "time": "90 秒",
+        "blurb": "每天两条说法，其中一条是编的。看出哪条是假的靠直觉；说出是什么露了马脚才是本事，也只有这一步算分。",
+        "previewA": "古墓里发现的蜂蜜至今仍可食用。",
+        "previewB": "金鱼的记忆只有三秒。"
+      },
+      "tricks": {
+        "title": "找出把戏",
+        "time": "2 分钟",
+        "blurb": "一张为误导而做的图表、标题或问卷——把戏真的藏在数据里，说明文字绝不点破。说出它用的手法。",
+        "preview": "对该方案的支持率，2021-2024"
+      }
+    },
+    "ladder": {
+      "kicker": "思考等级",
+      "heading": "<mark>做得更多</mark>并不会升级。",
+      "lead": "等级取决于孩子展现了多少种思考方式，以及写下的内容质量，从不取决于花了多少小时。这一点我们验证过。",
+      "ranks": {
+        "noticer": "观察者",
+        "questioner": "提问者",
+        "evidenceHunter": "找证据的人",
+        "connector": "串联者",
+        "challenger": "质疑者",
+        "steelmanner": "为对方辩护者"
+      },
+      "proofA": "500 次活动，反复用同一种思考",
+      "proofAResult": "仍然是观察者",
+      "proofB": "14 次认真的活动，五种思考方式",
+      "proofBResult": "串联者"
+    },
+    "report": {
+      "kicker": "每个周日",
+      "sectionHeading": "唯一一页<mark>不奉承的报告。</mark>",
+      "lead": "结论由代码从孩子真正写下的文字里算出。模型只被允许把它写成句子——它看不到原始作答，也绝不改动引文。",
+      "week": "9 月 8 日那一周",
+      "headline": "她不再相信第一个答案了。",
+      "summary": "玛雅这周写了四段解释。其中三段质疑了题目默认为真的前提——有一次她甚至说服自己推翻了刚写下的答案。",
+      "theirWords": "她自己的原话",
+      "quoteQuestion": "关于：人们为什么排一整天队去投票？",
+      "quote": "上面说他们等了 12 小时，可那只是留下来的人。放弃回家的那些人根本没被算进去，所以我们其实不知道有多少人想投票。",
+      "quoteNote": "原文照录。这道题玛雅答错了。",
+      "climbingLabel": "正在提升",
+      "climbing": "质疑了信息来源",
+      "climbingBody": "本周三次，上周只有一次。",
+      "nextLabel": "接下来试试",
+      "next": "把两个想法连起来",
+      "nextBody": "问问她这让她想到什么。她还没有把两个主题联系起来过。",
+      "caption": "不足三段解释时，我们一份报告也不出。单薄的报告比没有更糟。"
+    },
+    "dinner": {
+      "kicker": "然后合上电脑",
+      "heading": "三个问题，不用屏幕。",
+      "lead": "每份报告的结尾都有三个开放式问题，来自孩子这一周真正探索过的内容。",
+      "q1": "如果放弃排队的人根本没被算进去，我们在数别的东西时还可能漏掉什么？",
+      "q2": "你有没有过做到一半就改变主意的时候？",
+      "q3": "有什么事是你等了特别久的？",
+      "note": "按从难到易排列，累了的孩子也总有一个答得上来。"
+    },
+    "promise": {
+      "kicker": "我们的拒绝",
+      "heading": "我们不会做的事。",
+      "lead": "这份清单上的每一条，都是这门生意走捷径时更赚钱的地方。",
+      "logins": {
+        "title": "不给孩子开账号",
+        "body": "孩子没有邮箱，也没有密码。不满 13 岁无法做出真正的同意，所以同意只记录一次——记在你这里。"
+      },
+      "words": {
+        "title": "孩子写的字从不被改动",
+        "body": "作答表压根没有更新策略。我们不能改，管理员不能改，也不会被误改。"
+      },
+      "index": {
+        "title": "孩子写的内容不会被收录",
+        "body": "凡是有他文字的页面，都在 robots.txt 中被禁止抓取并标记为 noindex。"
+      },
+      "thin": {
+        "title": "没什么可说时就不出报告",
+        "body": "一周不足三段解释，你会收到一句直说的说明，而不是一页凑数的鼓励。"
+      },
+      "sources": {
+        "title": "每条说法都注明出处",
+        "body": "每日挑战在数据库层面就强制要求来源说明。一个教人核查说法的游戏，自己不能不注明出处。"
+      }
+    },
+    "close": {
+      "lead": "去看看你的孩子",
+      "keyword": "如何",
+      "tail": "思考。",
+      "sub": "创建一个家长账号，添加一个孩子，玩一节课——然后读读回来的内容。",
+      "cta": "创建家长账号",
+      "note": "免费开始。一个邮箱加一个密码，注册就这么多。"
+    },
+    "footer": {
+      "guide": "《找出把戏》指南",
+      "signin": "登录",
+      "signup": "注册"
+    }
+  },
+  "library": {
+    "heading": "课程",
+    "subtitle": "每一节先是一个故事，然后是追问为什么的题目。",
+    "greeting": "你好，{name}",
+    "greetingAnon": "欢迎回来",
+    "scenes": "{count, plural, other {# 个场景}}",
+    "questions": "{count, plural, other {# 道题}}",
+    "defends": "{count, plural, other {# 道要辩护}}",
+    "emptyTitle": "还没有课程",
+    "emptyBody": "课程都是手工撰写并发布的。请稍后再来看看。",
+    "shortcutDaily": "真的还是编的",
+    "shortcutDailyNote": "今天的两条说法",
+    "shortcutTricks": "找出把戏",
+    "shortcutTricksNote": "找出误导之处",
+    "shortcutProgress": "我的进度",
+    "shortcutProgressNote": "你的思考等级",
+    "shortcutSteelman": "换位辩论场",
+    "shortcutSteelmanNote": "为另一方辩护"
+  },
+  "steelman": {
+    "title": "换位辩论场",
+    "tagline": "为你不认同的那一方辩护，而且要说得和他们一样好。",
+    "claimLabel": "这个说法",
+    "pickHeading": "你自己到底怎么想？",
+    "pickNote": "如实回答。接下来你要为另一边辩护。",
+    "pickPrefix": "我认为",
+    "flipLabel": "现在换边",
+    "argueHeading": "尽你所能为这一方辩护：{side}",
+    "argueNote": "不是你自己的想法——你选的是{believed}。写出真正这么认为的人会说什么，并且说得和他们一样好。",
+    "placeholder": "真这么认为的人会说……",
+    "counter": "{n} / {max}",
+    "grading": "正在读……",
+    "submit": "提交",
+    "fairnessLabel": "对方看了会怎么想",
+    "fairness": {
+      "strawman": "他们认不出自己",
+      "partial": "一个真实的理由",
+      "fair": "说得公道",
+      "generous": "比他们说得还好"
+    },
+    "fairnessNote": {
+      "strawman": "真正持这种看法的人在这里认不出自己。这正是这个游戏难的地方——试着写出他们真正担心的是什么。",
+      "partial": "这确实是他们会讲的理由，但比较小。他们会讲的最有力的一点是什么？",
+      "fair": "这是他们真正会讲的理由，而且说法他们也会认可。这就是这项本事。",
+      "generous": "他们会希望自己当初就这么说。这种情况很少见。"
+    },
+    "youArgued": "你辩护的是：{side}",
+    "movesLabel": "你展现了",
+    "revealLabel": "支持{side}最有力的一点",
+    "pushbackLabel": "再往前一步",
+    "doneTitle": "你已经全部辩过了。",
+    "doneBody": "你已从自己不认同的一方为 {count} 个说法辩护过。新的会陆续加入。",
+    "emptyTitle": "还没有说法",
+    "emptyBody": "说法都是手工撰写并发布的。请稍后再来看看。",
+    "seeProgress": "查看你的思考等级",
+    "errors": {
+      "tooShort": "再多写几句——把理由讲清楚。",
+      "tooLong": "这比我们能读的长了一些，请精简一下。",
+      "service": "读取时出了点问题，请再试一次。",
+      "noChild": "请先选择正在学习的人。",
+      "notFound": "这个说法暂时无法使用。",
+      "badInput": "请先选一边。"
+    }
+  }
+}

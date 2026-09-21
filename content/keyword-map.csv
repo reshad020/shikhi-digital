@@ -1,0 +1,27 @@
+primary_query,url,hub,snippet_format,status,volume,notes
+is ai making kids stop thinking,/blog/is-ai-making-my-child-stop-thinking,A AI & Thinking,paragraph,planned,,"§2.4 wedge. Opinion-only incumbents (Psychology Today x2, tutoring blogs). Lead with corpus n."
+should my child use ai for homework,/blog/should-my-child-use-ai-for-homework,A AI & Thinking,paragraph,planned,,"Decision intent. Answer is the 'asks back' product thesis."
+how to use ai with kids without losing critical thinking,/blog/using-ai-without-losing-thinking,A AI & Thinking,ol,planned,,"HowTo schema. Steps parents can actually run."
+signs my child is not thinking for themselves,/blog/signs-child-not-thinking-independently,A AI & Thinking,ul,planned,,"Observable outcomes — the thing §2.2 incumbents never give."
+what are thinking moves,/thinking-moves,B Thinking Moves,paragraph,planned,,"Hub index. ItemList schema. The reference page Q4 study cites."
+what is giving evidence in critical thinking,/thinking-moves/gave-evidence,B Thinking Moves,paragraph,planned,,"One page per moves.ts slug. Named definition = GEO rule 2."
+what is a steelman argument for kids,/thinking-moves/steelmanning,B Thinking Moves,paragraph,planned,,"Ties to Change My Mind feature."
+what is an assumption in an argument,/thinking-moves/spotted-assumption,B Thinking Moves,paragraph,planned,,
+how to teach a child to consider alternatives,/thinking-moves/considered-alternative,B Thinking Moves,paragraph,planned,,
+teaching kids to question sources,/thinking-moves/questioned-source,B Thinking Moves,paragraph,planned,,"Bridges hub B and hub C."
+truncated y axis misleading graph,/spot-the-trick/truncated-axis,C Spot the Trick,paragraph,live,,"§2.3: incumbents stay general. Named techniques are open."
+what does linked to mean in a headline,/spot-the-trick/linked-to-headlines,C Spot the Trick,paragraph,live,,"Correlation vs causation, kid-sized."
+loaded survey question examples,/spot-the-trick/loaded-questions,C Spot the Trick,paragraph,live,,
+misleading graph starts not at zero,/spot-the-trick/missing-denominator,C Spot the Trick,paragraph,live,,"Renamed from hidden-ads: built techniques are axis/denominator/linked-to/loaded/cherry-picked/scary-headline."
+how to talk to your child about the news,/blog/talking-to-kids-about-the-news,D News Reasoning,ol,planned,,"§2.1 gap: parent-shaped, not classroom-shaped. Do NOT chase 'current events for kids'."
+how to explain a scary news story to a child,/blog/explaining-difficult-news-to-children,D News Reasoning,paragraph,planned,,
+debate topics for kids 10-12,/change-my-mind/topics,E Change My Mind,ul,planned,,"§2.5 listicles have no method. Ours ships the steelman rule."
+how to teach a child to argue respectfully,/blog/teaching-children-to-disagree-well,E Change My Mind,ol,planned,,
+critical thinking activities for 10 year olds,/parents/age-10,G Parent Guides,ul,planned,,"Reboot owns 10-12 bands. We go per-year + observable outcomes."
+critical thinking activities for 11 year olds,/parents/age-11,G Parent Guides,ul,planned,,
+how do i know if my child thinks critically,/blog/is-my-child-a-critical-thinker,G Parent Guides,ul,planned,,"High-intent. Answer leads to the weekly report."
+how children actually reason study,/research/how-children-reason,I Data Studies,paragraph,planned,,"Q4 2026 launch asset. Dataset schema. n disclosed."
+critical thinking benchmarks by age,/research/reasoning-benchmarks,I Data Studies,table,planned,,"The compiled-numbers page bloggers and AI cite."
+what is a cherry picked graph,/spot-the-trick/cherry-picked-window,C Spot the Trick,paragraph,live,,
+headline does not match the article,/spot-the-trick/scary-headline,C Spot the Trick,paragraph,live,,
+spot the trick guide,/spot-the-trick,C Spot the Trick,ul,live,,"Hub index. ItemList schema."

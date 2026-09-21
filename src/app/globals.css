@@ -1,0 +1,255 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
+  --font-mono: var(--font-mono);
+
+  /* Playful subject / mascot palette — use these for topic cards, badges, avatars */
+  --color-grape: var(--grape);
+  --color-sky: var(--sky);
+  --color-mint: var(--mint);
+  --color-sunny: var(--sunny);
+  --color-bubblegum: var(--bubblegum);
+  --color-tangerine: var(--tangerine);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Chunky "sticker" shadow — the signature look for tappable kid UI */
+  --shadow-pop: 0 6px 0 0 var(--pop-shadow-color);
+  --shadow-pop-sm: 0 4px 0 0 var(--pop-shadow-color);
+  --shadow-float: 0 18px 40px -12px oklch(0.45 0.16 285 / 0.35);
+
+  --animate-float: float 5s ease-in-out infinite;
+  --animate-wiggle: wiggle 0.6s ease-in-out;
+  --animate-pop-in: pop-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-6deg); }
+    75% { transform: rotate(6deg); }
+  }
+  @keyframes pop-in {
+    0% { opacity: 0; transform: scale(0.85) translateY(12px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+  }
+}
+
+:root {
+  --radius: 1.25rem;
+
+  --background: oklch(0.99 0.008 95);
+  --foreground: oklch(0.27 0.045 280);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.27 0.045 280);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.27 0.045 280);
+
+  --primary: oklch(0.58 0.22 287);
+  --primary-foreground: oklch(0.99 0.01 287);
+  --secondary: oklch(0.94 0.05 190);
+  --secondary-foreground: oklch(0.35 0.09 220);
+  --muted: oklch(0.96 0.012 280);
+  --muted-foreground: oklch(0.53 0.035 280);
+  --accent: oklch(0.92 0.11 95);
+  --accent-foreground: oklch(0.35 0.08 70);
+  --destructive: oklch(0.64 0.21 27);
+
+  --border: oklch(0.9 0.02 280);
+  --input: oklch(0.9 0.02 280);
+  --ring: oklch(0.58 0.22 287);
+
+  --pop-shadow-color: oklch(0.42 0.16 287 / 0.28);
+
+  --grape: oklch(0.58 0.22 287);
+  --sky: oklch(0.68 0.16 232);
+  --mint: oklch(0.75 0.15 165);
+  --sunny: oklch(0.84 0.16 88);
+  --bubblegum: oklch(0.72 0.19 350);
+  --tangerine: oklch(0.72 0.18 45);
+
+  --chart-1: var(--grape);
+  --chart-2: var(--sky);
+  --chart-3: var(--mint);
+  --chart-4: var(--sunny);
+  --chart-5: var(--bubblegum);
+
+  --sidebar: oklch(0.98 0.012 285);
+  --sidebar-foreground: oklch(0.27 0.045 280);
+  --sidebar-primary: oklch(0.58 0.22 287);
+  --sidebar-primary-foreground: oklch(0.99 0.01 287);
+  --sidebar-accent: oklch(0.94 0.04 285);
+  --sidebar-accent-foreground: oklch(0.3 0.06 285);
+  --sidebar-border: oklch(0.9 0.02 280);
+  --sidebar-ring: oklch(0.58 0.22 287);
+}
+
+.dark {
+  --background: oklch(0.21 0.035 282);
+  --foreground: oklch(0.97 0.012 285);
+  --card: oklch(0.26 0.04 282);
+  --card-foreground: oklch(0.97 0.012 285);
+  --popover: oklch(0.26 0.04 282);
+  --popover-foreground: oklch(0.97 0.012 285);
+
+  --primary: oklch(0.72 0.18 290);
+  --primary-foreground: oklch(0.2 0.06 290);
+  --secondary: oklch(0.34 0.06 220);
+  --secondary-foreground: oklch(0.95 0.02 220);
+  --muted: oklch(0.31 0.03 282);
+  --muted-foreground: oklch(0.72 0.03 285);
+  --accent: oklch(0.4 0.09 90);
+  --accent-foreground: oklch(0.96 0.04 90);
+  --destructive: oklch(0.7 0.19 22);
+
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.72 0.18 290);
+
+  --pop-shadow-color: oklch(0.12 0.05 285 / 0.7);
+
+  --grape: oklch(0.72 0.18 290);
+  --sky: oklch(0.74 0.14 232);
+  --mint: oklch(0.79 0.14 165);
+  --sunny: oklch(0.86 0.15 88);
+  --bubblegum: oklch(0.76 0.17 350);
+  --tangerine: oklch(0.77 0.16 45);
+
+  --sidebar: oklch(0.26 0.04 282);
+  --sidebar-foreground: oklch(0.97 0.012 285);
+  --sidebar-primary: oklch(0.72 0.18 290);
+  --sidebar-primary-foreground: oklch(0.2 0.06 290);
+  --sidebar-accent: oklch(0.31 0.04 282);
+  --sidebar-accent-foreground: oklch(0.97 0.012 285);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.72 0.18 290);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+    -webkit-tap-highlight-color: transparent;
+  }
+  h1, h2, h3, h4 {
+    @apply font-heading;
+  }
+  /* Kids tap hard and often — never let a double tap zoom the board */
+  button, a, [role="button"] {
+    touch-action: manipulation;
+  }
+}
+
+@layer utilities {
+  /* Chunky sticker button: presses down instead of just changing colour */
+  .btn-pop {
+    @apply shadow-pop transition-all duration-150 active:translate-y-1 active:shadow-pop-sm;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*
+ * Landing-page entrances.
+ *
+ * The hero headline is the most important text on the site, so it must not
+ * depend on a JavaScript animation library having loaded and run. These are
+ * plain CSS keyframes with `both` fill: they always complete, they cost no
+ * JavaScript, and the reduced-motion block above collapses them to nothing.
+ */
+@layer utilities {
+  .rise {
+    animation: rise 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .rise-lg {
+    animation: rise-lg 0.8s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+  }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes rise-lg {
+  from { opacity: 0; transform: translateY(44px) rotate(-2.5deg); }
+  to   { opacity: 1; transform: none; }
+}
+
+/*
+ * Anything staged behind a JavaScript timer stays in the DOM and is revealed
+ * by opacity, never by mounting — so the text ships in the HTML for crawlers.
+ * With scripting off there is nothing to run the timer, so show it all.
+ */
+@media (scripting: none) {
+  [data-staged] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

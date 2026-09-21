@@ -1,0 +1,333 @@
+{
+  "meta": {
+    "title": "Shikhi Digital — we grade the thinking, not the answer",
+    "description": "Shikhi Digital is a learning platform for children aged 8 to 13 that grades how they reason, not just whether their answer was right."
+  },
+  "nav": {
+    "lessons": "Lessons",
+    "progress": "My Progress"
+  },
+  "defend": {
+    "heading": "Why did you pick that?",
+    "placeholder": "Type what you were thinking...",
+    "submit": "Send my thinking",
+    "skip": "Skip this one",
+    "grading": "Reading your answer...",
+    "yourThinking": "You said",
+    "pushbackLabel": "One more thing",
+    "continue": "Keep going",
+    "charsLeft": "{count} characters left",
+    "quality": {
+      "developing": "Getting started",
+      "solid": "Good thinking",
+      "excellent": "Really sharp"
+    },
+    "errors": {
+      "tooShort": "Tell me a bit more - even one sentence is enough.",
+      "tooLong": "That is a lot of words! Try saying it more simply.",
+      "tooMany": "You have already explained this one. Nice thinking!",
+      "notFound": "I could not find that question. Try reloading the page.",
+      "noLearner": "Something went wrong saving your answer. Try reloading the page.",
+      "service": "I could not read that just now. Try again in a moment.",
+      "noChild": "Pick who is learning first."
+    }
+  },
+  "report": {
+    "title": "This week's thinking",
+    "weekOf": "Week of {date}",
+    "forGrownUp": "Show a grown-up",
+    "explored": "Explored",
+    "explanations": "{count, plural, one {# explanation written} other {# explanations written}}",
+    "theirWords": "In their own words",
+    "answering": "Answering",
+    "leaningOn": "Leaning on",
+    "lookNext": "Look for next",
+    "dinnerTitle": "Questions for the table",
+    "dinnerBlurb": "Three things to ask this week. No screen needed.",
+    "tooEarlyTitle": "Not quite enough yet",
+    "tooEarlyBody": "A report needs at least {need} explanations to say anything honest. So far this week: {have}.",
+    "tooEarlyCta": "Go and think about something",
+    "notFound": "There is no report at this link yet.",
+    "footer": "Written from what your child actually wrote this week.",
+    "emailOnLabel": "This arrives by email every Sunday.",
+    "emailOffLabel": "Weekly emails are off. You will have to come back here for this.",
+    "emailStart": "Email it to me weekly",
+    "emailStop": "Stop the weekly email"
+  },
+  "player": {
+    "back": "Back",
+    "next": "Next",
+    "startQuiz": "Start the quiz",
+    "engageFirst": "Have a go at the question above to carry on.",
+    "tapToFindOut": "Tap to find out",
+    "nextQuestion": "Next question",
+    "finish": "Finish",
+    "needHint": "Need a hint?",
+    "tryMissed": "{count, plural, one {Try the one you missed} other {Try the # you missed}}"
+  },
+  "auth": {
+    "signInTitle": "Welcome back",
+    "signInSubtitle": "Sign in to your family account.",
+    "signUpTitle": "Create your family account",
+    "signUpSubtitle": "One account for you, a profile for each child.",
+    "name": "Your name",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Sign in",
+    "signUp": "Create account",
+    "signOut": "Sign out",
+    "noAccount": "No account yet?",
+    "createOne": "Create one",
+    "haveAccount": "Already have an account?",
+    "signInLink": "Sign in",
+    "consent": "I am a parent or guardian and I agree to Shikhi Digital storing what my children write, so it can be read back to me.",
+    "errInvalid": "That email and password do not match.",
+    "errEmailInUse": "There is already an account with that email.",
+    "errWeak": "Use at least 8 characters.",
+    "errConsent": "Please confirm you are the parent or guardian.",
+    "errGeneric": "Something went wrong. Please try again.",
+    "checkEmail": "Check your email to confirm your account."
+  },
+  "children": {
+    "title": "Who is learning today?",
+    "subtitle": "Pick a profile to carry on.",
+    "add": "Add a child",
+    "name": "Their first name",
+    "birthYear": "Year they were born",
+    "avatar": "Pick a picture",
+    "save": "Save",
+    "cancel": "Cancel",
+    "remove": "Remove",
+    "empty": "Add your first child to get started.",
+    "switch": "Switch child",
+    "manage": "Manage children",
+    "errName": "Give them a name.",
+    "errYear": "Enter the year they were born."
+  },
+  "daily": {
+    "title": "Fake or Real",
+    "subtitle": "One of these is made up. Which one?",
+    "tellPrompt": "What gave it away?",
+    "spotted": "You spotted it!",
+    "missed": "That one was actually true.",
+    "tellRight": "And you named exactly why.",
+    "tellWas": "The clearest tell was",
+    "source": "Where the true one comes from",
+    "streakLabel": "{count, plural, one {# day streak} other {# day streak}}",
+    "comeBack": "Come back tomorrow for a new one.",
+    "alreadyPlayed": "You have already played today.",
+    "none": "No challenge today. Check back soon.",
+    "cta": "Today's challenge",
+    "ninetySeconds": "About 90 seconds"
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "Built for 8 to 13 year olds",
+      "oldLead": "Every other app grades the",
+      "oldKeyword": "answer",
+      "oldTail": ".",
+      "payoff": "We grade the thinking.",
+      "payoffKeyword": "thinking",
+      "sub": "Your child explains why they chose what they chose. We read the reasoning — with the correct answer deliberately hidden from the grader — and send you one honest page every Sunday.",
+      "cta": "Start free",
+      "secondary": "See a real report",
+      "trust": "No child logins. No ads. Nothing your child writes is ever indexed."
+    },
+    "proof": {
+      "kicker": "The whole product, in one screen",
+      "heading": "One of them is wrong. <mark>Look who scored higher.</mark>",
+      "lead": "Two children, one question from a real lesson. Read both answers before the grades land.",
+      "questionLabel": "Question",
+      "question": "Why did Nelson Mandela ask South Africans to forgive?",
+      "chose": "Chose: {option}",
+      "replay": "Play again",
+      "footnote": "The grader is never told which option was correct. Tomas picked the wrong one and out-thought the room — so that is what his parents read about on Sunday.",
+      "a": {
+        "name": "Ariana, 9",
+        "pick": "So the country could heal",
+        "text": "Because he was a good person. I just knew it was that one.",
+        "grade": "Developing",
+        "move1": "Guessed"
+      },
+      "b": {
+        "name": "Tomas, 10",
+        "pick": "He was afraid of more fighting",
+        "text": "I don't think he was scared for himself — 27 years in prison already happened, so what is left to be scared of? I think he was scared for the country. If everyone took revenge there would be another war, and then the 27 years were for nothing.",
+        "grade": "Excellent",
+        "move1": "Thought of another explanation",
+        "move2": "Reasoned with numbers"
+      }
+    },
+    "rooms": {
+      "kicker": "What your child actually does",
+      "heading": "Three rooms. All of them ask why.",
+      "lead": "Short enough to fit a school night. None of them can be finished by tapping.",
+      "defend": {
+        "title": "Defend Your Answer",
+        "time": "In every lesson",
+        "blurb": "Two questions per lesson ask your child to explain themselves. Skipping is always allowed and never costs anything — a child made to justify themselves stops explaining and starts performing.",
+        "preview": "Why do you think that?"
+      },
+      "daily": {
+        "title": "Fake or Real",
+        "time": "90 seconds",
+        "blurb": "Two claims a day, one of them invented. Spotting the fake is instinct; naming what gave it away is the skill, and only the naming earns credit.",
+        "previewA": "Honey found in ancient tombs was still safe to eat.",
+        "previewB": "A goldfish can only remember things for three seconds."
+      },
+      "tricks": {
+        "title": "Spot the Trick",
+        "time": "2 minutes",
+        "blurb": "A chart, headline or survey built to mislead — and the trick is genuinely in the data, never described in the caption. Name the technique.",
+        "preview": "Support for the plan, 2021–2024"
+      }
+    },
+    "ladder": {
+      "kicker": "Thinking Levels",
+      "heading": "You cannot level up by <mark>doing more.</mark>",
+      "lead": "Ranks are gated on the range of thinking a child shows and the quality of what they write — never on hours logged. We tested exactly that.",
+      "ranks": {
+        "noticer": "Noticer",
+        "questioner": "Questioner",
+        "evidenceHunter": "Evidence Hunter",
+        "connector": "Connector",
+        "challenger": "Challenger",
+        "steelmanner": "Steelmanner"
+      },
+      "proofA": "500 activities, repeating one kind of thinking",
+      "proofAResult": "Still a Noticer",
+      "proofB": "14 careful activities, five kinds of thinking",
+      "proofBResult": "Connector"
+    },
+    "report": {
+      "kicker": "Every Sunday",
+      "sectionHeading": "The one page that <mark>isn't flattery.</mark>",
+      "lead": "The findings are computed in code from what your child actually wrote. The model is only allowed to phrase them — it never sees the raw attempts, and it never touches the quote.",
+      "week": "Week of 8 September",
+      "headline": "She stopped trusting the first answer.",
+      "summary": "Maya wrote four explanations this week. Three of them questioned something the question had quietly assumed — including one where she talked herself out of an answer she had already given.",
+      "theirWords": "In her own words",
+      "quoteQuestion": "On: Why did people queue for a whole day to vote?",
+      "quote": "It says they waited 12 hours but that is only the people who stayed. Nobody counted the ones who gave up and went home, so we do not actually know how many wanted to vote.",
+      "quoteNote": "Copied exactly. Maya got this question wrong.",
+      "climbingLabel": "Climbing",
+      "climbing": "Questioned the source",
+      "climbingBody": "Three times this week, up from once last week.",
+      "nextLabel": "Try next",
+      "next": "Connected two ideas",
+      "nextBody": "Ask her what this reminds her of. She has not linked two topics yet.",
+      "caption": "Below three explanations we show no report at all. A thin report is worse than none."
+    },
+    "dinner": {
+      "kicker": "And then close the laptop",
+      "heading": "Three questions. No screen.",
+      "lead": "Every report ends with three open questions tied to what your child actually explored that week.",
+      "q1": "If nobody counted the people who gave up queuing, what else might we be getting wrong when we count things?",
+      "q2": "Can you think of a time you changed your mind about something halfway through?",
+      "q3": "What is something you waited a really long time for?",
+      "note": "Ordered hardest to easiest, so a tired child still gets one they can answer."
+    },
+    "promise": {
+      "kicker": "The refusals",
+      "heading": "What we will not do.",
+      "lead": "Every item here is somewhere the easier version of this business makes more money.",
+      "logins": {
+        "title": "No child accounts",
+        "body": "Children get no email and no password. Under-13s cannot meaningfully consent, so consent is recorded once — with you."
+      },
+      "words": {
+        "title": "A child's writing is never edited",
+        "body": "The attempts table has no update policy at all. Not by us, not by an admin, not by accident."
+      },
+      "index": {
+        "title": "Nothing your child writes is indexed",
+        "body": "Every page holding their words is disallowed in robots.txt and marked noindex."
+      },
+      "thin": {
+        "title": "No report when there is nothing to say",
+        "body": "Under three explanations in a week you get a plain note saying so, not a padded page of encouragement."
+      },
+      "sources": {
+        "title": "Every claim says where it came from",
+        "body": "A source note is required at the database level on every daily challenge. A game about checking claims cannot fail to cite its own."
+      }
+    },
+    "close": {
+      "lead": "Find out",
+      "keyword": "how",
+      "tail": "your child thinks.",
+      "sub": "Create a parent account, add a child, play one lesson — and read what comes back.",
+      "cta": "Create a parent account",
+      "note": "Free to start. An email and a password, and that is the whole signup."
+    },
+    "footer": {
+      "guide": "Spot the Trick guide",
+      "signin": "Sign in",
+      "signup": "Create account"
+    }
+  },
+  "library": {
+    "heading": "Lessons",
+    "subtitle": "Each one is a story first, then questions that ask you why.",
+    "greeting": "Hello, {name}",
+    "greetingAnon": "Welcome back",
+    "scenes": "{count, plural, one {# scene} other {# scenes}}",
+    "questions": "{count, plural, one {# question} other {# questions}}",
+    "defends": "{count, plural, other {# to defend}}",
+    "emptyTitle": "No lessons yet",
+    "emptyBody": "Lessons are written and published by hand. Check back shortly.",
+    "shortcutDaily": "Fake or Real",
+    "shortcutDailyNote": "Today's two claims",
+    "shortcutTricks": "Spot the Trick",
+    "shortcutTricksNote": "Find what is misleading",
+    "shortcutProgress": "My Progress",
+    "shortcutProgressNote": "Your thinking level",
+    "shortcutSteelman": "Steelman Arena",
+    "shortcutSteelmanNote": "Argue the other side"
+  },
+  "steelman": {
+    "title": "Steelman Arena",
+    "tagline": "Argue the side you do not believe. As well as they would.",
+    "claimLabel": "The claim",
+    "pickHeading": "Which do you actually think?",
+    "pickNote": "Be honest. You will be arguing the other one.",
+    "pickPrefix": "I think",
+    "flipLabel": "Now switch sides",
+    "argueHeading": "Make the best case for: {side}",
+    "argueNote": "Not what you believe — you said {believed}. Write what someone who really thinks this would say, and put it as well as they would.",
+    "placeholder": "Someone who believes this would say...",
+    "counter": "{n} / {max}",
+    "grading": "Reading it...",
+    "submit": "Send it",
+    "fairnessLabel": "How the other side would take it",
+    "fairness": {
+      "strawman": "Not recognised",
+      "partial": "A real point",
+      "fair": "Fairly put",
+      "generous": "Better than they would say it"
+    },
+    "fairnessNote": {
+      "strawman": "Someone who holds this view would not see themselves here. That is the hard part of this game — try writing what they are actually worried about.",
+      "partial": "That is a real point they make, but a small one. What is the biggest thing they would say?",
+      "fair": "That is a point they genuinely make, put in a way they would accept. This is the skill.",
+      "generous": "They would wish they had put it that way. This one is rare."
+    },
+    "youArgued": "You argued: {side}",
+    "movesLabel": "You showed",
+    "revealLabel": "The strongest point for {side}",
+    "pushbackLabel": "One step further",
+    "doneTitle": "You have argued them all.",
+    "doneBody": "{count} claims argued from the side you did not hold. New ones arrive regularly.",
+    "emptyTitle": "No claims yet",
+    "emptyBody": "Claims are written and published by hand. Check back shortly.",
+    "seeProgress": "See your thinking level",
+    "errors": {
+      "tooShort": "A few more words — make the case properly.",
+      "tooLong": "That is longer than we can read. Trim it a little.",
+      "service": "Something went wrong reading that. Try once more.",
+      "noChild": "Choose who is learning first.",
+      "notFound": "That claim is not available.",
+      "badInput": "Pick a side first."
+    }
+  }
+}

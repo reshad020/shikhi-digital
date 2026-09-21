@@ -1,0 +1,6 @@
+# Supabase CLI local state. Never commit: once `supabase link` runs, .temp
+# holds the hosted project ref and start-secrets/ holds live service-role
+# keys, the JWT secret and the database URL.
+.branches
+.temp
+.env
