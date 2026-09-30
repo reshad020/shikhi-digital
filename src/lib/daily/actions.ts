@@ -63,8 +63,8 @@ export async function submitChallenge(input: {
     // 23505 = already answered today. Not an error worth showing a child.
     if (error && error.code !== "23505") throw error;
 
-    const { getStreak } = await import("./data");
-    const streak = await getStreak(child.id);
+    const { getActivityStreak } = await import("./data");
+    const streak = (await getActivityStreak(child.id)).days;
 
     // Deliberately NOT revalidating this path. The result — why the false claim
     // fails, and where the true one came from — is the entire point of the

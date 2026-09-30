@@ -5,7 +5,9 @@
   },
   "nav": {
     "lessons": "课程",
-    "progress": "我的进度"
+    "progress": "我的进度",
+    "parent": "家长",
+    "thinking": "我的文字"
   },
   "defend": {
     "heading": "你为什么选这个？",
@@ -286,7 +288,9 @@
     "shortcutProgress": "我的进度",
     "shortcutProgressNote": "你的思考等级",
     "shortcutSteelman": "换位辩论场",
-    "shortcutSteelmanNote": "为另一方辩护"
+    "shortcutSteelmanNote": "为另一方辩护",
+    "shortcutThinking": "我的文字",
+    "shortcutThinkingNote": "你写下的一切"
   },
   "steelman": {
     "title": "换位辩论场",
@@ -331,6 +335,54 @@
       "noChild": "请先选择正在学习的人。",
       "notFound": "这个说法暂时无法使用。",
       "badInput": "请先选一边。"
+    }
+  },
+  "parent": {
+    "title": "你的家庭",
+    "subtitle": "全都在一处：谁在想什么、谁已经好久没来、今晚饭桌上可以问点什么。",
+    "statusNeverStarted": "还没开始。把设备递过去，一起挑一节课。",
+    "statusQuiet": "已经 {days} 天没有活动了。值得问问是不是哪里让他不想来了。",
+    "statusSlipping": "本周 {thisWeek} 次活动，比上周的 {lastWeek} 次少。",
+    "statusSteady": "本周有 {days} 天在用。",
+    "statusFirstWeek": "第一周。现在还不适合从数字里看出什么。",
+    "statExplanations": "解释",
+    "statActivities": "活动",
+    "statDays": "天数",
+    "readReport": "阅读本周报告",
+    "reportNeeds": "再写 {count} 段解释，本周的报告就会解锁。",
+    "lastSeen": "最近一次 {when}",
+    "lastSeenNever": "还没开始",
+    "handOver": "交给{name}",
+    "dinnerTitle": "今晚问问{name}",
+    "dinnerBlurb": "取自本周报告。不需要屏幕，最后一个最容易回答。",
+    "noMinutesTitle": "我们不统计分钟数。",
+    "noMinutesBody": "这里没有使用时长，因为这个产品里没有任何东西会奖励待得更久。报告是根据孩子写下的内容生成的，而不是根据他停留了多长时间。",
+    "settingsTitle": "设置",
+    "addChild": "添加孩子",
+    "emailStart": "把每周报告发到我邮箱",
+    "emailStop": "停止每周邮件"
+  },
+  "thinking": {
+    "title": "你写下的一切",
+    "lead": "已经保存了你 {count} 段思考，一共 {words} 个字，全是你自己想出来的。",
+    "emptyLead": "你写的东西会存放在这里。",
+    "emptyTitle": "这里还没有内容",
+    "emptyBody": "每次你说明自己为什么这样想，都会保存在这里——用你自己的原话，一字不改。",
+    "emptyCta": "去写点什么",
+    "streak": "连续 {count} 天",
+    "forgiven": "我们放过了 {count} 个没来的日子——每周漏一天也能继续。",
+    "bestTitle": "你目前最精彩的一段",
+    "bestBlurb": "挑选方式和给大人的每周报告选引文的方式一样。",
+    "firstsTitle": "第一次",
+    "firstsBlurb": "每一种思考方式第一次出现在你写的东西里的时候。",
+    "firstTime": "第一次：{move}",
+    "allTitle": "全部",
+    "fromLesson": "来自一节课",
+    "fromSteelman": "来自辩论场",
+    "quality": {
+      "developing": "待发展",
+      "solid": "扎实",
+      "excellent": "优秀"
     }
   }
 }

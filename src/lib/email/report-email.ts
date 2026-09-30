@@ -39,11 +39,14 @@ export function renderReportEmail({
   childName,
   report,
   reportUrl,
+  hubUrl,
   unsubscribeUrl,
 }: {
   childName: string;
   report: WeeklyReportRow;
   reportUrl: string;
+  /** The parent hub: every child, not just the one this email is about. */
+  hubUrl: string;
   unsubscribeUrl: string;
 }): { html: string; text: string } {
   const questions = (report.dinner_questions as string[]) ?? [];
@@ -76,6 +79,7 @@ export function renderReportEmail({
     ...questions.map((q, i) => `${i + 1}. ${q}`),
     "",
     `Read it online: ${reportUrl}`,
+    `All your children: ${hubUrl}`,
     `Stop these emails: ${unsubscribeUrl}`,
   ]
     .filter((line) => line !== "")
@@ -148,6 +152,7 @@ export function renderReportEmail({
 
         <tr><td style="padding:26px 28px 28px;">
           <a href="${esc(reportUrl)}" style="display:inline-block;background:#6b41e8;color:#ffffff;text-decoration:none;font-weight:700;font-size:15px;padding:12px 24px;border-radius:999px;">Open it online</a>
+          <a href="${esc(hubUrl)}" style="display:inline-block;margin-inline-start:8px;border:2px solid #e6e3ef;color:#241f36;text-decoration:none;font-weight:700;font-size:15px;padding:10px 22px;border-radius:999px;">All your children</a>
           <p style="margin:18px 0 0;font-size:12px;line-height:1.6;color:#8a8599;">
             Forward this to anyone who should read it. The online version stays behind your account.
             <br>

@@ -8,10 +8,16 @@ export type AuthState = { error?: string; notice?: string };
 
 const MIN_PASSWORD = 8;
 
-/** Only ever redirect to a path on this site — never to a URL a caller supplied. */
+/**
+ * Only ever redirect to a path on this site — never to a URL a caller supplied.
+ *
+ * With nowhere specific to return to, an adult who has just typed a password
+ * lands on the parent hub rather than in the child's lesson library. Children
+ * have no logins here, so authenticating is by definition a grown-up action.
+ */
 function safeNext(value: FormDataEntryValue | null) {
   const next = typeof value === "string" ? value : "";
-  return next.startsWith("/") && !next.startsWith("//") ? next : "/";
+  return next.startsWith("/") && !next.startsWith("//") ? next : "/parent";
 }
 
 export async function signIn(_prev: AuthState, formData: FormData): Promise<AuthState> {

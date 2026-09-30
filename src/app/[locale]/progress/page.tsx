@@ -112,6 +112,18 @@ export default async function ProgressPage({ params }: PageProps<"/[locale]/prog
             </li>
             <li>
               <Link
+                href="/thinking"
+                className="flex items-center gap-2 font-bold text-primary underline underline-offset-4"
+              >
+                Everything you have written
+                <ArrowRight className="size-4 rtl:rotate-180" />
+              </Link>
+              <span className="block text-sm text-muted-foreground">
+                Every badge above came from something you wrote. It is all still there.
+              </span>
+            </li>
+            <li>
+              <Link
                 href="/learn"
                 className="flex items-center gap-2 font-bold text-primary underline underline-offset-4"
               >

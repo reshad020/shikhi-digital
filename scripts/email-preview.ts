@@ -58,6 +58,7 @@ const { html, text } = renderReportEmail({
   childName: "Maya",
   report,
   reportUrl: "https://shikhi.digital/en/report/00000000-0000-0000-0000-0000000000c1",
+  hubUrl: "https://shikhi.digital/en/parent",
   unsubscribeUrl: `https://shikhi.digital/unsubscribe?token=${token}`,
 });
 

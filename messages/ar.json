@@ -5,7 +5,9 @@
   },
   "nav": {
     "lessons": "الدروس",
-    "progress": "تقدّمي"
+    "progress": "تقدّمي",
+    "parent": "أولياء الأمور",
+    "thinking": "كتاباتي"
   },
   "defend": {
     "heading": "لماذا اخترت هذا؟",
@@ -286,7 +288,9 @@
     "shortcutProgress": "تقدّمي",
     "shortcutProgressNote": "مستوى تفكيرك",
     "shortcutSteelman": "حلبة الرأي المخالف",
-    "shortcutSteelmanNote": "دافع عن الجانب الآخر"
+    "shortcutSteelmanNote": "دافع عن الجانب الآخر",
+    "shortcutThinking": "كتاباتي",
+    "shortcutThinkingNote": "كل ما كتبته"
   },
   "steelman": {
     "title": "حلبة الرأي المخالف",
@@ -331,6 +335,54 @@
       "noChild": "اختر أولًا من يتعلّم.",
       "notFound": "هذا الادّعاء غير متاح.",
       "badInput": "اختر جانبًا أولًا."
+    }
+  },
+  "parent": {
+    "title": "عائلتك",
+    "subtitle": "كل شيء في مكان واحد: من يفكّر في ماذا، ومن انقطع، وما الذي تسأله الليلة على المائدة.",
+    "statusNeverStarted": "لم يبدأ بعد. ناوله الجهاز واختارا درسًا معًا.",
+    "statusQuiet": "لا نشاط منذ {days} يومًا. يستحق أن تسأل إن كان شيء ما قد أبعده.",
+    "statusSlipping": "{thisWeek} نشاطًا هذا الأسبوع، بعد {lastWeek} الأسبوع الماضي.",
+    "statusSteady": "نشِط في {days} {days, plural, one {يوم} other {أيام}} هذا الأسبوع.",
+    "statusFirstWeek": "الأسبوع الأول. من المبكر استخلاص أي شيء من الأرقام.",
+    "statExplanations": "تعليلات",
+    "statActivities": "أنشطة",
+    "statDays": "أيام",
+    "readReport": "اقرأ تقرير هذا الأسبوع",
+    "reportNeeds": "{count} {count, plural, one {تعليل مكتوب} other {تعليلات مكتوبة}} أخرى ويُفتح تقرير هذا الأسبوع.",
+    "lastSeen": "آخر مرة {when}",
+    "lastSeenNever": "لم يبدأ بعد",
+    "handOver": "سلّمه إلى {name}",
+    "dinnerTitle": "اسأل {name} الليلة",
+    "dinnerBlurb": "من تقرير هذا الأسبوع. بلا شاشة، والسؤال الأخير هو الأسهل.",
+    "noMinutesTitle": "نحن لا نحسب الدقائق.",
+    "noMinutesBody": "لا يوجد هنا رقم لوقت الاستخدام، لأن لا شيء في هذا المنتج يكافئ البقاء وقتًا أطول. التقرير يُبنى مما كتبه طفلك، لا من طول بقائه.",
+    "settingsTitle": "الإعدادات",
+    "addChild": "أضف طفلًا",
+    "emailStart": "أرسل إليّ التقرير الأسبوعي",
+    "emailStop": "أوقف الرسالة الأسبوعية"
+  },
+  "thinking": {
+    "title": "كل ما كتبته",
+    "lead": "{count} من كتاباتك محفوظة هنا، أي {words} كلمة توصّلت إليها بنفسك.",
+    "emptyLead": "هنا ستعيش كتاباتك.",
+    "emptyTitle": "لا شيء هنا بعد",
+    "emptyBody": "كلما شرحت لماذا تظن شيئًا ما، حُفظ هنا — بكلماتك أنت، كما كتبتها تمامًا.",
+    "emptyCta": "اذهب واكتب شيئًا",
+    "streak": "{count} {count, plural, one {يوم متتالٍ} other {أيام متتالية}}",
+    "forgiven": "تجاوزنا لك {count} {count, plural, one {يومًا فائتًا} other {أيام فائتة}} — يمكنك أن تفوّت يومًا في الأسبوع وتستمر.",
+    "bestTitle": "أمضى ما كتبته حتى الآن",
+    "bestBlurb": "اختير بالطريقة نفسها التي يختار بها التقرير الأسبوعي اقتباسه.",
+    "firstsTitle": "المرات الأولى",
+    "firstsBlurb": "أول مرة ظهر فيها كل نوع من التفكير في شيء كتبته.",
+    "firstTime": "أول مرة: {move}",
+    "allTitle": "كل شيء",
+    "fromLesson": "من درس",
+    "fromSteelman": "من الحلبة",
+    "quality": {
+      "developing": "قيد التطوّر",
+      "solid": "متين",
+      "excellent": "ممتاز"
     }
   }
 }

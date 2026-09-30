@@ -106,6 +106,7 @@ export async function sendWeeklyReports({
       }
 
       const reportUrl = `${SITE.url}/${result.report.locale}/report/${child.id}`;
+      const hubUrl = `${SITE.url}/${result.report.locale}/parent`;
       const unsubscribeUrl = `${SITE.url}/unsubscribe?token=${encodeURIComponent(
         unsubscribeToken(parent.id),
       )}`;
@@ -114,6 +115,7 @@ export async function sendWeeklyReports({
         childName: child.name,
         report: result.report,
         reportUrl,
+        hubUrl,
         unsubscribeUrl,
       });
 

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ArrowRight, CalendarDays, ScanSearch, Swords, TrendingUp } from "lucide-react";
+import { ArrowRight, CalendarDays, NotebookPen, ScanSearch, Swords, TrendingUp } from "lucide-react";
 import { LessonGrid } from "@/components/library/lesson-grid";
 import { SiteHeader } from "@/components/site-header";
 import { Link } from "@/i18n/navigation";
@@ -47,7 +47,7 @@ export default async function LearnIndexPage({ params }: PageProps<"/[locale]/le
         {/* The two daily habits sit above the library on purpose: both are
             short, both are meant to be returned to, and both feed the same
             progression a lesson does. */}
-        <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <Shortcut
             href="/daily"
             icon={<CalendarDays className="size-5 text-sky" />}
@@ -65,6 +65,12 @@ export default async function LearnIndexPage({ params }: PageProps<"/[locale]/le
             icon={<Swords className="size-5 text-grape" />}
             title={t("shortcutSteelman")}
             note={t("shortcutSteelmanNote")}
+          />
+          <Shortcut
+            href="/thinking"
+            icon={<NotebookPen className="size-5 text-tangerine" />}
+            title={t("shortcutThinking")}
+            note={t("shortcutThinkingNote")}
           />
           <Shortcut
             href="/progress"
@@ -89,7 +95,7 @@ function Shortcut({
   title,
   note,
 }: {
-  href: "/daily" | "/tricks" | "/progress" | "/steelman";
+  href: "/daily" | "/tricks" | "/progress" | "/steelman" | "/thinking";
   icon: React.ReactNode;
   title: string;
   note: string;

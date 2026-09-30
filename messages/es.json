@@ -5,7 +5,9 @@
   },
   "nav": {
     "lessons": "Lecciones",
-    "progress": "Mi progreso"
+    "progress": "Mi progreso",
+    "parent": "Familias",
+    "thinking": "Mis textos"
   },
   "defend": {
     "heading": "¿Por qué elegiste eso?",
@@ -286,7 +288,9 @@
     "shortcutProgress": "Mi progreso",
     "shortcutProgressNote": "Tu nivel de pensamiento",
     "shortcutSteelman": "Arena del contrario",
-    "shortcutSteelmanNote": "Defiende la otra postura"
+    "shortcutSteelmanNote": "Defiende la otra postura",
+    "shortcutThinking": "Mis textos",
+    "shortcutThinkingNote": "Todo lo que has escrito"
   },
   "steelman": {
     "title": "Arena del contrario",
@@ -331,6 +335,54 @@
       "noChild": "Elige primero quién está aprendiendo.",
       "notFound": "Esa afirmación no está disponible.",
       "badInput": "Elige un bando primero."
+    }
+  },
+  "parent": {
+    "title": "Tu familia",
+    "subtitle": "Todo en un sitio: quién está pensando en qué, quién lleva tiempo sin aparecer y qué preguntar esta noche en la mesa.",
+    "statusNeverStarted": "Todavía no ha empezado. Pásale el dispositivo y elegid una lección juntos.",
+    "statusQuiet": "Sin actividad desde hace {days} días. Merece la pena preguntar si algo le frenó.",
+    "statusSlipping": "{thisWeek} actividades esta semana, frente a {lastWeek} la semana pasada.",
+    "statusSteady": "Activo {days} {days, plural, one {día} other {días}} esta semana.",
+    "statusFirstWeek": "Primera semana. Todavía es pronto para sacar conclusiones de los números.",
+    "statExplanations": "Explicaciones",
+    "statActivities": "Actividades",
+    "statDays": "Días",
+    "readReport": "Leer el informe de esta semana",
+    "reportNeeds": "{count} {count, plural, one {explicación escrita más} other {explicaciones escritas más}} y se desbloquea el informe de esta semana.",
+    "lastSeen": "Última vez {when}",
+    "lastSeenNever": "Aún no ha empezado",
+    "handOver": "Pasar a {name}",
+    "dinnerTitle": "Pregúntale a {name} esta noche",
+    "dinnerBlurb": "Del informe de esta semana. Sin pantallas, y la última es la más fácil.",
+    "noMinutesTitle": "No contamos minutos.",
+    "noMinutesBody": "Aquí no hay una cifra de tiempo de uso, porque nada en este producto premia quedarse más rato. El informe se construye con lo que tu hijo escribió, no con el tiempo que estuvo.",
+    "settingsTitle": "Ajustes",
+    "addChild": "Añadir un niño",
+    "emailStart": "Enviarme el informe semanal",
+    "emailStop": "Desactivar el correo semanal"
+  },
+  "thinking": {
+    "title": "Todo lo que has escrito",
+    "lead": "{count, plural, one {# texto} other {# textos}} de tu pensamiento, guardados. Son {words} palabras que resolviste tú.",
+    "emptyLead": "Aquí vivirá lo que escribas.",
+    "emptyTitle": "Todavía no hay nada",
+    "emptyBody": "Cada vez que expliques por qué piensas algo, se guardará aquí: con tus palabras, tal y como las escribiste.",
+    "emptyCta": "Ve a escribir algo",
+    "streak": "{count, plural, one {# día seguido} other {# días seguidos}}",
+    "forgiven": "{count, plural, one {Te perdonamos un día} other {Te perdonamos # días}} — puedes fallar un día a la semana y seguir.",
+    "bestTitle": "Tu mejor texto hasta ahora",
+    "bestBlurb": "Elegido igual que el informe semanal de tu adulto elige lo que cita.",
+    "firstsTitle": "Primeras veces",
+    "firstsBlurb": "La primera vez que cada tipo de pensamiento apareció en algo que escribiste.",
+    "firstTime": "Primera vez: {move}",
+    "allTitle": "Todo",
+    "fromLesson": "De una lección",
+    "fromSteelman": "De la arena",
+    "quality": {
+      "developing": "En desarrollo",
+      "solid": "Sólido",
+      "excellent": "Excelente"
     }
   }
 }

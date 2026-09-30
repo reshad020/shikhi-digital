@@ -109,14 +109,21 @@ export default async function proxy(request: NextRequest) {
     return NextResponse.redirect(signIn);
   }
 
+  // Already signed in and back on an auth page: the hub, for the same reason
+  // as the sign-in redirect itself.
   if (user && (bare === "/signin" || bare === "/signup")) {
-    return NextResponse.redirect(landing(request, "/learn"));
+    return NextResponse.redirect(landing(request, "/parent"));
   }
 
   // "/" is the marketing page, and a signed-in family has already been sold
-  // to. Bouncing them here rather than branching inside the page is what lets
-  // the landing page stay statically rendered: the session has been resolved
-  // above regardless, so this check costs nothing extra.
+  // to. It goes to the LIBRARY rather than the parent hub because "/" is what
+  // the logo links to, and on a shared device that tap is nearly always a
+  // child wanting the next lesson. An adult arriving deliberately comes
+  // through sign-in, the header, or a link in the weekly email.
+  //
+  // Bouncing here rather than branching inside the page is what lets the
+  // landing page stay statically rendered: the session has been resolved above
+  // regardless, so this check costs nothing extra.
   if (user && bare === "/") {
     return NextResponse.redirect(landing(request, "/learn"));
   }

@@ -4,7 +4,7 @@ import { CalendarDays, Check } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { FakeOrReal } from "@/components/daily/fake-or-real";
 import { getActiveChild, listChildren } from "@/lib/data/children";
-import { getAttempt, getStreak, getTodaysChallenge } from "@/lib/daily/data";
+import { getActivityStreak, getAttempt, getTodaysChallenge } from "@/lib/daily/data";
 import type { Tell } from "@/lib/daily/tells";
 
 export default async function DailyPage({ params }: PageProps<"/[locale]/daily">) {
@@ -35,7 +35,7 @@ export default async function DailyPage({ params }: PageProps<"/[locale]/daily">
 
   const [attempt, streak] = await Promise.all([
     getAttempt(child.id, challenge.id),
-    getStreak(child.id),
+    getActivityStreak(child.id),
   ]);
 
   // Shuffled here rather than in the browser: the true claim must not be
@@ -62,8 +62,8 @@ export default async function DailyPage({ params }: PageProps<"/[locale]/daily">
             <Check className="size-10 text-mint" aria-hidden />
             <p className="font-heading text-2xl font-extrabold">{t("alreadyPlayed")}</p>
             <p className="text-muted-foreground">{t("comeBack")}</p>
-            {streak > 0 && (
-              <p className="font-bold text-tangerine">{t("streakLabel", { count: streak })}</p>
+            {streak.days > 0 && (
+              <p className="font-bold text-tangerine">{t("streakLabel", { count: streak.days })}</p>
             )}
           </div>
         ) : (
@@ -71,7 +71,7 @@ export default async function DailyPage({ params }: PageProps<"/[locale]/daily">
             challengeId={challenge.id}
             claims={claims}
             tellOptions={tellOptions}
-            startingStreak={streak}
+            startingStreak={streak.days}
           />
         )}
       </main>

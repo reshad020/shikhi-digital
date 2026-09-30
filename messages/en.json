@@ -5,7 +5,9 @@
   },
   "nav": {
     "lessons": "Lessons",
-    "progress": "My Progress"
+    "progress": "My Progress",
+    "parent": "Parents",
+    "thinking": "My Writing"
   },
   "defend": {
     "heading": "Why did you pick that?",
@@ -286,7 +288,9 @@
     "shortcutProgress": "My Progress",
     "shortcutProgressNote": "Your thinking level",
     "shortcutSteelman": "Steelman Arena",
-    "shortcutSteelmanNote": "Argue the other side"
+    "shortcutSteelmanNote": "Argue the other side",
+    "shortcutThinking": "My Writing",
+    "shortcutThinkingNote": "Everything you have written"
   },
   "steelman": {
     "title": "Steelman Arena",
@@ -331,6 +335,54 @@
       "noChild": "Choose who is learning first.",
       "notFound": "That claim is not available.",
       "badInput": "Pick a side first."
+    }
+  },
+  "parent": {
+    "title": "Your family",
+    "subtitle": "Everything in one place: who is thinking about what, who has gone quiet, and what to ask at the table tonight.",
+    "statusNeverStarted": "Has not started yet. Hand the device over and pick a lesson together.",
+    "statusQuiet": "Quiet for {days} days. Worth asking whether something put them off.",
+    "statusSlipping": "{thisWeek} activities this week, down from {lastWeek} last week.",
+    "statusSteady": "Active on {days} {days, plural, one {day} other {days}} this week.",
+    "statusFirstWeek": "First week. Too early to read anything into the numbers.",
+    "statExplanations": "Explanations",
+    "statActivities": "Activities",
+    "statDays": "Days",
+    "readReport": "Read this week's report",
+    "reportNeeds": "{count} more written {count, plural, one {explanation} other {explanations}} and this week's report unlocks.",
+    "lastSeen": "Last here {when}",
+    "lastSeenNever": "Not started yet",
+    "handOver": "Hand to {name}",
+    "dinnerTitle": "Ask {name} tonight",
+    "dinnerBlurb": "From this week's report. No screen needed, and the last one is the easiest.",
+    "noMinutesTitle": "We do not count minutes.",
+    "noMinutesBody": "There is no time-on-app figure here, because nothing in this product rewards staying longer. The report is built from what your child wrote, not from how long they stayed.",
+    "settingsTitle": "Settings",
+    "addChild": "Add a child",
+    "emailStart": "Email me the weekly report",
+    "emailStop": "Stop the weekly email"
+  },
+  "thinking": {
+    "title": "Everything you have written",
+    "lead": "{count, plural, one {# piece} other {# pieces}} of your thinking, kept. That is {words} words you worked out for yourself.",
+    "emptyLead": "This is where your writing will live.",
+    "emptyTitle": "Nothing here yet",
+    "emptyBody": "Every time you explain why you think something, it gets saved here — in your own words, exactly as you wrote them.",
+    "emptyCta": "Go and write something",
+    "streak": "{count, plural, one {# day in a row} other {# days in a row}}",
+    "forgiven": "{count, plural, one {We let one missed day go} other {We let # missed days go}} — you can miss a day a week and keep going.",
+    "bestTitle": "Your sharpest piece so far",
+    "bestBlurb": "Chosen the same way your grown-up's weekly report chooses what to quote.",
+    "firstsTitle": "Firsts",
+    "firstsBlurb": "The first time each kind of thinking showed up in something you wrote.",
+    "firstTime": "First time: {move}",
+    "allTitle": "All of it",
+    "fromLesson": "From a lesson",
+    "fromSteelman": "From the arena",
+    "quality": {
+      "developing": "Developing",
+      "solid": "Solid",
+      "excellent": "Excellent"
     }
   }
 }

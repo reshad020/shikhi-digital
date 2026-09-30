@@ -77,6 +77,19 @@ export function SiteHeader({
             </Link>
           )}
           {signedIn && (
+            <Link className="rounded-full px-3 py-2 hover:bg-muted" href="/thinking">
+              {t("thinking")}
+            </Link>
+          )}
+          {signedIn && (
+            <Link
+              className="rounded-full px-3 py-2 font-bold text-foreground hover:bg-muted"
+              href="/parent"
+            >
+              {t("parent")}
+            </Link>
+          )}
+          {signedIn && (
             <Link className="rounded-full px-3 py-2 hover:bg-muted" href="/progress">
               {t("progress")}
             </Link>

@@ -13,7 +13,8 @@
     "db:reset": "npx supabase db reset",
     "db:types": "npx supabase gen types typescript --local > src/lib/supabase/types.generated.ts",
     "db:studio": "npx supabase status",
-    "email:preview": "tsx --conditions=react-server scripts/email-preview.ts"
+    "email:preview": "tsx --conditions=react-server scripts/email-preview.ts",
+    "test:streak": "tsx scripts/streak-test.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

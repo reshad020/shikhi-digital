@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ArrowLeft, Mail, MailX, MessageCircleQuestion, Quote, Sprout, TrendingUp } from "lucide-react";
+import { ArrowLeft, MessageCircleQuestion, Quote, Sprout, TrendingUp } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { MOVE_LABELS, type ThinkingMove } from "@/lib/reasoning/moves";
 import { getWeeklyReport } from "@/lib/report/build";
 import { createClient } from "@/lib/supabase/server";
-import { setWeeklyEmail } from "./actions";
+import { EmailToggle } from "@/components/parent/email-toggle";
 
 export const metadata: Metadata = {
   title: "This week's thinking",
@@ -19,6 +19,7 @@ export default async function ReportPage({ params }: PageProps<"/[locale]/report
   const { locale, childId } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("report");
+  const tp = await getTranslations("parent");
 
   // Row level security means a childId belonging to another family simply
   // returns nothing, so there is no ownership check to write here.
@@ -138,27 +139,23 @@ export default async function ReportPage({ params }: PageProps<"/[locale]/report
         </ol>
       </section>
 
-      {/* The delivery preference lives with the thing being delivered, rather
-          than in a settings page nobody opens. */}
+      {/* The delivery preference, next to the thing being delivered. The same
+          switch lives on the parent hub; both drive one action. */}
       <section className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl border-2 border-dashed bg-card p-5">
         <p className="text-sm font-semibold">
           {emailOn ? t("emailOnLabel") : t("emailOffLabel")}
         </p>
-        <form action={setWeeklyEmail}>
-          <input type="hidden" name="enabled" value={emailOn ? "false" : "true"} />
-          <Button
-            type="submit"
-            variant="outline"
-            className="h-10 rounded-full border-2 font-bold"
-          >
-            {emailOn ? <MailX className="size-4" /> : <Mail className="size-4" />}
-            {emailOn ? t("emailStop") : t("emailStart")}
-          </Button>
-        </form>
+        <EmailToggle enabled={emailOn} />
       </section>
 
-      <footer className="mt-8 border-t pt-5 text-sm text-muted-foreground">
-        {t("footer")}
+      <footer className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t pt-5 text-sm text-muted-foreground">
+        <span>{t("footer")}</span>
+        <Link
+          href="/parent"
+          className="font-bold text-primary underline underline-offset-4"
+        >
+          {tp("title")}
+        </Link>
       </footer>
     </main>
   );

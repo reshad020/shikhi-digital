@@ -5,10 +5,11 @@ import type { Tables } from "@/lib/supabase/types";
 export type DailyChallenge = Tables<"daily_challenges">;
 export type ChallengeAttempt = Tables<"challenge_attempts">;
 
-/** UTC day key, so "today" means the same thing on the server and in the database. */
-export function todayKey(now = new Date()) {
-  return now.toISOString().slice(0, 10);
-}
+// Defined in ./streak, which is pure so the streak rule can be tested outside
+// a request. Re-exported here because every existing caller imports it from
+// this module.
+export { todayKey } from "./streak";
+import { computeStreak, todayKey, type Streak } from "./streak";
 
 /**
  * Today's challenge for a locale, falling back to English.
@@ -50,38 +51,39 @@ export async function getAttempt(
 }
 
 /**
- * Consecutive days ending today or yesterday.
+ * The streak a child actually sees: any activity, in any part of the product.
  *
- * Yesterday still counts as alive: a child who has not played *yet today* has
- * not broken anything, and showing a zeroed streak before they have had the
- * chance is both wrong and discouraging.
+ * `getStreak` above counts Fake or Real alone and is kept only for the daily
+ * game's own "you have played N days running" line. This is the one every
+ * other surface uses, because a child who wrote three explanations and argued
+ * a steelman has plainly shown up — and telling them otherwise punishes the
+ * exact behaviour the product wants most.
  */
-export async function getStreak(childId: string): Promise<number> {
+export async function getActivityStreak(childId: string): Promise<Streak> {
   const supabase = await createClient();
-  const { data } = await supabase
-    .from("challenge_attempts")
-    .select("created_at, daily_challenges(publish_on)")
-    .eq("child_id", childId)
-    .order("created_at", { ascending: false })
-    .limit(400);
+
+  const [reasoning, steelman, daily, puzzles] = await Promise.all([
+    supabase.from("reasoning_attempts").select("created_at").eq("child_id", childId),
+    supabase.from("steelman_attempts").select("created_at").eq("child_id", childId),
+    supabase
+      .from("challenge_attempts")
+      .select("created_at, daily_challenges(publish_on)")
+      .eq("child_id", childId),
+    supabase.from("puzzle_attempts").select("created_at").eq("child_id", childId),
+  ]);
 
   const days = new Set<string>();
-  for (const row of data ?? []) {
+  for (const row of [
+    ...(reasoning.data ?? []),
+    ...(steelman.data ?? []),
+    ...(puzzles.data ?? []),
+  ]) {
+    days.add(String(row.created_at).slice(0, 10));
+  }
+  for (const row of daily.data ?? []) {
     const publishOn = (row.daily_challenges as { publish_on: string } | null)?.publish_on;
     days.add(publishOn ?? String(row.created_at).slice(0, 10));
   }
-  if (days.size === 0) return 0;
 
-  const cursor = new Date(`${todayKey()}T00:00:00Z`);
-  if (!days.has(todayKey())) {
-    cursor.setUTCDate(cursor.getUTCDate() - 1);
-    if (!days.has(cursor.toISOString().slice(0, 10))) return 0;
-  }
-
-  let streak = 0;
-  while (days.has(cursor.toISOString().slice(0, 10))) {
-    streak++;
-    cursor.setUTCDate(cursor.getUTCDate() - 1);
-  }
-  return streak;
+  return computeStreak(days);
 }

@@ -555,6 +555,220 @@ Decisions that are load-bearing:
   version of this business makes more money. Parents evaluating children's
   software read for exactly that list and almost never find it.
 
+## Everything you have written — the child's archive
+
+`/[locale]/thinking`.
+
+The data behind this page always existed and the child had never seen a word of
+it. They wrote an explanation, read one verdict screen, and it was gone: the row
+went on to feed the rank engine, the safety queue, and a weekly report **quoted
+to their parent**. The person whose words they were was the only one who never
+got to read them back — which is the wrong way round for a product whose whole
+claim is that what a child writes matters more than which box they ticked.
+
+```
+src/lib/thinking/archive.ts        merge, rank, and date the firsts
+src/components/thinking/entry-card.tsx
+src/app/[locale]/thinking/
+```
+
+- **Their words are the largest type on the card.** It is not a score report;
+  it is evidence that what they wrote was worth keeping.
+- **The grader's reply is shown in full.** That reply is the only place in the
+  product where a child can see that a real sentence of theirs was read closely
+  and answered specifically. Being read closely is what makes a child bother to
+  write properly next time, and this is where they find out it happened.
+- **"Firsts" are dated.** The first time each kind of thinking ever appeared in
+  their writing — a record of a moment rather than a badge for an action, and
+  the one piece of celebration on the page.
+- **The sharpest piece is chosen by `pickQuote`**, the same ranking the weekly
+  report uses, so the piece a child is proudest of is the piece their parent
+  read about.
+- **Weak work is not hidden.** An early "I just knew it" sits in the timeline
+  next to a later excellent one, because that contrast *is* the growth story,
+  and the grader's reply to it is constructive rather than a mark.
+- **The pinned piece is excluded from the timeline** rather than repeated. A
+  gap in the chronology is fine; the same card twice makes a child's own
+  archive look padded.
+
+## The streak rule
+
+```
+src/lib/daily/streak.ts     computeStreak, pure
+scripts/streak-test.ts      npm run test:streak
+```
+
+Two changes, both from what actually keeps a habit alive rather than what looks
+strict:
+
+- **Every activity counts.** The old rule counted Fake or Real alone, so a
+  child who played three lessons and argued a steelman but skipped the
+  ninety-second daily challenge lost their streak — the product punished
+  precisely the behaviour it most wants. Lowering the bar to "did something"
+  matters more for habit formation than what was done on the day.
+- **One missed day in seven is forgiven, and the child is told.** A streak that
+  shatters on the first bad evening teaches children to fear it and then
+  abandon it. The forgiveness is shown — *"we let one missed day go"* — because
+  a hidden mechanic that quietly rescues you is a lie, and being told is the
+  part that makes a child feel the system is on their side.
+
+`computeStreak` is pure so it can be tested without a request, and it is:
+`npm run test:streak` covers the window rule, the yesterday grace period, stale
+streaks, and the phantom-rescue case where a forgiven day sits behind the end
+of the run. The superseded Fake-or-Real-only implementation was deleted rather
+than left beside it — two streak rules in one file is how they drift apart.
+
+## The parent hub
+
+`/[locale]/parent`. Before it existed the product had no adult surface at all:
+signing in dropped you into the child's lesson library, and the only
+parent-facing page was one child's frozen weekly report — reachable only if
+that child handed the device over at the right moment.
+
+```
+src/lib/parent/overview.ts       the family snapshot, one batched read
+src/lib/parent/email-actions.ts  the weekly-email switch
+src/components/parent/child-card.tsx
+src/components/parent/email-toggle.tsx
+src/app/[locale]/parent/
+```
+
+The page is ordered by the questions a parent actually arrives with: who is
+doing what, is anyone drifting, what came back this week, what do I do about it
+tonight, then settings.
+
+Two decisions here are the whole point, and both run against category
+convention:
+
+- **It is allowed to deliver bad news.** `attention` is computed honestly and
+  can say *"Quiet for 11 days. Worth asking whether something put them off."* on
+  the page whose job is to justify a subscription. The single largest reason a
+  family cancels a children's learning product is that the child quietly
+  stopped using it while the dashboard kept reporting streaks and stars — so
+  the cancellation arrives as a surprise to everyone. A hub that only ever
+  reports good news is one a parent learns to stop reading.
+- **There is no time-on-app figure, and the page says so.** Every comparable
+  dashboard reports minutes, which quietly makes *longer* read as *better* —
+  the opposite of what this product sells. Days active and activities completed
+  are real counts from real rows; a minutes number would be a guess dressed as
+  a measurement. The refusal is stated on the page, next to the numbers.
+
+Smaller things worth keeping:
+
+- **One batched read for the whole family.** Four activity tables are queried
+  once each with `in (...)` rather than once per child, and daily streaks are
+  computed from the same rows via `streakFromDays` so there is no second copy
+  of the streak rule. The rank is the exception: it still goes through
+  `computeProfile` per child, because one source of truth for a rank is worth
+  more than the round trips it costs.
+- **"Hand to Maya"** sets the active-child cookie and goes to the library. It
+  is the physical reality of a family sharing one tablet, and it was previously
+  a three-page detour.
+- **Signing in lands on the hub; `/` still lands on the library.** Children
+  have no logins, so typing a password is by definition an adult action. But
+  `/` is what the logo links to, and on a shared device that tap is nearly
+  always a child wanting the next lesson.
+- **The dinner questions are lifted onto the hub**, because they are the one
+  part of the report a parent can act on tonight and they were two clicks deep.
+- **"Report unlocks after N more explanations"** is shown rather than hidden.
+  The three-explanation floor already existed; not explaining it just made the
+  report look broken.
+
+## Deploying to Vercel
+
+The build is clean and `next start` serves every public route, but a fresh
+deploy is **not** usable until the database behind it exists and has content in
+it. In order:
+
+### 1. The database
+
+```bash
+npx supabase link --project-ref <project-ref>
+npx supabase db push          # applies all seven migrations
+```
+
+`db push` applies migrations and **not** `supabase/seed.sql` — seed only runs
+on a local `db reset`. A hosted project therefore comes up with no lessons, no
+daily challenges, no trick puzzles and no steelman claims, and every activity
+renders its empty state. Load the seed once from the Supabase dashboard
+(SQL Editor → paste `supabase/seed.sql`) or:
+
+```bash
+psql "$SUPABASE_DB_URL" -f supabase/seed.sql
+```
+
+Then promote yourself so `/admin` resolves, and generate the rest of the
+content from there:
+
+```sql
+update public.profiles set role = 'admin' where email = 'you@example.com';
+```
+
+### 2. Auth configuration
+
+Supabase → Authentication → **URL Configuration**:
+
+- **Site URL**: the production domain.
+- **Redirect URLs**: `https://<domain>/auth/callback`, plus the Vercel preview
+  pattern `https://<project>-*.vercel.app/auth/callback`. Google sign-in calls
+  `signInWithOAuth` from the browser, so every preview deployment is a
+  different origin and an unlisted one fails silently.
+
+Turn **email confirmation** on for the hosted project. It is off locally, which
+is why `/auth/callback` had never been exercised — see the note in `proxy.ts`
+about that route having 404'd until the unlocalised-path fix.
+
+Google also needs the provider credentials filled in (see **Sign-in** above).
+
+### 3. Environment variables on Vercel
+
+Set for Production **and** Preview. Nothing here is optional except where said:
+
+| Variable | Notes |
+| --- | --- |
+| `NEXT_PUBLIC_SUPABASE_URL` | |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | |
+| `SUPABASE_SERVICE_ROLE_KEY` | Bypasses RLS. Never prefix `NEXT_PUBLIC_`. |
+| `GEMINI_API_KEY` | Without it, grading and generation fail. |
+| `GEMINI_MODEL` | Optional; defaults to `gemini-3.8-flash`. |
+| `NEXT_PUBLIC_SITE_URL` | Canonical URLs, OG tags, and every link inside the weekly email. |
+| `CRON_SECRET` | Vercel attaches it as a bearer token automatically. **Unset means the cron route 404s and the weekly email never sends.** |
+| `RESEND_API_KEY` | Optional; without it the job logs `not-configured` and sends nothing. |
+| `EMAIL_FROM` | Required if `RESEND_API_KEY` is set, on a domain verified with Resend. |
+
+### 4. What is already wired
+
+- `vercel.json` carries the weekly cron (`0 17 * * 0`) and pins the region to
+  `sin1`.
+- `maxDuration` on the cron route is **60**, the Hobby ceiling — a higher value
+  fails the deployment outright rather than being clamped. Raise it to 300 on
+  Pro when the family count needs it; the job is safe to cut short either way,
+  because `emailed_at` is stamped per report.
+- Every route that must be reachable without a session already is, and the ones
+  that must not be, are not. Verified against `next start`: statics 200 in all
+  six locales, `/unsubscribe` 200, `/api/cron/weekly-reports` **404 without the
+  bearer** (fail-closed), `/parent` and `/thinking` 307 to sign-in.
+
+### 5. Still outstanding
+
+- **`types.generated.ts` is stale.** The seven migrations now apply, but the
+  generated types have never been regenerated against them, so
+  `src/lib/supabase/types.ts` is still carrying a hand-written `PendingTables`
+  block that describes the new and reshaped tables. It compiles and it is
+  correct today, but it is exactly the drift-masking it warns about. Run
+  `npm run db:types` and **delete the `PendingTables` block and the `Omit`
+  in the `Database` type**, then confirm `npx tsc --noEmit` is still clean.
+- **The sitemap advertises gated URLs.** `sitemap.ts` lists every published
+  `/learn/[slug]`, but `/learn` is not in `PUBLIC_PATHS`, so a crawler
+  following one is redirected to `/signin`. Decide before launch whether
+  lessons are a public crawl surface (which is what SEO_PLAN assumes) or come
+  out of the sitemap.
+- **There is no payment.** "Free to start" on the landing page is currently the
+  whole truth; there is nothing to buy.
+- **Content is thin.** One seeded lesson, three steelman claims, and nothing at
+  all for Fake or Real or Spot the Trick until an admin generates and publishes
+  them.
+
 ## Structure
 
 ```
@@ -577,6 +791,10 @@ src/lib/storyboard/art.ts        closed art vocabulary
 src/lib/storyboard/prompt.ts     system instruction, built from the vocabulary
 src/lib/storyboard/generate.ts   the Gemini call
 src/components/storyboard/       SceneArt, StoryPlayer, SceneInteraction, QuizSession
+src/lib/thinking/                the child's own archive of their writing
+src/lib/daily/streak.ts          the streak rule, pure and tested
+src/lib/parent/                  the family snapshot behind the parent hub
+src/components/parent/           child cards, the weekly-email switch
 src/lib/steelman/                claim generation, the fairness grader, submit
 src/lib/email/                   the weekly send, the template, unsubscribe tokens
 src/components/steelman/         the arena
