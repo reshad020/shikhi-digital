@@ -1,6 +1,8 @@
 import { SITE, localeUrl } from "@/lib/seo/config";
 import { createClient } from "@/lib/supabase/server";
 import { MOVE_LABELS, THINKING_MOVES, STRONG_MOVES, WEAK_MOVES } from "@/lib/reasoning/moves";
+import { TOPICS } from "@/lib/maths/topics";
+import { LEVELS, MAX_SHIELDS_TOTAL } from "@/lib/yle/syllabus";
 
 export const dynamic = "force-dynamic";
 
@@ -29,6 +31,16 @@ export async function GET() {
     lessonLines = "";
   }
 
+  // The two public practice surfaces. Both are static and ungated, so an
+  // engine can follow every link here and read the whole thing.
+  const yleLines = LEVELS.map(
+    (l) => `- [${l.name}](${localeUrl(`/yle/${l.slug}`)}) — ${l.cefr}, ${l.typicalAges}`,
+  ).join("\n");
+
+  const mathsLines = TOPICS.map(
+    (t) => `- [${t.slug}](${localeUrl(`/maths/${t.slug}`)})`,
+  ).join("\n");
+
   const moves = [...STRONG_MOVES, ...WEAK_MOVES]
     .map((m) => `- **${MOVE_LABELS[m]}** (\`${m}\`)`)
     .join("\n");
@@ -50,6 +62,20 @@ export async function GET() {
 ## The ${THINKING_MOVES.length} thinking moves (${STRONG_MOVES.length} strong, ${WEAK_MOVES.length} weak)
 
 ${moves}
+
+## Cambridge YLE preparation
+
+Free, ungated practice for Pre A1 Starters, A1 Movers and A2 Flyers, written part by part against the real paper format. Every answer is marked in the browser and every one carries a note giving the rule behind it rather than restating the answer.
+
+${yleLines}
+
+Nobody fails a YLE exam. Every child who sits one receives a certificate showing shields out of ${MAX_SHIELDS_TOTAL}; there is no pass mark and no fail.
+
+## Maths
+
+Visual arithmetic for the same age group. Each question is attached to a picture — a number line, a rectangle of dots, a divided bar, a hundred-grid — generated from the numbers in the question itself, so the drawing can never disagree with what is being asked. Available in all ${SITE.locales.length} languages, questions and explanations included.
+
+${mathsLines}
 
 ## Lessons
 

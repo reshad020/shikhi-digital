@@ -19,7 +19,7 @@ const handleIntl = createIntlMiddleware(routing);
  * demands a login is how recurring mail gets reported as spam instead. It
  * carries a signed token and can only flip one boolean — see lib/email/tokens.
  */
-const PUBLIC_PATHS = ["/signin", "/signup", "/auth", "/spot-the-trick", "/unsubscribe"];
+const PUBLIC_PATHS = ["/signin", "/signup", "/auth", "/spot-the-trick", "/yle", "/maths", "/unsubscribe"];
 
 /**
  * Routes that live OUTSIDE the `[locale]` tree.

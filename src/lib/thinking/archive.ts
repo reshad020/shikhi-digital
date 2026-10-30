@@ -23,7 +23,7 @@ import { pickQuote, type AttemptRow } from "@/lib/report/analyse";
 
 export type ThinkingEntry = {
   id: string;
-  source: "defend" | "steelman";
+  source: "defend" | "steelman" | "listening";
   /** The child's own words, exactly as stored. Never rewritten. */
   text: string;
   quality: "developing" | "solid" | "excellent";
@@ -54,7 +54,7 @@ function asMoves(raw: unknown): ThinkingMove[] {
 export async function getArchive(childId: string): Promise<Archive> {
   const supabase = await createClient();
 
-  const [reasoning, steelman] = await Promise.all([
+  const [reasoning, steelman, listening] = await Promise.all([
     supabase
       .from("reasoning_attempts")
       .select("id, text, quality, moves, response, pushback, created_at, question_id, lessons(subject)")
@@ -63,6 +63,11 @@ export async function getArchive(childId: string): Promise<Archive> {
     supabase
       .from("steelman_attempts")
       .select("id, text, quality, moves, response, pushback, created_at, steelman_prompts(claim)")
+      .eq("child_id", childId)
+      .order("created_at", { ascending: true }),
+    supabase
+      .from("listening_attempts")
+      .select("id, text, quality, moves, response, pushback, created_at, listening_passages(title)")
       .eq("child_id", childId)
       .order("created_at", { ascending: true }),
   ]);
@@ -90,6 +95,19 @@ export async function getArchive(childId: string): Promise<Archive> {
       response: r.response,
       pushback: r.pushback,
       about: (r.steelman_prompts as { claim: string } | null)?.claim ?? "",
+      at: new Date(r.created_at),
+      firsts: [] as StrongMove[],
+      questionId: "",
+    })),
+    ...(listening.data ?? []).map((r) => ({
+      id: r.id,
+      source: "listening" as const,
+      text: r.text,
+      quality: r.quality as ThinkingEntry["quality"],
+      moves: asMoves(r.moves),
+      response: r.response,
+      pushback: r.pushback,
+      about: (r.listening_passages as { title: string } | null)?.title ?? "",
       at: new Date(r.created_at),
       firsts: [] as StrongMove[],
       questionId: "",

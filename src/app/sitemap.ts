@@ -2,6 +2,9 @@ import type { MetadataRoute } from "next";
 import { SITE, localeUrl } from "@/lib/seo/config";
 import { createClient } from "@/lib/supabase/server";
 import { TECHNIQUES } from "@/lib/tricks/techniques";
+import { TOPICS } from "@/lib/maths/topics";
+import { LEVELS } from "@/lib/yle/syllabus";
+import { ALL_SETS } from "../../content/yle-practice";
 
 /**
  * Public URLs only. Anything gated behind a family's session is excluded here
@@ -34,6 +37,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Hub C. Static content, so no database round trip and no failure mode.
     entry("/spot-the-trick", "monthly", 0.9),
     ...TECHNIQUES.map((t) => entry(`/spot-the-trick/${t.slug}`, "monthly", 0.7)),
+    // YLE. Static, public and the surface people actually search for, so it
+    // ranks above the trick hub rather than below it.
+    entry("/yle", "weekly", 0.95),
+    ...LEVELS.map((l) => entry(`/yle/${l.slug}`, "monthly", 0.9)),
+    ...ALL_SETS.map((s) => entry(`/yle/practice/${s.id}`, "monthly", 0.8)),
+    // Maths. Static, public, and every topic page is a complete lesson on its
+    // own rather than a teaser for a gated one.
+    entry("/maths", "weekly", 0.95),
+    ...TOPICS.map((t) => entry(`/maths/${t.slug}`, "monthly", 0.9)),
   ];
 
   // Published lessons are the only public dynamic surface today. Read with the

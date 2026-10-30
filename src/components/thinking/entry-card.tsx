@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations, useFormatter } from "next-intl";
-import { PenLine, Sparkles, Swords } from "lucide-react";
+import { Ear, PenLine, Sparkles, Swords } from "lucide-react";
 import { GradeStamp } from "@/components/landing/grade-stamp";
 
 /**
@@ -22,7 +22,7 @@ import { GradeStamp } from "@/components/landing/grade-stamp";
 
 export type EntryCardData = {
   id: string;
-  source: "defend" | "steelman";
+  source: "defend" | "steelman" | "listening";
   text: string;
   quality: "developing" | "solid" | "excellent";
   moveLabels: string[];
@@ -45,7 +45,7 @@ export function EntryCard({
   const format = useFormatter();
   const reduced = useReducedMotion();
 
-  const Icon = data.source === "steelman" ? Swords : PenLine;
+  const Icon = data.source === "steelman" ? Swords : data.source === "listening" ? Ear : PenLine;
 
   return (
     <motion.article
@@ -92,7 +92,13 @@ export function EntryCard({
 
       <footer className="flex flex-wrap items-center gap-2 text-xs font-semibold text-muted-foreground">
         <Icon className="size-3.5" aria-hidden />
-        <span>{data.source === "steelman" ? t("fromSteelman") : t("fromLesson")}</span>
+        <span>
+          {data.source === "steelman"
+            ? t("fromSteelman")
+            : data.source === "listening"
+              ? t("fromListening")
+              : t("fromLesson")}
+        </span>
         {data.about && <span className="truncate">&middot; {data.about}</span>}
         <span className="ms-auto">{format.relativeTime(new Date(data.at), new Date())}</span>
       </footer>

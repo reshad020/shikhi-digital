@@ -61,6 +61,23 @@ npm run demo:week       # a real graded week, so the report has data
 ```
 Then open `/en/report/demo-learner-0001`.
 
+```bash
+npm run db:verify              # every migration applied? seed loaded?
+npm run db:types -- --hosted   # regenerate types from the linked project
+npm run test:streak            # the streak rule's assertions
+npm run test:maths             # every maths answer against its own picture
+npm run test:yle               # the YLE progress loop, against the real database
+npm run test:next              # the rules that choose what a child practises next
+npm run gen:daily              # Fake or Real + Spot the Trick, checked, as drafts
+npm run email:preview          # render the weekly email to a file
+```
+
+`db:types` captures the CLI output, checks it, and only then writes. The
+obvious one-liner — `supabase gen types ... > types.generated.ts` — is a trap:
+the shell truncates the target *before* running the command, so any failure
+(Docker down, not logged in, wrong ref) leaves an empty file and a codebase
+that will not compile.
+
 Other scripts: `npm run build`, `npm run lint`, `npm run db:studio`.
 
 ## What's in the box
@@ -751,13 +768,6 @@ Set for Production **and** Preview. Nothing here is optional except where said:
 
 ### 5. Still outstanding
 
-- **`types.generated.ts` is stale.** The seven migrations now apply, but the
-  generated types have never been regenerated against them, so
-  `src/lib/supabase/types.ts` is still carrying a hand-written `PendingTables`
-  block that describes the new and reshaped tables. It compiles and it is
-  correct today, but it is exactly the drift-masking it warns about. Run
-  `npm run db:types` and **delete the `PendingTables` block and the `Omit`
-  in the `Database` type**, then confirm `npx tsc --noEmit` is still clean.
 - **The sitemap advertises gated URLs.** `sitemap.ts` lists every published
   `/learn/[slug]`, but `/learn` is not in `PUBLIC_PATHS`, so a crawler
   following one is redirected to `/signin`. Decide before launch whether
@@ -768,6 +778,338 @@ Set for Production **and** Preview. Nothing here is optional except where said:
 - **Content is thin.** One seeded lesson, three steelman claims, and nothing at
   all for Fake or Real or Spot the Trick until an admin generates and publishes
   them.
+
+## YLE preparation
+
+`/yle`, public and statically rendered in all six locales.
+
+```
+src/lib/yle/syllabus.ts        the exam structure: levels, papers, parts, shields
+src/lib/yle/items.ts           item kinds and the marking rules
+content/yle-practice.ts        hand-authored practice sets
+src/components/yle/practice-player.tsx
+src/app/[locale]/yle/          hub, level pages, practice
+```
+
+Figures come from Cambridge's own format pages, verified October 2026, and the
+syllabus file is the single source of truth: the public pages, the practice
+picker and the shield scoring all read from it, so a change to the exam is one
+edit rather than a hunt through copy.
+
+Decisions worth keeping:
+
+- **Everything is marked in the browser.** Every item kind here has an exact
+  answer, which is how Cambridge marks all of Reading & Writing except the
+  Flyers story task. No grader call means no cost per attempt, no latency, and
+  practice that still works when an API is down — which it was, throughout the
+  week this was built.
+- **Nothing is marked until the whole set is submitted.** The real paper gives
+  no feedback until it is over. A child who has practised with a green tick
+  after every question has practised a different task.
+- **Every answer gets its note, right or wrong.** The note gives the rule —
+  *"'how many' asks for a number"* — because the rule is what transfers to the
+  real paper. A child who only learns that they were wrong has learned the
+  least useful half.
+- **`practisable` is recorded honestly.** A great deal of YLE is picture work:
+  matching names to people in a big illustration, colouring objects, spotting
+  differences. There is no illustration pipeline here, so those parts are
+  marked `picture` and the practice picker does not offer them. Claiming to
+  practise them would be worse than saying so.
+- **Shields are labelled as an approximation.** Cambridge does not publish its
+  raw-score boundaries, so `shieldsFor` is a curve, and every surface that
+  shows a shield says it is a guide rather than a prediction. Presenting a
+  practice score as the real thing would be exactly the invented number this
+  product refuses everywhere else.
+- **"Nobody fails YLE"** is on the hub, prominently. It is the single most
+  reassuring fact about the exam for an anxious parent, and most preparation
+  sites bury it.
+
+Practice is public and needs no account, because the first thing a parent wants
+is to try it before being asked for an email. An account is what buys progress
+tracking.
+
+### Generating practice
+
+```bash
+npm run gen:yle                # two sets for every practisable part
+npm run gen:yle -- --each 4    # more
+npm run gen:yle -- flyers      # one level
+```
+
+The prompt is assembled **per part** from `syllabus.ts` — the exam's own task
+wording, the real question count, the level's vocabulary ceiling. A generic
+"A2 exercise" is worse than useless for exam preparation: a child practises the
+wrong shape and then finds the real paper unfamiliar.
+
+Every set is checked structurally before it is kept: right number of questions,
+exactly one correct option, gaps matching questions, answers present in the
+word box, no duplicate options. A set that fails is retried once and then
+skipped, because a wrong-shaped set is worse than a missing one.
+
+Generated sets land in `content/yle-generated.ts`, separate from the
+hand-authored `yle-practice.ts`, so a regeneration can never overwrite work a
+person did. Hand-authored sets are listed first — a child should meet the
+material someone has actually read before whatever the generator produced.
+
+### The story task
+
+`/yle/story/[id]` — Flyers Reading & Writing Part 7.
+
+The only task on any YLE paper that cannot be marked by comparing strings, and
+therefore the one most practice sites quietly skip. A child can drill multiple
+choice for months elsewhere and reach the exam never having had a single story
+read.
+
+- **The result is ordered deliberately**: what they did well, then at most
+  three named fixes, then the mark — last and smallest. A child who sees
+  "3 out of 5" first reads nothing else, and the fixes are the only part that
+  changes the next story.
+- **Each fix quotes their own words**, gives the corrected version in their
+  voice, and states the rule — "Past tense: add -ed to regular verbs" — so it
+  transfers to the next story rather than just repairing this one.
+- **At most three**, because a page of corrections teaches nothing and
+  discourages everything.
+- **The marks are honest.** The prompt says outright that most real answers
+  score two to four; a weak story that covered all three moments marks 3, not
+  5. If everything is a four the mark stops meaning anything.
+- **The real paper gives three pictures**; there is no illustration pipeline
+  here, so the prompt gives three moments in words and the page says so. A
+  child should know which half of the task they are rehearsing.
+
+## YLE progress
+
+Practice stays public and anonymous. What an account buys is that it **counted**.
+
+`yle_attempts` records one go at one set; `yle_story_attempts` records a marked
+Part 7 story. `set_id` is deliberately not a foreign key — the practice bank
+lives in `content/*.ts` and ships with the app, versioned in git and reviewed in
+diffs rather than stored as rows, so a retired set leaves its history behind.
+That is correct: the child did the work.
+
+### Best, not latest
+
+Every figure in `progress.ts` comes from the best attempt at each set, never
+the most recent, and there is no unique constraint stopping repeats. A child
+preparing for an exam is *meant* to sit the same part again next week. If the
+newest score replaced the old one, a bad morning would erase a good one and
+trying again would carry a risk — so repetition, which is the whole product
+here, has to be safe. `npm run test:yle` asserts exactly this against the real
+database, with a throwaway child it creates and deletes.
+
+### The paper estimate is pooled, not averaged
+
+The real paper awards up to five shields for a whole paper rather than per
+part, so the estimate pools correct answers and question counts across each
+part's best attempt and runs the curve once. Averaging per-part shields would
+quietly round a child upward: five parts at 2.6 shields each is not a 3-shield
+paper.
+
+The page also reports how many parts the estimate rests on, before the number
+rather than after it. A shield estimate drawn from two parts out of seven is
+not a prediction about a paper, and a readiness figure that is wrong in the
+reassuring direction is worse than no figure at all, because a parent acts on
+it.
+
+### Why the score is recomputed on the server
+
+The browser marks the set, so the child sees the result instantly and the bank
+costs nothing to serve. The browser is not trusted to *report* it: the client
+sends the answers it was given and `recordAttempt` marks the set again from the
+catalogue. A tampered payload wastes a row, which nobody minds, rather than
+inventing a shield, which would make the whole readiness view worthless.
+
+The practice page stays prerendered for all 198 set-and-locale combinations.
+The player learns whether the attempt was saved from the save itself rather
+than from a `signedIn` prop, because reading the session on that page would
+turn the entire public bank dynamic to decide which of two sentences to show at
+the end.
+
+### Deciding what to practise next
+
+Ninety sets presented as a list is a filing cabinet: a child opens it, picks
+whatever is on top, and the one part they are actually weak at goes untouched
+because nothing ever pointed at it. `next.ts` decides the order.
+
+**Breadth before depth.** The obvious rule — always serve the weakest part — is
+wrong at the start and wrong in a way that compounds. A child who has sat one
+set, badly, has exactly one measured part, so "weakest" means "the only one we
+know about". Serving it again on that evidence would build a whole learning
+path out of a single bad morning and would never discover the part they are
+genuinely worse at. So every practisable part gets tried once before anything
+is called a weakness.
+
+It also explains itself. "You have not tried Part 4 yet" and "Part 4 is your
+weakest, at 48%" are different messages and a child can act on both; a
+recommendation that arrives unexplained is just the top item in a differently
+ordered menu, which is where this started.
+
+`next.ts` holds no database access, which is the point: the fetch lives in
+`progress.ts` beside the query it duplicates, so `npm run test:next` can walk
+every branch. While the two were welded together nothing could exercise the
+rules that decide what every child does next.
+
+### The daily goal
+
+The streak answers "did you show up?". It does not answer "how much is enough
+today?", and the honest answer without one is "more" — which is the answer that
+makes a child close the tab.
+
+A small stated target does the opposite: it *ends*. The copy stops when the
+goal is met, with no second target appearing where the first was, because a
+goal that moves when you reach it is not a goal and a child works that out
+within a week. They are welcome to carry on; they will not be nudged to.
+
+It lives on `children.daily_goal` rather than in a constant so a parent can
+move it, and it counts YLE practice only — rolling the lessons and daily games
+in would let a child meet an exam-practice goal without doing any exam
+practice.
+
+## Generating the daily content
+
+```bash
+npm run gen:daily                             # 7 Fake or Real + one puzzle per technique
+npm run gen:daily -- --days 14                # a fortnight
+npm run gen:daily -- --only tricks            # or --only fake
+npm run gen:daily -- --technique scary-headline
+npm run gen:daily -- --dry                    # generate and check, write nothing
+```
+
+`/admin` can do both behind a button, a batch at a time. This exists because
+seeding a fortnight that way is a lot of clicking, and because every item is
+**cross-examined by a second, independent request** before it is kept.
+
+Everything still lands as a `draft`. A person publishes at `/admin/daily` and
+`/admin/tricks`. Checking lowers how often a reviewer meets something wrong; it
+is not a reason to stop having one, because a model checking a model agrees
+more often than two people would.
+
+### Why the check is a separate request
+
+Asking a request to check its own work mostly produces agreement: the claim is
+already in its context, phrased persuasively, as something it just asserted.
+So the checker is a fresh call that is **not told the answer**.
+
+For Fake or Real the two claims arrive shuffled and unlabelled, and the checker
+is asked which is false and what it knows about each. If it picks the other
+one, the challenge is dropped — one of the two passes is wrong, there is no way
+to tell which from here, and that is enough. It is dropped too when the checker
+agrees but admits it was guessing, because the cost of being wrong is a child
+taught a falsehood by a game about checking claims.
+
+For Spot the Trick the checker is shown the artefact and asked which technique
+it demonstrates, from the list of six. If it names a different one, the child's
+four options contain two defensible answers, and the puzzle is unfair whichever
+way it is marked. That caught a real one: a headline for *the number with
+nothing to compare it to* that read `Disaster … players quit!` — a child
+picking "the frightening headline" would have been right and marked wrong.
+
+### What code checks instead
+
+Some of this is better as a comparison than a prompt. A truncated axis means
+`axisStart` is above the lowest bar, and nothing tests that better than testing
+it; `tricks/verify.ts` runs those first, because when they fail there is no
+reason to pay for the model call. `daily/verify.ts` does the same for the
+balance of a pair — matched length, and vague authority appearing on one side
+only.
+
+That last one is worth reading before extending. An earlier version also kept a
+list of words meaning a *specific* source — university, institute, laboratory —
+and rejected any pair where only one claim matched. Specific attribution is
+open-vocabulary, so the list could never be complete, and it rejected
+
+> A forestry survey by the **United States Forest Service** recorded 4,853
+> growth rings …
+> A forestry survey by the **Swedish University of Agricultural Sciences**
+> recorded exactly 10,000 growth rings …
+
+as unbalanced, because it knew "university" and not "Forest Service". Both
+claims cited a real named body and the pair was exactly right. Vague authority
+*can* be a closed list — there are only so many ways to gesture at nobody in
+particular — which is why that half survives and the other half is gone.
+Rejecting good material is worse than passing doubtful material to a human,
+because nobody ever sees what was thrown away.
+
+### Two things the first runs taught the prompts
+
+Both are now in the generator instructions rather than only in the checks:
+
+- **The claims must share a voice.** The first batch produced `Top wildlife
+  experts recently reported that …` opposite a flat statement of fact. The
+  labelling was correct and the tell was the right one, and the pair was still
+  useless: you win it by noticing which sentence is hedged. That is a cue about
+  writing style, it works on every question written that way, and it transfers
+  to nothing — real false claims do not arrive marked "experts say". When the
+  tell is about sourcing, the honest contrast is vague attribution against
+  *specific* attribution, not attribution against none.
+- **One trick per artefact.** `missing-denominator` failed twice because a big
+  number invites an alarmed headline, and an alarmed headline is a different
+  technique on the list. The prompt now names the other five and asks for a
+  flat register unless alarm is the point. The next attempt gave `Over 8,000
+  pupils forgot their pencils on the first day of term` — nothing wrong with it
+  except the missing total.
+
+A rejected challenge costs a day; a rejected technique is a permanent hole,
+since that loop runs once per technique and nothing else fills it. So
+techniques get one retry and challenges do not.
+
+## Maths You Can See
+
+`/maths` and `/maths/[topic]` — addition, subtraction, times tables, fractions
+and percentages. Public, static, no account.
+
+The premise is that most children who "cannot do maths" can do the maths
+perfectly well once they can see what the symbols are describing. A child who
+finds `3 x 4` meaningless has no trouble counting a tray of buns three rows
+deep; the arithmetic was never the problem, the notation was.
+
+So every question is attached to a picture, and **the picture is generated from
+the numbers in the question**: a number line, a rectangle of dots, a divided
+bar, a hundred-grid. All four are geometric, so each is a handful of divs and
+at most one SVG path, which has three consequences:
+
+- **The picture cannot disagree with the question**, since both are built from
+  the same numbers. An illustration drawn by hand or by a model can quietly
+  show seven dots for an eight-dot question, and a child who trusts the picture
+  is then marked wrong for it.
+- **A new question costs nothing.** No illustration pipeline, no storage, no
+  generation step. Add six numbers to `topics.ts` and the picture exists.
+- **Marking needs no model.** Every answer is a number or a fraction compared
+  exactly, so an attempt costs nothing to serve and nothing breaks when an API
+  is down.
+
+Two details that are about teaching rather than about software:
+
+- **The picture withholds exactly the number being asked for.** `hideEnd` draws
+  the landing tick as a `?`, the way a primary workbook does; `hideJump` hides
+  the size of the jump instead, for "how far apart are these?" questions.
+  Without this the drawing answers the question — the arc ends somewhere, and
+  the label underneath it would simply say what the child was asked to work
+  out.
+- **Marking is immediate, unlike YLE.** The YLE player deliberately withholds
+  it until the whole set is submitted, because the real paper does. Nobody is
+  rehearsing an exam here, so a child finds out while the picture that explains
+  it is still on screen. A note delivered ten questions later is a note about a
+  drawing they can no longer see.
+
+Unlike the YLE material, which is English by definition because the exam is in
+English, **the maths content is fully translated**. `topics.ts` holds only the
+structure — the picture, the answer, which forms of the answer to accept — and
+every word a child reads lives under `maths.topics` in the message catalogs. A
+Hindi-speaking child meets जोड़, not "Adding". The answers stay out of the
+catalogs on purpose: they are numbers, identical in every locale, and keeping
+them out means no translation can accidentally change what is correct.
+
+```bash
+npm run test:maths
+```
+
+Derives each answer from its picture independently and compares the two. This
+is the section's one real failure mode: write `rows: 3, cols: 4, answer: "11"`
+and the app is perfectly happy — it draws twelve dots, asks how many there are,
+and marks a child wrong for saying twelve. No type catches that, and nobody
+reviewing a diff of twenty-three questions catches it reliably either. The
+script also checks that every prompt and note exists in all six locales, since
+a missing key renders as a raw dotted path in front of a child.
 
 ## Structure
 
@@ -791,6 +1133,14 @@ src/lib/storyboard/art.ts        closed art vocabulary
 src/lib/storyboard/prompt.ts     system instruction, built from the vocabulary
 src/lib/storyboard/generate.ts   the Gemini call
 src/components/storyboard/       SceneArt, StoryPlayer, SceneInteraction, QuizSession
+src/lib/yle/                     the Cambridge YLE syllabus and practice engine
+src/lib/yle/progress.ts          what a child has done, per paper and per part
+src/lib/yle/next.ts              what to practise next; pure, so it is tested
+src/lib/yle/goal.ts              today's practice against the child's daily goal
+src/lib/daily/verify.ts          cross-examines a generated Fake or Real pair
+src/lib/tricks/verify.ts         checks a puzzle contains the trick it claims
+src/lib/maths/topics.ts          maths question structure; the prose is in messages/
+src/components/maths/visual.tsx  number line, dot array, bar model, hundred grid
 src/lib/thinking/                the child's own archive of their writing
 src/lib/daily/streak.ts          the streak rule, pure and tested
 src/lib/parent/                  the family snapshot behind the parent hub

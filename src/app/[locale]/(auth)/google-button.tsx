@@ -88,7 +88,7 @@ export function GoogleButton({
         onClick={start}
         disabled={pending}
         aria-disabled={blocked}
-        className="h-12 rounded-2xl border-2 text-base font-bold"
+        className="h-14 w-full rounded-full border-2 text-base font-bold"
       >
         {pending ? <Loader2 className="size-4 animate-spin" /> : <GoogleMark />}
         {t("google")}

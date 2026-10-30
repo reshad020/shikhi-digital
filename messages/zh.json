@@ -7,7 +7,19 @@
     "lessons": "课程",
     "progress": "我的进度",
     "parent": "家长",
-    "thinking": "我的文字"
+    "thinking": "我的文字",
+    "listening": "听力",
+    "yle": "YLE 考试",
+    "maths": "数学",
+    "groupLearn": "学习",
+    "groupDaily": "每天",
+    "groupYou": "你",
+    "groupLanguage": "语言",
+    "openMenu": "打开菜单",
+    "menuTitle": "去哪里？",
+    "soundOn": "打开声音",
+    "soundOff": "关闭声音",
+    "toggleTheme": "切换浅色或深色"
   },
   "defend": {
     "heading": "你为什么选这个？",
@@ -91,7 +103,8 @@
     "checkEmail": "请查收邮件以确认账户。",
     "google": "使用 Google 继续",
     "or": "或",
-    "errOauth": "无法使用 Google 登录，请重试。"
+    "errOauth": "无法使用 Google 登录，请重试。",
+    "passwordHint": "至少 8 个字符。"
   },
   "children": {
     "title": "今天谁来学习？",
@@ -290,7 +303,15 @@
     "shortcutSteelman": "换位辩论场",
     "shortcutSteelmanNote": "为另一方辩护",
     "shortcutThinking": "我的文字",
-    "shortcutThinkingNote": "你写下的一切"
+    "shortcutThinkingNote": "你写下的一切",
+    "shortcutListening": "仔细听",
+    "shortcutListeningNote": "听完，再想明白",
+    "shortcutMaths": "看得见的数学",
+    "shortcutMathsNote": "每道算式都有一幅图",
+    "shortcutYle": "YLE 练习",
+    "shortcutYleNote": "Starters、Movers 和 Flyers",
+    "shortcutSpeaking": "开口说",
+    "shortcutSpeakingNote": "大声说点什么"
   },
   "steelman": {
     "title": "换位辩论场",
@@ -383,6 +404,323 @@
       "developing": "待发展",
       "solid": "扎实",
       "excellent": "优秀"
+    },
+    "fromListening": "来自听力"
+  },
+  "listening": {
+    "title": "仔细听",
+    "tagline": "屏幕上没有字。先听，然后告诉我你想到了什么。",
+    "play": "播放",
+    "stop": "停止",
+    "pressPlay": "准备好就按播放",
+    "listening": "正在播放……",
+    "playedCount": "已听 {count} 次",
+    "slower": "慢一点",
+    "again": "再听一次",
+    "replayNote": "想听几遍就听几遍。需要听第二遍是再正常不过的事。",
+    "recallLabel": "说了什么",
+    "inferenceLabel": "这说明什么",
+    "inferenceHint": "这个答案不在文章里，要靠你自己想。",
+    "placeholder": "我这么想是因为……",
+    "counter": "{n} / {max}",
+    "checking": "正在读……",
+    "submit": "提交",
+    "pushbackLabel": "再往前一步",
+    "transcriptLabel": "你听到的内容（听了 {count} 次）",
+    "quality": {
+      "developing": "待发展",
+      "solid": "扎实",
+      "excellent": "优秀"
+    },
+    "doneTitle": "你已经全部听完了。",
+    "doneBody": "已经听了 {count} 段。新的会陆续加入。",
+    "emptyTitle": "还没有可以听的内容",
+    "emptyBody": "这些内容都是手工撰写并发布的。请稍后再来看看。",
+    "seeWriting": "看看你写下的一切",
+    "unsupportedTitle": "这个浏览器无法朗读",
+    "unsupportedBody": "“仔细听”需要能朗读文字的浏览器。请试试 Chrome、Edge 或 Safari，并确认声音已打开。",
+    "errors": {
+      "tooShort": "再多写几句——说说是什么让你这么想。",
+      "tooLong": "这比我们能读的长了一些，请精简一下。",
+      "service": "读取时出了点问题，请再试一次。",
+      "noChild": "请先选择正在学习的人。",
+      "notFound": "这段内容暂时无法使用。",
+      "badInput": "请先回答这两道题。"
     }
+  },
+  "yle": {
+    "hubKicker": "剑桥英语考试",
+    "hubTitle": "会讲道理的 YLE 练习",
+    "hubLead": "Starters、Movers 和 Flyers，逐部分拆解。练习真实题型，查看你的盾牌，并弄清楚每个答案为什么是这个。",
+    "levelTitle": "{name}：题型与练习",
+    "whatsInIt": "{name} 考什么",
+    "practiceNow": "现在练习",
+    "practiceSets": "{n} 套练习",
+    "syllabusOnly": "查看题型",
+    "questionCount": "{n} 道题",
+    "minutes": "{m} 分钟",
+    "partLabel": "第 {part} 部分",
+    "typeHere": "写下你的答案",
+    "markIt": "检查我的答案",
+    "tryAgain": "再试一次",
+    "morePractice": "更多练习",
+    "answeredCount": "已答 {n} / {total}",
+    "theAnswer": "答案：{answer}",
+    "yourScore": "{total} 题中答对 {correct} 题",
+    "shields": "{max} 个盾牌中获得 {n} 个",
+    "shieldsNote": "这是练习，不是正式考试。剑桥不公布分数线，所以请把这些盾牌当作参考，而不是预测。",
+    "noFailTitle": "YLE 没有不及格。",
+    "noFailBody": "每个参加考试的孩子都会拿到证书，上面显示 {max} 个盾牌中得了几个。没有及格线，也没有不及格。盾牌显示的是孩子已经会什么。",
+    "storyPart": "读写部分 第 7 题",
+    "storyInstruction": "按顺序用上这三个情节，写一个故事。",
+    "storyPicturesNote": "真实考试中，这三个情节是三幅图。这里写成了文字，所以你练的是写作，而不是看图。",
+    "storyPlaceholder": "从这里开始写你的故事……",
+    "storyWords": "{n} 个词",
+    "storyMarking": "正在读你的故事……",
+    "storySubmit": "批改我的故事",
+    "storyYours": "你写的内容",
+    "storyStrength": "写得最好的地方",
+    "storyFixes": "三处要改的地方",
+    "storyFixesNote": "只列三处，而且是考试中最要紧的三处。",
+    "storyMark": "得分",
+    "storyOutOf": "5 分中得 {mark} 分",
+    "storyCoversAll": "三个情节你都用上了。",
+    "storyMissedOne": "三个情节中有一个没有出现在你的故事里。",
+    "storyNextTime": "下次试试",
+    "storyErrors": {
+      "tooShort": "再多写一点——故事要有开头、中间和结尾。",
+      "tooLong": "这比考试允许的长，请精简。",
+      "notFound": "这个故事暂时无法使用。",
+      "service": "批改时出了点问题，请再试一次。"
+    },
+    "storyMarkedNote": "这是唯一一道无法靠比对答案批改的题。写一个故事，我们会认真读。",
+    "savedToProgress": "已存入你的进度",
+    "keepShieldsTitle": "保存你的盾牌",
+    "keepShieldsBody": "不注册也能练习，但什么都不会保存。注册之后，你做过的每一套都会被记住，盾牌会一张卷子一张卷子地累积，家长也会收到备考报告。",
+    "keepShieldsCta": "免费注册",
+    "practiceByPart": "挑一个部分反复练。每个部分都有自己的题组。",
+    "setsAvailable": "{n, plural, other {# 套}}",
+    "yleProgressLink": "我的备考进度"
+  },
+  "maths": {
+    "hubKicker": "看得见的数学",
+    "hubTitle": "每道算式都有一幅图",
+    "hubLead": "加法、减法、乘法表、分数和百分数——每一样都画了出来，让你在算出答案之前，先看清楚这些数字在做什么。",
+    "questionCount": "{n, plural, other {# 道题}}",
+    "whyTitle": "为什么要画图？",
+    "whyBody": "大多数说自己学不会数学的孩子，其实算得很好——难住他们的是符号。一个觉得 3 x 4 毫无意义的孩子，数一盘摆成三排的包子却毫不费力。这里的每幅图都由题目里的数字直接画出，因此永远不会和题目对不上。",
+    "progress": "第 {n} 题，共 {total} 题",
+    "check": "检查",
+    "next": "下一题",
+    "finish": "完成",
+    "anotherGo": "再试一次",
+    "theAnswer": "答案：{answer}",
+    "yourAnswer": "你的答案",
+    "rubOut": "删掉最后一个",
+    "scoreOf": "{total} 题答对 {score} 题",
+    "firstTime": "一次就答对",
+    "goAgain": "再来一遍",
+    "anotherTopic": "换个主题",
+    "topics": {
+      "addition": {
+        "name": "加法",
+        "blurb": "加法就是在数轴上往前走。",
+        "idea": "每道加法都是向右的一跳，落在哪里，答案就是几。",
+        "q": {
+          "a1": {
+            "prompt": "从 3 出发，向前跳 4 格。你落在哪里？",
+            "note": "加法总是往右走。跳多远，就是你加上的那个数。"
+          },
+          "a2": {
+            "prompt": "从 8 出发，向前跳 7 格。",
+            "note": "刻度两格一跳时，这一跳仍要一格一格数——数轴没变，变的只是标签。"
+          },
+          "a3": {
+            "prompt": "9 + 6。先跳到 10，再跳剩下的。你落在哪里？",
+            "note": "先跳到最近的整十，第二跳就很好算：9 + 1 = 10，再加 5。"
+          },
+          "a4": {
+            "prompt": "6 + 3",
+            "note": "从大的数开始跳，这一跳更短，要数的也更少。"
+          }
+        }
+      },
+      "subtraction": {
+        "name": "减法",
+        "blurb": "减法就是往回走。",
+        "idea": "减法走的是同一条数轴，只是倒着走。两个数之间的距离，就是它们的差。",
+        "q": {
+          "s1": {
+            "prompt": "从 9 出发，往回跳 4 格。你落在哪里？",
+            "note": "减法总是往左走。同一条数轴，方向相反。"
+          },
+          "s2": {
+            "prompt": "15 − 8",
+            "note": "先退到 10，再减掉剩下的：15 − 5 = 10，再减 3。"
+          },
+          "s3": {
+            "prompt": "13 − 7。不要往回跳，数一数从 7 到 13 之间有多远。",
+            "note": "减法也是两个数之间的距离，往上数往往更容易。"
+          },
+          "s4": {
+            "prompt": "2 − 5。越过零继续走。",
+            "note": "数轴不会停在零。越过零再走三步，就是负三。"
+          }
+        }
+      },
+      "multiplication": {
+        "name": "乘法口诀",
+        "blurb": "乘法就是数一个长方形。",
+        "idea": "每个乘法算式都是一个点组成的长方形。3 x 4 和 4 x 3 是同一个长方形，转了个方向。",
+        "q": {
+          "m1": {
+            "prompt": "一共有多少个点？",
+            "note": "行数乘列数。你永远不必一个一个地数。"
+          },
+          "m2": {
+            "prompt": "现在呢？数之前先仔细看。",
+            "note": "把长方形转过来，点的个数不会变。3 x 4 = 4 x 3。"
+          },
+          "m3": {
+            "prompt": "6 行，每行 5 个。",
+            "note": "五倍是十倍的一半：6 x 10 = 60，所以 6 x 5 = 30。"
+          },
+          "m4": {
+            "prompt": "7 x 4",
+            "note": "难的就拆开：7 x 4 就是 5 x 4 加 2 x 4，也就是 20 + 8。"
+          },
+          "m5": {
+            "prompt": "24 个点排成 4 行。每行有几个？",
+            "note": "除法是倒过来问这个长方形：24 个点分成 4 行。"
+          }
+        }
+      },
+      "fractions": {
+        "name": "分数",
+        "blurb": "分数就是一个整体，被平均分开。",
+        "idea": "下面的数说明分成了几等份，上面的数说明你有几份。",
+        "q": {
+          "f1": {
+            "prompt": "这条长条有几分之几被涂色了？像 1/2 这样写。",
+            "note": "四等份，涂了三份。下面的数永远是份数。"
+          },
+          "f2": {
+            "prompt": "涂色的是几分之几？写出最简的答案。",
+            "note": "8 份里的 4 份，和 2 份里的 1 份一样多。长条没有变，变的只是叫法。"
+          },
+          "f3": {
+            "prompt": "1/3 和 1/4 哪个大？像 1/3 这样写出答案。",
+            "note": "分的份数越多，每份就越小。把长条分成四份，每份比分成三份时更少。"
+          },
+          "f4": {
+            "prompt": "整条都涂色了。用整数表示是多少？",
+            "note": "上下两个数相同时，你拿到的是整个，那总是 1。"
+          },
+          "f5": {
+            "prompt": "这两个一样多吗？",
+            "note": "3/6 和 1/2 占的长度一样。等值分数写法不同，意思相同。"
+          }
+        }
+      },
+      "percentages": {
+        "name": "百分数",
+        "blurb": "百分之几，就是一百里面占几。",
+        "idea": "百分数就是分母为 100 的分数。方格图有 100 个格子，所以看得见。",
+        "q": {
+          "p1": {
+            "prompt": "方格图里有百分之几被涂色了？只写数字。",
+            "note": "百分之几就是一百里面占几。涂了二十五格，就是 25%。"
+          },
+          "p2": {
+            "prompt": "这是几分之几？写成最简形式，像 1/2 这样。",
+            "note": "50% 就是一半。百分数和分数，是同一幅图的两个名字。"
+          },
+          "p3": {
+            "prompt": "100 的 10% 是 10。那么 50 的 10% 是多少？",
+            "note": "10% 永远是十分之一。要算它，就除以十，不管那个数是多少。"
+          },
+          "p4": {
+            "prompt": "没有涂色的是百分之几？",
+            "note": "整个方格图是 100%。剩下的，就是 100 减去涂色的部分。"
+          },
+          "p5": {
+            "prompt": "整条值 20，平均分成 5 份。一份值多少？",
+            "note": "五分之一就是 20%。平均分成五份取一份，和求 20% 是一回事。"
+          }
+        }
+      }
+    },
+    "choice": {
+      "no": "不一样",
+      "yes": "一样"
+    },
+    "rowsOf": "{rows} 行，每行 {cols} 个",
+    "equalParts": "{n, plural, other {# 等份}}",
+    "hundredSquares": "100 个格子",
+    "worth": "值 {label}"
+  },
+  "tricks": {
+    "title": "找出花招",
+    "lead": "这里有样东西是故意用来误导你的。把它找出来。",
+    "allDone": "你全都做完了。",
+    "allDoneBody": "新的题目会陆续加入。在那之前，指南把每一种花招都讲清楚了。",
+    "noneYet": "还没有题目。",
+    "noneYetBody": "每道题都要先写好、查过，才会给人看。在那之前，指南把每一种花招都讲清楚了。",
+    "readGuide": "阅读指南"
+  },
+  "yleProgress": {
+    "title": "YLE 备考进度",
+    "heading": "{name} 的 YLE 备考进度",
+    "lead": "盾牌随着练习累积。这里的一切都来自真正做过的题，所以只有实打实的练习才会让它变化。",
+    "emptyTitle": "还没有练习记录",
+    "emptyBody": "做一套题，它就会出现在这里，按卷子、按部分分开显示。",
+    "startPractising": "开始练习",
+    "setsSat": "{n, plural, other {做了 # 套}}",
+    "partLabel": "第 {part} 部分",
+    "notTried": "还没做",
+    "setsDone": "{n, plural, other {# 套}}",
+    "partialCover": "基于 {total} 个部分中的 {covered} 个——把其余的也做了，再把它当作预测。",
+    "fullCover": "每个部分都做过了，整卷正确率 {pct}%。",
+    "practiseThis": "练这张卷子",
+    "honesty": "这些盾牌是我们根据自己的练习材料做出的估计，覆盖全部 {levels} 个级别。剑桥不公布分数线，所以请把它当作孩子当前水平的参考，而不是成绩预测。YLE 没有及格或不及格。"
+  },
+  "yleNext": {
+    "kicker": "接下来做这个",
+    "cta": "开始这套题",
+    "partLabel": "第 {part} 部分",
+    "questionCount": "{n, plural, other {# 道题}}",
+    "reasonStart": "从这里开始正好。先做一套，我们再决定接下来给你什么。",
+    "reasonCoverage": "第 {part} 部分你还没做过。每个部分都做一次，我们才知道你真正需要练哪里。",
+    "reasonWeakest": "目前第 {part} 部分最弱，正确率 {pct}%。这一部分值得再练一次。",
+    "reasonRevisit": "第 {part} 部分仍然最弱，而且这部分的题你都做过了，这是当时做得最差的一套。",
+    "freshLeft": "{n, plural, other {这个部分还有 # 套你没做过}}"
+  },
+  "yleGoal": {
+    "todayTitle": "今天 {done}/{goal}",
+    "met": "今天的练习做完了。",
+    "streak": "{n, plural, other {连续 # 天}}",
+    "goalLabel": "每天练几套",
+    "goalHelp": "定一个真的做得完的小目标。上学的晚上两套就够了。",
+    "save": "保存"
+  },
+  "speaking": {
+    "title": "开口说",
+    "tagline": "一件可以大声说出来的小事。",
+    "seenBefore": "这个你之前做过了",
+    "youCouldMention": "你可以说说",
+    "wordsToUse": "可能用得上的词",
+    "target": "试着说大约 {seconds} 秒。",
+    "start": "开始录音",
+    "stop": "停止",
+    "again": "重新录音",
+    "showModel": "看一个好答案",
+    "nextCue": "再试一个",
+    "youSpokeFor": "你说了 {seconds} 秒。",
+    "modelAnswer": "适合你水平的好答案",
+    "modelNote": "这不是唯一的正确答案，只是一种说法。",
+    "micDenied": "无法使用麦克风。请检查权限后再试。",
+    "emptyTitle": "暂时没有新内容",
+    "emptyBody": "这里的内容你暂时都做完了。过一会儿再来吧。",
+    "emptyLink": "返回其他内容"
   }
 }

@@ -19,7 +19,7 @@ import { reviewAttempt } from "../../daily-actions";
 
 type QueueItem = {
   id: string;
-  source: "reasoning" | "steelman";
+  source: "reasoning" | "steelman" | "listening";
   text: string;
   createdAt: string;
   childName: string;
@@ -30,7 +30,7 @@ type QueueItem = {
 export default async function FlaggedPage() {
   const supabase = await createClient();
 
-  const [reasoning, steelman, reviews] = await Promise.all([
+  const [reasoning, steelman, listening, reviews] = await Promise.all([
     supabase
       .from("reasoning_attempts")
       .select("id, text, created_at, children(name), lessons(subject)")
@@ -43,12 +43,22 @@ export default async function FlaggedPage() {
       .eq("flagged", true)
       .order("created_at", { ascending: false })
       .limit(100),
-    supabase.from("attempt_reviews").select("attempt_id, steelman_attempt_id"),
+    supabase
+      .from("listening_attempts")
+      .select("id, text, created_at, children(name), listening_passages(title)")
+      .eq("flagged", true)
+      .order("created_at", { ascending: false })
+      .limit(100),
+    supabase
+      .from("attempt_reviews")
+      .select("attempt_id, steelman_attempt_id, listening_attempt_id"),
   ]);
 
   const reviewed = new Set(
     (reviews.data ?? []).flatMap((r) =>
-      [r.attempt_id, r.steelman_attempt_id].filter((v): v is string => Boolean(v)),
+      [r.attempt_id, r.steelman_attempt_id, r.listening_attempt_id].filter(
+        (v): v is string => Boolean(v),
+      ),
     ),
   );
 
@@ -68,6 +78,14 @@ export default async function FlaggedPage() {
       createdAt: a.created_at,
       childName: (a.children as { name: string } | null)?.name ?? "unknown child",
       about: (a.steelman_prompts as { claim: string } | null)?.claim ?? "—",
+    })),
+    ...(listening.data ?? []).map((a) => ({
+      id: a.id,
+      source: "listening" as const,
+      text: a.text,
+      createdAt: a.created_at,
+      childName: (a.children as { name: string } | null)?.name ?? "unknown child",
+      about: (a.listening_passages as { title: string } | null)?.title ?? "—",
     })),
   ].sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 
@@ -103,7 +121,11 @@ export default async function FlaggedPage() {
                     <TriangleAlert className="size-4 text-destructive" />
                     <Badge className="rounded-full">{item.childName}</Badge>
                     <Badge className="rounded-full">
-                      {item.source === "steelman" ? "Steelman" : "Defend"}
+                      {item.source === "steelman"
+                        ? "Steelman"
+                        : item.source === "listening"
+                          ? "Listening"
+                          : "Defend"}
                     </Badge>
                     <span className="text-xs text-muted-foreground">{item.about}</span>
                     <span className="text-xs text-muted-foreground">

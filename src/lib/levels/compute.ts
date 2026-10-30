@@ -18,6 +18,9 @@ import type { Profile } from "./ranks";
  *   every strong move, that makes it the only route to Steelmanner — which is
  *   the point: you should not be able to hold the rank without having done
  *   the thing it is named after.
+ * - **Listen Close** supplies both as well: the explanation after a passage
+ *   goes through the same grader, so a child who finds reading hard can still
+ *   reach the top of the ladder.
  * - **Fake or Real** and **Spot the Trick** supply breadth only, and only when
  *   the child names the right reason. Picking correctly by luck credits nothing.
  *
@@ -35,9 +38,10 @@ export async function computeProfile(childId: string): Promise<Profile> {
   let excellentExplanations = 0;
   let totalActivities = 0;
 
-  const [reasoning, steelman, daily, puzzles] = await Promise.all([
+  const [reasoning, steelman, listening, daily, puzzles] = await Promise.all([
     supabase.from("reasoning_attempts").select("moves, quality").eq("child_id", childId),
     supabase.from("steelman_attempts").select("moves, quality").eq("child_id", childId),
+    supabase.from("listening_attempts").select("moves, quality").eq("child_id", childId),
     supabase
       .from("challenge_attempts")
       .select("tell_correct, chosen_tell")
@@ -51,7 +55,11 @@ export async function computeProfile(childId: string): Promise<Profile> {
   // The two written activities are counted together and identically: a
   // steelman argument IS an explanation the child wrote, so it moves the
   // quality counters on exactly the same terms as a defended answer.
-  const written = [...(reasoning.data ?? []), ...(steelman.data ?? [])];
+  const written = [
+    ...(reasoning.data ?? []),
+    ...(steelman.data ?? []),
+    ...(listening.data ?? []),
+  ];
 
   for (const row of written) {
     totalActivities++;

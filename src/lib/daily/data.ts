@@ -62,7 +62,12 @@ export async function getAttempt(
 export async function getActivityStreak(childId: string): Promise<Streak> {
   const supabase = await createClient();
 
-  const [reasoning, steelman, daily, puzzles] = await Promise.all([
+  // Listening, YLE practice and the YLE story count too. Leaving them out was
+  // not a judgement that they are lesser work — they simply did not exist when
+  // this was written, and YLE in particular is now the largest thing a child
+  // can do here. A streak that ignores most of the product teaches a child
+  // that most of the product does not matter.
+  const [reasoning, steelman, daily, puzzles, listening, yle, stories] = await Promise.all([
     supabase.from("reasoning_attempts").select("created_at").eq("child_id", childId),
     supabase.from("steelman_attempts").select("created_at").eq("child_id", childId),
     supabase
@@ -70,6 +75,9 @@ export async function getActivityStreak(childId: string): Promise<Streak> {
       .select("created_at, daily_challenges(publish_on)")
       .eq("child_id", childId),
     supabase.from("puzzle_attempts").select("created_at").eq("child_id", childId),
+    supabase.from("listening_attempts").select("created_at").eq("child_id", childId),
+    supabase.from("yle_attempts").select("created_at").eq("child_id", childId),
+    supabase.from("yle_story_attempts").select("created_at").eq("child_id", childId),
   ]);
 
   const days = new Set<string>();
@@ -77,6 +85,9 @@ export async function getActivityStreak(childId: string): Promise<Streak> {
     ...(reasoning.data ?? []),
     ...(steelman.data ?? []),
     ...(puzzles.data ?? []),
+    ...(listening.data ?? []),
+    ...(yle.data ?? []),
+    ...(stories.data ?? []),
   ]) {
     days.add(String(row.created_at).slice(0, 10));
   }

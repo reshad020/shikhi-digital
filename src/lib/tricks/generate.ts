@@ -59,6 +59,17 @@ Why it works: ${technique.whyItWorks}
 - Keep the subject light: school, animals, sport, weather, food, screen time. Never politics, illness, disaster or anything frightening.
 - Numbers must be internally consistent. If bars are labelled by year, use consecutive years.
 
+## Exactly one trick, and it must be this one
+The child picks the technique from a list of four. If the artefact demonstrates two, the one they pick may be genuinely present and still be marked wrong — which teaches them that they cannot do this.
+
+So the artefact must contain **no trace** of the others:
+
+${TECHNIQUES.filter((t) => t.slug !== technique.slug)
+  .map((t) => `- NOT ${t.label}: ${t.definition}`)
+  .join("\n")}
+
+The one that creeps in most often is alarm. Unless you were asked for the frightening headline, write in a flat, ordinary register: no capitals, no exclamation marks, no words like disaster, crisis, plummet, crashing, banned, forever. A big number reported calmly is still a big number, and if the trick is a missing total then the missing total has to be the only thing wrong with the sentence.
+
 ## kind
 Use one of: ${technique.kinds.join(", ")}.
 

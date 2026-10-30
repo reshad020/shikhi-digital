@@ -8,6 +8,7 @@ import { SiteHeader } from "@/components/site-header";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { getActiveChild } from "@/lib/data/children";
+import { setDailyGoal } from "@/lib/parent/goal-actions";
 import { getFamilyOverview } from "@/lib/parent/overview";
 import { progressTo } from "@/lib/levels/ranks";
 import { createClient } from "@/lib/supabase/server";
@@ -35,6 +36,7 @@ export default async function ParentPage({ params }: PageProps<"/[locale]/parent
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("parent");
+  const tg = await getTranslations("yleGoal");
 
   const [overview, activeChild] = await Promise.all([getFamilyOverview(), getActiveChild()]);
 
@@ -87,6 +89,41 @@ export default async function ParentPage({ params }: PageProps<"/[locale]/parent
           {cards.map((card, i) => (
             <ChildCard key={card.id} data={card} index={i} />
           ))}
+        </section>
+
+        {/* The one dial a parent actually has. Everything else on this page
+            reports; this changes something. Kept next to the children rather
+            than in a settings page nobody opens. */}
+        <section className="mt-8 rounded-[1.75rem] border-2 border-border bg-card p-6">
+          <h2 className="font-heading text-xl font-extrabold">{tg("goalLabel")}</h2>
+          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{tg("goalHelp")}</p>
+
+          <div className="mt-4 flex flex-col gap-3">
+            {overview.map((o) => (
+              <form
+                key={o.child.id}
+                action={setDailyGoal}
+                className="flex flex-wrap items-center gap-3"
+              >
+                <input type="hidden" name="childId" value={o.child.id} />
+                <span className="min-w-28 font-heading font-extrabold">{o.child.name}</span>
+                <select
+                  name="goal"
+                  defaultValue={String(o.child.daily_goal ?? 2)}
+                  className="h-11 rounded-2xl border-2 border-border bg-background px-3 font-heading font-bold outline-none focus-visible:border-primary"
+                >
+                  {[1, 2, 3, 4, 5, 6, 8, 10].map((n) => (
+                    <option key={n} value={n}>
+                      {n}
+                    </option>
+                  ))}
+                </select>
+                <Button type="submit" variant="outline" className="h-11 rounded-full border-2 font-bold">
+                  {tg("save")}
+                </Button>
+              </form>
+            ))}
+          </div>
         </section>
 
         {questions.length > 0 && (

@@ -7,7 +7,19 @@
     "lessons": "Leçons",
     "progress": "Mes progrès",
     "parent": "Parents",
-    "thinking": "Mes textes"
+    "thinking": "Mes textes",
+    "listening": "Écouter",
+    "yle": "YLE",
+    "maths": "Maths",
+    "groupLearn": "Apprendre",
+    "groupDaily": "Chaque jour",
+    "groupYou": "Toi",
+    "groupLanguage": "Langue",
+    "openMenu": "Ouvrir le menu",
+    "menuTitle": "On va où ?",
+    "soundOn": "Activer le son",
+    "soundOff": "Couper le son",
+    "toggleTheme": "Passer en clair ou sombre"
   },
   "defend": {
     "heading": "Pourquoi as-tu choisi ça ?",
@@ -91,7 +103,8 @@
     "checkEmail": "Vérifiez vos e-mails pour confirmer le compte.",
     "google": "Continuer avec Google",
     "or": "ou",
-    "errOauth": "Connexion avec Google impossible. Veuillez réessayer."
+    "errOauth": "Connexion avec Google impossible. Veuillez réessayer.",
+    "passwordHint": "Au moins 8 caractères."
   },
   "children": {
     "title": "Qui apprend aujourd'hui ?",
@@ -290,7 +303,15 @@
     "shortcutSteelman": "Arène du contradicteur",
     "shortcutSteelmanNote": "Défends l'autre camp",
     "shortcutThinking": "Mes textes",
-    "shortcutThinkingNote": "Tout ce que tu as écrit"
+    "shortcutThinkingNote": "Tout ce que tu as écrit",
+    "shortcutListening": "Écoute bien",
+    "shortcutListeningNote": "Écoute, puis déduis",
+    "shortcutMaths": "Les maths qui se voient",
+    "shortcutMathsNote": "Chaque calcul a son image",
+    "shortcutYle": "Entraînement YLE",
+    "shortcutYleNote": "Starters, Movers et Flyers",
+    "shortcutSpeaking": "Prends la parole",
+    "shortcutSpeakingNote": "Dis quelque chose à voix haute"
   },
   "steelman": {
     "title": "Arène du contradicteur",
@@ -383,6 +404,323 @@
       "developing": "En progrès",
       "solid": "Solide",
       "excellent": "Excellent"
+    },
+    "fromListening": "D'une écoute"
+  },
+  "listening": {
+    "title": "Écoute bien",
+    "tagline": "Pas de texte à l'écran. Écoute, puis dis-moi ce que tu en déduis.",
+    "play": "Lire",
+    "stop": "Arrêter",
+    "pressPlay": "Appuie sur lecture quand tu es prêt",
+    "listening": "Écoute en cours...",
+    "playedCount": "{count, plural, one {Écouté une fois} other {Écouté # fois}}",
+    "slower": "Plus lentement",
+    "again": "Réécouter",
+    "replayNote": "Écoute-le autant de fois que tu veux. Avoir besoin de l'entendre deux fois est tout à fait normal.",
+    "recallLabel": "Ce qui a été dit",
+    "inferenceLabel": "Ce que cela veut dire",
+    "inferenceHint": "Ce n'est pas dans le texte. Il faut le déduire.",
+    "placeholder": "Je pense cela parce que...",
+    "counter": "{n} / {max}",
+    "checking": "Lecture en cours...",
+    "submit": "Envoyer",
+    "pushbackLabel": "Un pas de plus",
+    "transcriptLabel": "{count, plural, one {Ce que tu as entendu, une fois} other {Ce que tu as entendu, # fois}}",
+    "quality": {
+      "developing": "En progrès",
+      "solid": "Solide",
+      "excellent": "Excellent"
+    },
+    "doneTitle": "Tu les as tous écoutés.",
+    "doneBody": "{count, plural, one {# passage écouté} other {# passages écoutés}}. De nouveaux arrivent régulièrement.",
+    "emptyTitle": "Rien à écouter pour l'instant",
+    "emptyBody": "Les passages sont écrits et publiés à la main. Reviens bientôt.",
+    "seeWriting": "Voir tout ce que tu as écrit",
+    "unsupportedTitle": "Ce navigateur ne peut pas lire à voix haute",
+    "unsupportedBody": "Écoute bien a besoin d'un navigateur capable de parler. Essaie Chrome, Edge ou Safari, et vérifie que le son est activé.",
+    "errors": {
+      "tooShort": "Encore quelques mots — dis-moi ce qui t'a fait penser cela.",
+      "tooLong": "C'est plus long que ce que nous pouvons lire. Raccourcis un peu.",
+      "service": "Quelque chose s'est mal passé à la lecture. Réessaie.",
+      "noChild": "Choisis d'abord qui apprend.",
+      "notFound": "Ce passage n'est pas disponible.",
+      "badInput": "Réponds d'abord aux deux questions."
     }
+  },
+  "yle": {
+    "hubKicker": "Cambridge English Qualifications",
+    "hubTitle": "Un entraînement YLE qui s'explique",
+    "hubLead": "Starters, Movers et Flyers, partie par partie. Entraîne-toi sur les vrais types d'exercices, vois tes boucliers et comprends pourquoi chaque réponse est la bonne.",
+    "levelTitle": "{name} : format et entraînement",
+    "whatsInIt": "Ce que contient {name}",
+    "practiceNow": "S'entraîner maintenant",
+    "practiceSets": "{n, plural, one {# série d'exercices} other {# séries d'exercices}}",
+    "syllabusOnly": "Voir le format",
+    "questionCount": "{n, plural, one {# question} other {# questions}}",
+    "minutes": "{m} minutes",
+    "partLabel": "Partie {part}",
+    "typeHere": "Écris ta réponse",
+    "markIt": "Corriger mes réponses",
+    "tryAgain": "Réessayer",
+    "morePractice": "Plus d'exercices",
+    "answeredCount": "{n} sur {total} répondues",
+    "theAnswer": "Réponse : {answer}",
+    "yourScore": "{correct} sur {total}",
+    "shields": "{n} boucliers sur {max}",
+    "shieldsNote": "Ceci est un entraînement, pas l'examen. Cambridge ne publie pas ses seuils de notation : considère ces boucliers comme un repère, pas comme une prédiction.",
+    "noFailTitle": "Personne n'échoue au YLE.",
+    "noFailBody": "Chaque enfant qui passe l'examen reçoit un certificat indiquant des boucliers sur {max}. Il n'y a ni note de passage ni échec. Les boucliers montrent ce que l'enfant sait déjà faire.",
+    "storyPart": "Reading & Writing Partie 7",
+    "storyInstruction": "Écris une histoire en utilisant les trois moments, dans l'ordre.",
+    "storyPicturesNote": "Dans le vrai examen, ces trois moments sont des images. Ici ils sont écrits : tu t'entraînes donc à écrire, pas à lire des images.",
+    "storyPlaceholder": "Commence ton histoire ici...",
+    "storyWords": "{n, plural, one {# mot} other {# mots}}",
+    "storyMarking": "Lecture de ton histoire...",
+    "storySubmit": "Corriger mon histoire",
+    "storyYours": "Ce que tu as écrit",
+    "storyStrength": "Le meilleur de ton histoire",
+    "storyFixes": "Trois choses à corriger",
+    "storyFixesNote": "Trois seulement, et celles qui comptent le plus à l'examen.",
+    "storyMark": "Note",
+    "storyOutOf": "{mark} sur 5",
+    "storyCoversAll": "Tu as utilisé les trois moments.",
+    "storyMissedOne": "Il manque un des trois moments dans ton histoire.",
+    "storyNextTime": "La prochaine fois",
+    "storyErrors": {
+      "tooShort": "Un peu plus : une histoire a un début, un milieu et une fin.",
+      "tooLong": "C'est plus long que ce que permet l'examen. Raccourcis.",
+      "notFound": "Cette histoire n'est pas disponible.",
+      "service": "Un problème est survenu pendant la correction. Réessaie."
+    },
+    "storyMarkedNote": "La seule partie qu'on ne peut pas corriger en comparant des mots. Écris une histoire, nous la lirons vraiment.",
+    "savedToProgress": "Enregistré dans ta progression",
+    "keepShieldsTitle": "Garde tes boucliers",
+    "keepShieldsBody": "Tu peux t'entraîner sans compte, mais rien n'est conservé. Avec un compte, chaque exercice est mémorisé, tes boucliers s'accumulent épreuve par épreuve, et ton adulte reçoit un bilan de préparation.",
+    "keepShieldsCta": "Créer un compte gratuit",
+    "practiceByPart": "Choisis une partie et travaille-la. Chacune a ses exercices.",
+    "setsAvailable": "{n, plural, one {# exercice} other {# exercices}}",
+    "yleProgressLink": "Ma préparation"
+  },
+  "maths": {
+    "hubKicker": "Les maths qui se voient",
+    "hubTitle": "Chaque calcul a son image",
+    "hubLead": "Additions, soustractions, tables de multiplication, fractions et pourcentages : chacun dessiné, pour voir ce que font les nombres avant de chercher la réponse.",
+    "questionCount": "{n, plural, one {# question} other {# questions}}",
+    "whyTitle": "Pourquoi des images ?",
+    "whyBody": "La plupart des enfants qui disent ne pas savoir faire des maths savent très bien les faire : c'est l'écriture qui les arrête. Un enfant pour qui 3 x 4 ne veut rien dire compte sans peine un plateau de brioches sur trois rangées. Chaque image est tracée à partir des nombres de la question : elle ne peut donc jamais la contredire.",
+    "progress": "{n} sur {total}",
+    "check": "Vérifier",
+    "next": "Suivant",
+    "finish": "Terminer",
+    "anotherGo": "Réessaie",
+    "theAnswer": "Réponse : {answer}",
+    "yourAnswer": "Ta réponse",
+    "rubOut": "Effacer le dernier",
+    "scoreOf": "{score} sur {total}",
+    "firstTime": "Justes du premier coup",
+    "goAgain": "Recommencer",
+    "anotherTopic": "Un autre thème",
+    "topics": {
+      "addition": {
+        "name": "Additionner",
+        "blurb": "Additionner, c'est avancer sur la droite.",
+        "idea": "Toute addition est un bond vers la droite. La réponse est l'endroit où tu arrives.",
+        "q": {
+          "a1": {
+            "prompt": "Pars de 3 et fais un bond de 4 vers la droite. Où arrives-tu ?",
+            "note": "Additionner va toujours vers la droite. La longueur du bond, c'est le nombre que tu ajoutes."
+          },
+          "a2": {
+            "prompt": "Pars de 8 et fais un bond de 7 vers la droite.",
+            "note": "Même si les graduations vont de deux en deux, le bond se compte de un en un : la droite est la même, seules les étiquettes changent."
+          },
+          "a3": {
+            "prompt": "9 + 6. Va d'abord jusqu'à 10, puis fais le reste. Où arrives-tu ?",
+            "note": "Aller d'abord à la dizaine la plus proche rend le second bond facile : 9 + 1 = 10, puis encore 5."
+          },
+          "a4": {
+            "prompt": "6 + 3",
+            "note": "En partant du plus grand nombre, le bond est plus court et il y a moins à compter."
+          }
+        }
+      },
+      "subtraction": {
+        "name": "Soustraire",
+        "blurb": "Soustraire, c'est revenir en arrière.",
+        "idea": "Soustraire, c'est la même droite parcourue à l'envers. L'écart entre deux nombres est la différence.",
+        "q": {
+          "s1": {
+            "prompt": "Pars de 9 et recule de 4. Où arrives-tu ?",
+            "note": "Soustraire va toujours vers la gauche. La même droite, dans l'autre sens."
+          },
+          "s2": {
+            "prompt": "15 − 8",
+            "note": "Recule d'abord jusqu'à 10, puis enlève le reste : 15 − 5 = 10, puis encore 3."
+          },
+          "s3": {
+            "prompt": "13 − 7. Compte l'écart de 7 jusqu'à 13 au lieu de reculer.",
+            "note": "Soustraire, c'est aussi la distance entre deux nombres, et compter en montant est souvent plus facile."
+          },
+          "s4": {
+            "prompt": "2 − 5. Continue au-delà de zéro.",
+            "note": "La droite ne s'arrête pas à zéro. Trois pas plus loin, c'est moins trois."
+          }
+        }
+      },
+      "multiplication": {
+        "name": "Tables de multiplication",
+        "blurb": "Multiplier, c'est compter un rectangle.",
+        "idea": "Chaque multiplication est un rectangle de points. 3 x 4 et 4 x 3, c'est le même rectangle, tourné.",
+        "q": {
+          "m1": {
+            "prompt": "Combien de points en tout ?",
+            "note": "Lignes fois colonnes. Tu n'as jamais besoin de les compter un par un."
+          },
+          "m2": {
+            "prompt": "Et maintenant ? Regarde bien avant de compter.",
+            "note": "Tourner le rectangle ne change pas le nombre de points. 3 x 4 = 4 x 3."
+          },
+          "m3": {
+            "prompt": "6 lignes de 5.",
+            "note": "Cinq fois quelque chose, c'est la moitié de dix fois : 6 x 10 = 60, donc 6 x 5 = 30."
+          },
+          "m4": {
+            "prompt": "7 x 4",
+            "note": "Les difficiles se coupent en deux : 7 x 4, c'est 5 x 4 plus 2 x 4, soit 20 + 8."
+          },
+          "m5": {
+            "prompt": "24 points en 4 lignes. Combien y en a-t-il sur chaque ligne ?",
+            "note": "Diviser, c'est poser la question à l'envers au rectangle : 24 répartis sur 4 lignes."
+          }
+        }
+      },
+      "fractions": {
+        "name": "Fractions",
+        "blurb": "Une fraction, c'est un tout coupé en parts égales.",
+        "idea": "Le nombre du bas dit en combien de parts égales on a coupé. Celui du haut dit combien tu en as.",
+        "q": {
+          "f1": {
+            "prompt": "Quelle fraction de la barre est coloriée ? Écris-la comme 1/2.",
+            "note": "Quatre parts égales, trois coloriées. Le nombre du bas est toujours le nombre de parts."
+          },
+          "f2": {
+            "prompt": "Quelle fraction est coloriée ? Donne la réponse la plus simple.",
+            "note": "4 sur 8, c'est la même quantité que 1 sur 2. La barre ne change pas, seul son nom change."
+          },
+          "f3": {
+            "prompt": "Lequel est le plus grand, 1/3 ou 1/4 ? Écris ta réponse comme 1/3.",
+            "note": "Plus il y a de parts, plus elles sont petites. Couper une barre en quatre en donne moins que la couper en trois."
+          },
+          "f4": {
+            "prompt": "La barre est entièrement coloriée. Cela fait quel nombre entier ?",
+            "note": "Quand le haut et le bas sont pareils, tu as le tout, et cela fait toujours 1."
+          },
+          "f5": {
+            "prompt": "Est-ce la même quantité ?",
+            "note": "3/6 et 1/2 occupent la même longueur. Des fractions équivalentes s'écrivent autrement et valent pareil."
+          }
+        }
+      },
+      "percentages": {
+        "name": "Pourcentages",
+        "blurb": "Pour cent veut simplement dire sur cent.",
+        "idea": "Un pourcentage est une fraction avec 100 en dessous. La grille a 100 cases, alors on le voit.",
+        "q": {
+          "p1": {
+            "prompt": "Quel pourcentage de la grille est colorié ? Écris seulement le nombre.",
+            "note": "Pour cent veut dire sur cent. Vingt-cinq cases coloriées, c'est 25 %."
+          },
+          "p2": {
+            "prompt": "Quelle fraction est-ce, le plus simplement possible ? Écris-la comme 1/2.",
+            "note": "50 %, c'est la moitié. Pourcentages et fractions sont deux noms pour la même image."
+          },
+          "p3": {
+            "prompt": "10 % de 100 font 10. Alors combien font 10 % de 50 ?",
+            "note": "10 %, c'est toujours un dixième. Pour le trouver, divise par dix, quel que soit le nombre."
+          },
+          "p4": {
+            "prompt": "Quel pourcentage n'est PAS colorié ?",
+            "note": "La grille entière fait 100 %. Ce qui reste, c'est 100 moins la partie coloriée."
+          },
+          "p5": {
+            "prompt": "La barre entière vaut 20 et elle est partagée en 5 parts égales. Combien vaut une part ?",
+            "note": "Un cinquième, c'est 20 %. Partager en cinq parts égales et en prendre une revient à chercher 20 %."
+          }
+        }
+      }
+    },
+    "choice": {
+      "no": "Non",
+      "yes": "Oui"
+    },
+    "rowsOf": "{rows} lignes de {cols}",
+    "equalParts": "{n, plural, one {# part égale} other {# parts égales}}",
+    "hundredSquares": "100 cases",
+    "worth": "vaut {label}"
+  },
+  "tricks": {
+    "title": "Trouve le piège",
+    "lead": "Quelque chose ici est fait pour t'induire en erreur. Trouve quoi.",
+    "allDone": "Tu les as tous faits.",
+    "allDoneBody": "De nouveaux arrivent régulièrement. En attendant, le guide explique chaque piège.",
+    "noneYet": "Pas encore de défis.",
+    "noneYetBody": "Ils sont écrits et vérifiés avant d'être montrés. En attendant, le guide explique chaque piège.",
+    "readGuide": "Lire le guide"
+  },
+  "yleProgress": {
+    "title": "Préparation YLE",
+    "heading": "Préparation YLE de {name}",
+    "lead": "Les boucliers s'accumulent au fil des exercices. Tout ici vient d'exercices réellement faits : cela ne bouge qu'avec du vrai travail.",
+    "emptyTitle": "Rien encore",
+    "emptyBody": "Fais un exercice et il apparaîtra ici, épreuve par épreuve et partie par partie.",
+    "startPractising": "Commencer",
+    "setsSat": "{n, plural, one {# exercice fait} other {# exercices faits}}",
+    "partLabel": "Partie {part}",
+    "notTried": "Pas essayé",
+    "setsDone": "{n, plural, one {# exercice} other {# exercices}}",
+    "partialCover": "D'après {covered} parties sur {total} — fais les autres avant d'y voir une prédiction.",
+    "fullCover": "Toutes les parties essayées. {pct}% de bonnes réponses sur l'épreuve.",
+    "practiseThis": "S'entraîner sur cette épreuve",
+    "honesty": "Ces boucliers sont notre estimation, à partir de nos propres exercices, sur les {levels} niveaux. Cambridge ne publie pas ses seuils : voyez-y un repère sur le niveau de votre enfant, pas une prévision du résultat. En YLE, il n'y a ni réussite ni échec."
+  },
+  "yleNext": {
+    "kicker": "À faire maintenant",
+    "cta": "Commencer cet exercice",
+    "partLabel": "Partie {part}",
+    "questionCount": "{n, plural, one {# question} other {# questions}}",
+    "reasonStart": "Un bon point de départ. Fais un exercice et on choisira la suite pour toi.",
+    "reasonCoverage": "Tu n'as pas encore essayé la Partie {part}. Faire chaque partie une fois nous montre où tu as vraiment besoin de travailler.",
+    "reasonWeakest": "La Partie {part} est ton point faible pour l'instant, à {pct}%. C'est celle qui mérite un nouvel essai.",
+    "reasonRevisit": "La Partie {part} reste ton point faible et tu as vu tous ses exercices : voici celui qui s'est le moins bien passé.",
+    "freshLeft": "{n, plural, one {il reste # exercice que tu n'as pas vu dans cette partie} other {il reste # exercices que tu n'as pas vus dans cette partie}}"
+  },
+  "yleGoal": {
+    "todayTitle": "{done} sur {goal} aujourd'hui",
+    "met": "L'entraînement du jour est fait.",
+    "streak": "{n, plural, one {# jour d'affilée} other {# jours d'affilée}}",
+    "goalLabel": "Exercices par jour",
+    "goalHelp": "Un petit nombre qu'il peut vraiment finir. Deux suffisent un soir d'école.",
+    "save": "Enregistrer"
+  },
+  "speaking": {
+    "title": "Prends la parole",
+    "tagline": "Une petite chose à dire à voix haute.",
+    "seenBefore": "Tu as déjà fait celle-ci",
+    "youCouldMention": "Tu pourrais parler de",
+    "wordsToUse": "Mots qui peuvent servir",
+    "target": "Essaie de parler environ {seconds} secondes.",
+    "start": "Commencer l'enregistrement",
+    "stop": "Arrêter",
+    "again": "Réenregistrer",
+    "showModel": "Voir une bonne réponse",
+    "nextCue": "En essayer une autre",
+    "youSpokeFor": "Tu as parlé {seconds} secondes.",
+    "modelAnswer": "Une bonne réponse à ton niveau",
+    "modelNote": "Ce n'est pas la seule bonne réponse, juste une façon de le dire.",
+    "micDenied": "Nous n'avons pas pu accéder au micro. Vérifie l'autorisation et réessaie.",
+    "emptyTitle": "Rien de nouveau pour l'instant",
+    "emptyBody": "Tu as fait tout ce qu'il y a ici pour le moment. Reviens un peu plus tard.",
+    "emptyLink": "Retour au reste"
   }
 }

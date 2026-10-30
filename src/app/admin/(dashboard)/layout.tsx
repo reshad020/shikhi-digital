@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CalendarDays, LogOut, Plus, ScanEye, ShieldAlert, Swords, Sparkles } from "lucide-react";
+import { CalendarDays, LogOut, Plus, ScanEye, Ear, ShieldAlert, Swords, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getProfile } from "@/lib/supabase/server";
 import { signOut } from "@/lib/auth/actions";
@@ -30,6 +30,10 @@ export default async function DashboardLayout({ children }: LayoutProps<"/admin"
             <Link className="flex items-center gap-1.5 rounded-full px-3 py-2 hover:bg-muted" href="/admin/tricks">
               <ScanEye className="size-4" />
               Tricks
+            </Link>
+            <Link className="flex items-center gap-1.5 rounded-full px-3 py-2 hover:bg-muted" href="/admin/listening">
+              <Ear className="size-4" />
+              Listening
             </Link>
             <Link className="flex items-center gap-1.5 rounded-full px-3 py-2 hover:bg-muted" href="/admin/steelman">
               <Swords className="size-4" />

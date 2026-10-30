@@ -1,6 +1,18 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ArrowRight, CalendarDays, NotebookPen, ScanSearch, Swords, TrendingUp } from "lucide-react";
+import {
+  ArrowRight,
+  Calculator,
+  CalendarDays,
+  Ear,
+  GraduationCap,
+  NotebookPen,
+  ScanSearch,
+  Target,
+  Swords,
+  Mic,
+  TrendingUp,
+} from "lucide-react";
 import { LessonGrid } from "@/components/library/lesson-grid";
 import { SiteHeader } from "@/components/site-header";
 import { Link } from "@/i18n/navigation";
@@ -32,6 +44,7 @@ export default async function LearnIndexPage({ params }: PageProps<"/[locale]/le
     listLessonCards(locale),
     getTranslations("library"),
   ]);
+  const ty = await getTranslations("yleProgress");
 
   return (
     <>
@@ -44,15 +57,50 @@ export default async function LearnIndexPage({ params }: PageProps<"/[locale]/le
           <p className="mt-2 text-muted-foreground">{t("subtitle")}</p>
         </header>
 
-        {/* The two daily habits sit above the library on purpose: both are
-            short, both are meant to be returned to, and both feed the same
-            progression a lesson does. */}
+        {/* Everything a child can do, on the page they land on.
+            Maths and YLE were missing from this grid, which made them
+            unreachable on a phone: they existed only in the desktop bar, and
+            the bar is hidden below lg. They are also the two largest sections
+            in the product, so they go first. */}
         <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Speaking leads: it is the skill the product is now for, and the
+              one a learner will quietly skip if it is not the first thing
+              they see. */}
+          <Shortcut
+            href="/speaking"
+            icon={<Mic className="size-5 text-bubblegum" />}
+            title={t("shortcutSpeaking")}
+            note={t("shortcutSpeakingNote")}
+          />
+          <Shortcut
+            href="/maths"
+            icon={<Calculator className="size-5 text-grape" />}
+            title={t("shortcutMaths")}
+            note={t("shortcutMathsNote")}
+          />
+          <Shortcut
+            href="/yle"
+            icon={<GraduationCap className="size-5 text-grape" />}
+            title={t("shortcutYle")}
+            note={t("shortcutYleNote")}
+          />
+          <Shortcut
+            href="/yle/progress"
+            icon={<Target className="size-5 text-sunny" />}
+            title={ty("yleProgressLink")}
+            note={ty("title")}
+          />
           <Shortcut
             href="/daily"
             icon={<CalendarDays className="size-5 text-sky" />}
             title={t("shortcutDaily")}
             note={t("shortcutDailyNote")}
+          />
+          <Shortcut
+            href="/listening"
+            icon={<Ear className="size-5 text-sky" />}
+            title={t("shortcutListening")}
+            note={t("shortcutListeningNote")}
           />
           <Shortcut
             href="/tricks"
@@ -95,7 +143,17 @@ function Shortcut({
   title,
   note,
 }: {
-  href: "/daily" | "/tricks" | "/progress" | "/steelman" | "/thinking";
+  href:
+    | "/speaking"
+    | "/daily"
+    | "/tricks"
+    | "/progress"
+    | "/steelman"
+    | "/thinking"
+    | "/listening"
+    | "/maths"
+    | "/yle"
+    | "/yle/progress";
   icon: React.ReactNode;
   title: string;
   note: string;

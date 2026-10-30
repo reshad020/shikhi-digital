@@ -7,7 +7,19 @@
     "lessons": "Lessons",
     "progress": "My Progress",
     "parent": "Parents",
-    "thinking": "My Writing"
+    "thinking": "My Writing",
+    "listening": "Listen",
+    "yle": "YLE",
+    "maths": "Maths",
+    "groupLearn": "Learn",
+    "groupDaily": "Every day",
+    "groupYou": "You",
+    "groupLanguage": "Language",
+    "openMenu": "Open menu",
+    "menuTitle": "Where to?",
+    "soundOn": "Turn sound on",
+    "soundOff": "Turn sound off",
+    "toggleTheme": "Switch light or dark"
   },
   "defend": {
     "heading": "Why did you pick that?",
@@ -91,7 +103,8 @@
     "checkEmail": "Check your email to confirm your account.",
     "google": "Continue with Google",
     "or": "or",
-    "errOauth": "Could not sign in with Google. Please try again."
+    "errOauth": "Could not sign in with Google. Please try again.",
+    "passwordHint": "At least 8 characters."
   },
   "children": {
     "title": "Who is learning today?",
@@ -290,7 +303,15 @@
     "shortcutSteelman": "Steelman Arena",
     "shortcutSteelmanNote": "Argue the other side",
     "shortcutThinking": "My Writing",
-    "shortcutThinkingNote": "Everything you have written"
+    "shortcutThinkingNote": "Everything you have written",
+    "shortcutListening": "Listen Close",
+    "shortcutListeningNote": "Hear it, then work it out",
+    "shortcutMaths": "Maths You Can See",
+    "shortcutMathsNote": "Every sum has a picture",
+    "shortcutYle": "YLE practice",
+    "shortcutYleNote": "Starters, Movers and Flyers",
+    "shortcutSpeaking": "Speak Up",
+    "shortcutSpeakingNote": "Say something out loud"
   },
   "steelman": {
     "title": "Steelman Arena",
@@ -383,6 +404,323 @@
       "developing": "Developing",
       "solid": "Solid",
       "excellent": "Excellent"
+    },
+    "fromListening": "From listening"
+  },
+  "listening": {
+    "title": "Listen Close",
+    "tagline": "No words on screen. Just listen, then tell me what you worked out.",
+    "play": "Play",
+    "stop": "Stop",
+    "pressPlay": "Press play when you are ready",
+    "listening": "Listening...",
+    "playedCount": "{count, plural, one {Played once} other {Played # times}}",
+    "slower": "Slower",
+    "again": "Play again",
+    "replayNote": "Play it as many times as you like. Needing to hear it twice is completely normal.",
+    "recallLabel": "What was said",
+    "inferenceLabel": "What it means",
+    "inferenceHint": "This one is not in the passage. You have to work it out.",
+    "placeholder": "I think that because...",
+    "counter": "{n} / {max}",
+    "checking": "Reading it...",
+    "submit": "Send it",
+    "pushbackLabel": "One step further",
+    "transcriptLabel": "{count, plural, one {What you heard, once} other {What you heard, # times}}",
+    "quality": {
+      "developing": "Developing",
+      "solid": "Solid",
+      "excellent": "Excellent"
+    },
+    "doneTitle": "You have heard them all.",
+    "doneBody": "{count, plural, one {# passage} other {# passages}} listened to. New ones arrive regularly.",
+    "emptyTitle": "Nothing to listen to yet",
+    "emptyBody": "Passages are written and published by hand. Check back shortly.",
+    "seeWriting": "See everything you have written",
+    "unsupportedTitle": "This browser cannot read aloud",
+    "unsupportedBody": "Listen Close needs a browser that can speak text. Try Chrome, Edge or Safari, and check your sound is on.",
+    "errors": {
+      "tooShort": "A few more words — tell me what made you think that.",
+      "tooLong": "That is longer than we can read. Trim it a little.",
+      "service": "Something went wrong reading that. Try once more.",
+      "noChild": "Choose who is learning first.",
+      "notFound": "That passage is not available.",
+      "badInput": "Pick an answer to both questions first."
     }
+  },
+  "yle": {
+    "hubKicker": "Cambridge English Qualifications",
+    "hubTitle": "YLE practice that explains itself",
+    "hubLead": "Starters, Movers and Flyers, part by part. Practise the real task types, see your shields, and find out why each answer is what it is.",
+    "levelTitle": "{name}: format and practice",
+    "whatsInIt": "What is in {name}",
+    "practiceNow": "Practise now",
+    "practiceSets": "{n, plural, one {# practice set} other {# practice sets}}",
+    "syllabusOnly": "See the format",
+    "questionCount": "{n, plural, one {# question} other {# questions}}",
+    "minutes": "{m} minutes",
+    "partLabel": "Part {part}",
+    "typeHere": "Type your answer",
+    "markIt": "Check my answers",
+    "tryAgain": "Try again",
+    "morePractice": "More practice",
+    "answeredCount": "{n} of {total} answered",
+    "theAnswer": "Answer: {answer}",
+    "yourScore": "{correct} out of {total}",
+    "shields": "{n} of {max} shields",
+    "shieldsNote": "This is practice, not the real thing. Cambridge does not publish its score boundaries, so treat these shields as a guide to where you are, not a prediction.",
+    "noFailTitle": "Nobody fails YLE.",
+    "noFailBody": "Every child who sits the exam gets a certificate showing shields out of {max}. There is no pass mark and no fail. The shields show what a child can already do.",
+    "storyPart": "Reading & Writing Part 7",
+    "storyInstruction": "Write a story using all three moments, in order.",
+    "storyPicturesNote": "In the real exam these three moments are pictures. Here they are written out, so you are practising the writing rather than the picture-reading.",
+    "storyPlaceholder": "Start your story here...",
+    "storyWords": "{n, plural, one {# word} other {# words}}",
+    "storyMarking": "Reading your story...",
+    "storySubmit": "Mark my story",
+    "storyYours": "What you wrote",
+    "storyStrength": "The best thing in it",
+    "storyFixes": "Three things to fix",
+    "storyFixesNote": "Only three, and only the ones that matter most in the exam.",
+    "storyMark": "Mark",
+    "storyOutOf": "{mark} out of 5",
+    "storyCoversAll": "You used all three moments.",
+    "storyMissedOne": "One of the three moments is missing from your story.",
+    "storyNextTime": "Next time",
+    "storyErrors": {
+      "tooShort": "A little more — a story needs a beginning, a middle and an end.",
+      "tooLong": "That is longer than the exam allows. Trim it.",
+      "notFound": "That story is not available.",
+      "service": "Something went wrong marking that. Try once more."
+    },
+    "storyMarkedNote": "The one part a computer cannot mark by matching words. Write a story and we will read it properly.",
+    "savedToProgress": "Saved to your progress",
+    "keepShieldsTitle": "Keep your shields",
+    "keepShieldsBody": "Practice works without an account, but nothing is kept. With one, every set you sit is remembered, your shields build up paper by paper, and your grown-up gets a readiness report.",
+    "keepShieldsCta": "Create a free account",
+    "practiceByPart": "Choose a part and drill it. Each one has its own sets.",
+    "setsAvailable": "{n, plural, one {# set} other {# sets}}",
+    "yleProgressLink": "My readiness"
+  },
+  "maths": {
+    "hubKicker": "Maths you can see",
+    "hubTitle": "Every sum has a picture",
+    "hubLead": "Adding, taking away, times tables, fractions and percentages — each one drawn, so you can see what the numbers are doing before you work out the answer.",
+    "questionCount": "{n, plural, one {# question} other {# questions}}",
+    "whyTitle": "Why the pictures?",
+    "whyBody": "Most children who say they cannot do maths can do the maths perfectly well — it is the notation that defeats them. A child who finds 3 x 4 meaningless has no trouble counting a tray of buns three rows deep. Every picture here is drawn from the numbers in the question, so it can never disagree with it.",
+    "progress": "{n} of {total}",
+    "check": "Check",
+    "next": "Next",
+    "finish": "Finish",
+    "anotherGo": "Have another go",
+    "theAnswer": "Answer: {answer}",
+    "yourAnswer": "Your answer",
+    "rubOut": "Rub out the last one",
+    "scoreOf": "{score} out of {total}",
+    "firstTime": "Right first time",
+    "goAgain": "Go again",
+    "anotherTopic": "Another topic",
+    "topics": {
+      "addition": {
+        "name": "Adding",
+        "blurb": "Adding is moving forward along the line.",
+        "idea": "Every sum is a jump to the right. The answer is wherever you land.",
+        "q": {
+          "a1": {
+            "prompt": "Start at 3 and jump forward 4. Where do you land?",
+            "note": "Adding always moves to the right. The size of the jump is the number you add."
+          },
+          "a2": {
+            "prompt": "Start at 8 and jump forward 7.",
+            "note": "When the ticks go up in twos, count the jump in ones — the line is the same, only the labels changed."
+          },
+          "a3": {
+            "prompt": "9 + 6. Jump to 10 first, then do the rest. Where do you land?",
+            "note": "Jumping to the nearest ten first makes the second jump easy: 9 + 1 = 10, then 5 more."
+          },
+          "a4": {
+            "prompt": "6 + 3",
+            "note": "Start from the bigger number and the jump is shorter, so there is less to count."
+          }
+        }
+      },
+      "subtraction": {
+        "name": "Taking away",
+        "blurb": "Taking away is moving back the other way.",
+        "idea": "Subtraction is the same line, walked backwards. The gap between two numbers is the difference.",
+        "q": {
+          "s1": {
+            "prompt": "Start at 9 and jump back 4. Where do you land?",
+            "note": "Taking away always moves to the left. Same line, opposite direction."
+          },
+          "s2": {
+            "prompt": "15 − 8",
+            "note": "Jump back to 10 first, then take the rest: 15 − 5 = 10, then 3 more."
+          },
+          "s3": {
+            "prompt": "13 − 7. Count the gap from 7 up to 13 instead of jumping back.",
+            "note": "Subtraction is also the distance between two numbers, and counting up is often easier."
+          },
+          "s4": {
+            "prompt": "2 − 5. Keep going past zero.",
+            "note": "The line does not stop at zero. Three steps past it is negative three."
+          }
+        }
+      },
+      "multiplication": {
+        "name": "Times tables",
+        "blurb": "Multiplying is counting a rectangle.",
+        "idea": "Every times fact is a rectangle of dots. 3 x 4 and 4 x 3 are the same rectangle, turned.",
+        "q": {
+          "m1": {
+            "prompt": "How many dots altogether?",
+            "note": "Rows times columns. You never have to count them one at a time."
+          },
+          "m2": {
+            "prompt": "And now? Look carefully before you count.",
+            "note": "Turning the rectangle does not change how many dots there are. 3 x 4 = 4 x 3."
+          },
+          "m3": {
+            "prompt": "6 rows of 5.",
+            "note": "Five of anything is half of ten of it: 6 x 10 = 60, so 6 x 5 = 30."
+          },
+          "m4": {
+            "prompt": "7 x 4",
+            "note": "Hard ones split: 7 x 4 is 5 x 4 plus 2 x 4, which is 20 + 8."
+          },
+          "m5": {
+            "prompt": "24 dots in 4 rows. How many in each row?",
+            "note": "Dividing asks the rectangle a question backwards: 24 split into 4 rows."
+          }
+        }
+      },
+      "fractions": {
+        "name": "Fractions",
+        "blurb": "A fraction is a whole thing, cut fairly.",
+        "idea": "The bottom number says how many equal pieces. The top says how many you have.",
+        "q": {
+          "f1": {
+            "prompt": "What fraction of the bar is shaded? Write it like 1/2.",
+            "note": "Four equal pieces, three of them shaded. The bottom number is always the number of pieces."
+          },
+          "f2": {
+            "prompt": "What fraction is shaded? Write the simplest answer.",
+            "note": "4 out of 8 is the same amount as 1 out of 2. The bar does not change, only the way you name it."
+          },
+          "f3": {
+            "prompt": "Which is bigger, 1/3 or 1/4? Write your answer like 1/3.",
+            "note": "More pieces means smaller pieces. Cutting a bar into four gives you less each time than cutting it into three."
+          },
+          "f4": {
+            "prompt": "The whole bar is shaded. What is that as a whole number?",
+            "note": "When the top and the bottom match, you have the whole thing, and that is always 1."
+          },
+          "f5": {
+            "prompt": "Are these the same amount?",
+            "note": "3/6 and 1/2 cover the same length. Equivalent fractions look different and mean the same."
+          }
+        }
+      },
+      "percentages": {
+        "name": "Percentages",
+        "blurb": "Per cent just means out of a hundred.",
+        "idea": "A percentage is a fraction with 100 underneath. The grid has 100 squares, so you can see it.",
+        "q": {
+          "p1": {
+            "prompt": "What percentage of the grid is shaded? Write the number only.",
+            "note": "Per cent means out of a hundred. Twenty-five shaded squares is 25%."
+          },
+          "p2": {
+            "prompt": "What fraction is this, in its simplest form? Write it like 1/2.",
+            "note": "50% is half. Percentages and fractions are two names for the same picture."
+          },
+          "p3": {
+            "prompt": "10% of 100 is 10. So what is 10% of 50?",
+            "note": "10% is always a tenth. To find it, divide by ten, whatever the number is."
+          },
+          "p4": {
+            "prompt": "What percentage is NOT shaded?",
+            "note": "The whole grid is 100%. Whatever is left is 100 minus the shaded part."
+          },
+          "p5": {
+            "prompt": "The whole bar is worth 20, split into 5 equal parts. What is one part worth?",
+            "note": "One fifth is 20%. Splitting into five equal parts and taking one is the same as finding 20%."
+          }
+        }
+      }
+    },
+    "choice": {
+      "no": "No",
+      "yes": "Yes"
+    },
+    "rowsOf": "{rows} rows of {cols}",
+    "equalParts": "{n, plural, one {# equal part} other {# equal parts}}",
+    "hundredSquares": "100 squares",
+    "worth": "worth {label}"
+  },
+  "tricks": {
+    "title": "Spot the Trick",
+    "lead": "Something here is designed to mislead you. Find out what.",
+    "allDone": "You have done them all.",
+    "allDoneBody": "New puzzles arrive regularly. In the meantime, the guide explains every trick.",
+    "noneYet": "No puzzles yet.",
+    "noneYetBody": "These are written and checked before anyone sees them. The guide explains every trick in the meantime.",
+    "readGuide": "Read the guide"
+  },
+  "yleProgress": {
+    "title": "YLE readiness",
+    "heading": "{name}'s YLE readiness",
+    "lead": "Shields build up as practice is completed. Everything here comes from sets actually sat, so it moves only when real work is done.",
+    "emptyTitle": "Nothing practised yet",
+    "emptyBody": "Sit one practice set and it will show up here, paper by paper and part by part.",
+    "startPractising": "Start practising",
+    "setsSat": "{n, plural, one {# set sat} other {# sets sat}}",
+    "partLabel": "Part {part}",
+    "notTried": "Not tried",
+    "setsDone": "{n, plural, one {# set} other {# sets}}",
+    "partialCover": "Based on {covered} of {total} parts — try the rest before treating this as a prediction.",
+    "fullCover": "Every part attempted. {pct}% correct across the paper.",
+    "practiseThis": "Practise this paper",
+    "honesty": "These shields are our estimate from our own practice material, across all {levels} levels. Cambridge does not publish its score boundaries, so treat this as a guide to where your child is, not a forecast of the result. There is no pass or fail in YLE."
+  },
+  "yleNext": {
+    "kicker": "Do this next",
+    "cta": "Start this set",
+    "partLabel": "Part {part}",
+    "questionCount": "{n, plural, one {# question} other {# questions}}",
+    "reasonStart": "A good place to begin. Sit one set and we will work out what to give you next.",
+    "reasonCoverage": "You have not tried Part {part} yet. Doing each part once tells us where you actually need the work.",
+    "reasonWeakest": "Part {part} is your weakest so far, at {pct}%. This is the one worth another go.",
+    "reasonRevisit": "Part {part} is still your weakest and you have seen every set in it, so here is the one that went least well.",
+    "freshLeft": "{n, plural, one {# more set you have not seen in this part} other {# more sets you have not seen in this part}}"
+  },
+  "yleGoal": {
+    "todayTitle": "{done} of {goal} today",
+    "met": "Today's practice is done.",
+    "streak": "{n, plural, one {# day in a row} other {# days in a row}}",
+    "goalLabel": "Practice sets a day",
+    "goalHelp": "A small number they can actually finish. Two is plenty on a school night.",
+    "save": "Save"
+  },
+  "speaking": {
+    "title": "Speak Up",
+    "tagline": "One small thing to say out loud.",
+    "seenBefore": "You have had this one before",
+    "youCouldMention": "You could mention",
+    "wordsToUse": "Words you might need",
+    "target": "Try to talk for about {seconds} seconds.",
+    "start": "Start recording",
+    "stop": "Stop",
+    "again": "Record again",
+    "showModel": "Show a good answer",
+    "nextCue": "Try another one",
+    "youSpokeFor": "You spoke for {seconds} seconds.",
+    "modelAnswer": "A good answer at your level",
+    "modelNote": "Not the only right answer — just one way to say it.",
+    "micDenied": "We could not reach the microphone. Check the permission and try again.",
+    "emptyTitle": "Nothing new right now",
+    "emptyBody": "You have done everything here for the moment. Come back a little later.",
+    "emptyLink": "Back to everything else"
   }
 }

@@ -89,8 +89,9 @@ export async function reviewAttempt(formData: FormData) {
   if (!user) return;
 
   await supabase.from("attempt_reviews").insert({
-    attempt_id: source === "steelman" ? null : attemptId,
+    attempt_id: source === "reasoning" ? attemptId : null,
     steelman_attempt_id: source === "steelman" ? attemptId : null,
+    listening_attempt_id: source === "listening" ? attemptId : null,
     reviewed_by: user.id,
     outcome: outcome === "needs_contact" ? "needs_contact" : "ok",
     note,
