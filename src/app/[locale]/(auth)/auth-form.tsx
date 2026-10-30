@@ -1,37 +1,34 @@
 "use client";
 
-import { useActionState, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Check, Loader2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Check } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { signIn, signUp, type AuthState } from "@/lib/auth/actions";
 import { GoogleButton } from "./google-button";
 
-const initialState: AuthState = {};
-
+/**
+ * One way in: Google.
+ *
+ * Email and password were removed rather than hidden. Hosted Supabase requires
+ * a confirmation mail before a new account can be used, and its built-in mail
+ * service is rate limited to a couple of messages an hour and is not meant for
+ * production -- so the email path was a door that opened onto a wall. One
+ * working way in beats two where the second strands people.
+ *
+ * CONSENT IS ASKED ON BOTH PAGES, which is the part worth not getting wrong.
+ * `signInWithOAuth` has no sign-in-only mode: a parent who has never been here
+ * before and lands on /signin gets an account created by that same click. Since
+ * `handle_new_user` stamps `profiles.consented_at` on any insert into
+ * auth.users, gating only /signup would record consent that nobody gave, for a
+ * product used by 8-13 year olds. A returning parent ticks one box; that is a
+ * cheap price for the timestamp meaning something.
+ */
 export function AuthForm({ mode }: { mode: "signin" | "signup" }) {
   const t = useTranslations("auth");
   const isSignUp = mode === "signup";
-  const [state, formAction, pending] = useActionState(
-    isSignUp ? signUp : signIn,
-    initialState,
-  );
-  const next = useSearchParams().get("next") ?? "/";
 
-  /**
-   * Consent is lifted out of the form because BOTH ways in have to record it.
-   *
-   * `handle_new_user` stamps `profiles.consented_at` on any auth.users insert,
-   * Google included — so without this gate an OAuth signup would record a
-   * parent's consent that the parent never actually gave. The timestamp is the
-   * consent record for a product used by 8–13 year olds; it has to correspond
-   * to a real affirmative act.
-   */
   const [consented, setConsented] = useState(false);
   const [consentError, setConsentError] = useState(false);
-  const blocked = isSignUp && !consented;
 
   return (
     <div className="w-full max-w-md rounded-[2rem] border-2 border-border bg-card p-7 shadow-float sm:p-9">
@@ -45,115 +42,32 @@ export function AuthForm({ mode }: { mode: "signin" | "signup" }) {
       </header>
 
       {/* Consent is its own panel rather than a stray checkbox in a stack. It
-          gates both routes in, it is the legal record for a child's data, and
-          a tick box squeezed against wrapping grey text reads as fine print —
-          which is the one thing it must not be. */}
-      {isSignUp && (
-        <ConsentGate
-          checked={consented}
-          error={consentError}
-          onChange={(value) => {
-            setConsented(value);
-            if (value) setConsentError(false);
-          }}
-          label={t("consent")}
-          errorLabel={t("errConsent")}
-        />
-      )}
+          is the legal record for a child's data, and a tick box squeezed
+          against wrapping grey text reads as fine print — which is the one
+          thing it must not be. */}
+      <ConsentGate
+        checked={consented}
+        error={consentError}
+        onChange={(value) => {
+          setConsented(value);
+          if (value) setConsentError(false);
+        }}
+        label={t("consent")}
+        errorLabel={t("errConsent")}
+        privacyLabel={t("privacyLink")}
+      />
 
-      <div className={isSignUp ? "mt-4" : "mt-7"}>
-        <GoogleButton blocked={blocked} onBlocked={() => setConsentError(true)} />
+      <div className="mt-5">
+        <GoogleButton blocked={!consented} onBlocked={() => setConsentError(true)} />
       </div>
 
-      <div className="my-6 flex items-center gap-4">
-        <span className="h-0.5 flex-1 rounded-full bg-border" />
-        <span className="font-heading text-xs font-extrabold tracking-[0.14em] text-muted-foreground uppercase">
-          {t("or")}
-        </span>
-        <span className="h-0.5 flex-1 rounded-full bg-border" />
-      </div>
-
-      <form action={formAction} className="flex flex-col gap-4">
-        <input type="hidden" name="next" value={next} />
-        {/* The gate above lives outside this form, so its value is carried in
-            rather than posted directly. The server re-checks it regardless. */}
-        {isSignUp && <input type="hidden" name="consent" value={consented ? "on" : ""} />}
-
-        {isSignUp && <Field label={t("name")} name="fullName" autoComplete="name" />}
-
-        <Field label={t("email")} name="email" type="email" required autoComplete="email" />
-
-        <Field
-          label={t("password")}
-          name="password"
-          type="password"
-          required
-          minLength={isSignUp ? 8 : undefined}
-          autoComplete={isSignUp ? "new-password" : "current-password"}
-          hint={isSignUp ? t("passwordHint") : undefined}
-        />
-
-        {state.error && (
-          <p
-            role="alert"
-            className="rounded-2xl border-2 border-destructive/40 bg-destructive/8 px-4 py-3 text-sm font-bold text-destructive"
-          >
-            {t(state.error)}
-          </p>
-        )}
-        {state.notice && (
-          <p
-            role="status"
-            className="rounded-2xl border-2 border-mint/50 bg-mint/12 px-4 py-3 text-sm font-semibold"
-          >
-            {t(state.notice)}
-          </p>
-        )}
-
-        <Button
-          type="submit"
-          disabled={pending}
-          className="btn-pop mt-1 h-14 rounded-full text-base font-extrabold"
-        >
-          {pending && <Loader2 className="size-4 animate-spin" />}
-          {isSignUp ? t("signUp") : t("signIn")}
-        </Button>
-      </form>
-
-      <p className="mt-6 text-center text-sm font-semibold text-muted-foreground">
-        {isSignUp ? t("haveAccount") : t("noAccount")}{" "}
-        <Link
-          href={isSignUp ? "/signin" : "/signup"}
-          className="font-bold text-primary underline underline-offset-4"
-        >
-          {isSignUp ? t("signInLink") : t("createOne")}
-        </Link>
+      {/* Both pages now do exactly the same thing, so the old "already have an
+          account?" link would send people in a circle. This says the quiet part
+          instead. */}
+      <p className="mt-6 text-center text-sm leading-relaxed font-semibold text-muted-foreground">
+        {t("googleNote")}
       </p>
     </div>
-  );
-}
-
-/**
- * A labelled field with real breathing room.
- *
- * The old version stacked `gap-3` between fields and `gap-1.5` between a label
- * and its input — nearly the same number, so nothing grouped and the form read
- * as one undifferentiated column.
- */
-function Field({
-  label,
-  hint,
-  ...props
-}: { label: string; hint?: string } & React.InputHTMLAttributes<HTMLInputElement>) {
-  return (
-    <label className="flex flex-col gap-2">
-      <span className="font-heading text-sm font-bold">{label}</span>
-      <input
-        {...props}
-        className="h-13 w-full rounded-2xl border-2 border-border bg-background px-4 text-base font-medium outline-none transition-colors placeholder:text-muted-foreground/60 focus-visible:border-primary"
-      />
-      {hint && <span className="text-xs font-semibold text-muted-foreground">{hint}</span>}
-    </label>
   );
 }
 
@@ -164,12 +78,14 @@ function ConsentGate({
   onChange,
   label,
   errorLabel,
+  privacyLabel,
 }: {
   checked: boolean;
   error: boolean;
   onChange: (value: boolean) => void;
   label: string;
   errorLabel: string;
+  privacyLabel: string;
 }) {
   return (
     <div className="mt-6">
@@ -206,6 +122,17 @@ function ConsentGate({
           {errorLabel}
         </p>
       )}
+
+      {/* Outside the label on purpose: inside it, tapping the link would toggle
+          the checkbox instead of opening the policy. */}
+      <p className="mt-2.5 px-1 text-sm">
+        <Link
+          href="/privacy"
+          className="font-semibold text-muted-foreground underline underline-offset-4 hover:text-primary"
+        >
+          {privacyLabel}
+        </Link>
+      </p>
     </div>
   );
 }

@@ -43,10 +43,15 @@ function GoogleMark() {
  * against an allow-list, and a query string is the kind of thing that makes a
  * launch-day match fail silently — so every Google arrival lands on the
  * callback's default, `/children`, which is where a new parent has to go
- * anyway. Email sign-in still honours `next`.
+ * anyway. Nothing honours `next` any more now that this is the only way in;
+ * the proxy still sets it on the redirect to /signin, and it is simply unused.
  */
 export function GoogleButton({
-  /** Signup gates this on the consent checkbox — see `consented_at`. */
+  /**
+   * Both sign-in and sign-up gate this on the consent checkbox. One click here
+   * can create an account, so there is no page on which consent is optional —
+   * see the note in auth-form.tsx and `profiles.consented_at`.
+   */
   blocked = false,
   onBlocked,
 }: {

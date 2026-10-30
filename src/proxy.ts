@@ -18,8 +18,21 @@ const handleIntl = createIntlMiddleware(routing);
  * one-click unsubscribe sends a bare POST with no cookies, and a link that
  * demands a login is how recurring mail gets reported as spam instead. It
  * carries a signed token and can only flip one boolean — see lib/email/tokens.
+ *
+ * /privacy is public twice over: a parent has to be able to read it before
+ * deciding to sign up, and Google will not let the OAuth app out of testing
+ * without a policy URL it can fetch without a session.
  */
-const PUBLIC_PATHS = ["/signin", "/signup", "/auth", "/spot-the-trick", "/yle", "/maths", "/unsubscribe"];
+const PUBLIC_PATHS = [
+  "/signin",
+  "/signup",
+  "/auth",
+  "/privacy",
+  "/spot-the-trick",
+  "/yle",
+  "/maths",
+  "/unsubscribe",
+];
 
 /**
  * Routes that live OUTSIDE the `[locale]` tree.

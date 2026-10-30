@@ -46,6 +46,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // own rather than a teaser for a gated one.
     entry("/maths", "weekly", 0.95),
     ...TOPICS.map((t) => entry(`/maths/${t.slug}`, "monthly", 0.9)),
+    // Low priority but listed: it is a page a parent may well search for by
+    // name, and Google's OAuth review expects to find it.
+    entry("/privacy", "yearly", 0.3),
   ];
 
   // Published lessons are the only public dynamic surface today. Read with the
